@@ -19,16 +19,58 @@
 
 <div class="row">
     @foreach($locales as $locale)
-        <div class="col-md" v-show="shouldShowLangGroup('{{ $locale }}')" v-cloak>
-            <div class="form-group row align-items-center" :class="{'has-danger': errors.has('name_{{ $locale }}'), 'has-success': fields.name_{{ $locale }} && fields.name_{{ $locale }}.valid }">
-                <label for="name_{{ $locale }}" class="col-md-2 col-form-label text-md-right">{{ trans('admin.author.columns.name') }}</label>
-                <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
-                    <input type="text" v-model="form.name.{{ $locale }}" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('name_{{ $locale }}'), 'form-control-success': fields.name_{{ $locale }} && fields.name_{{ $locale }}.valid }" id="name_{{ $locale }}" name="name_{{ $locale }}" placeholder="{{ trans('admin.author.columns.name') }}">
-                    <div v-if="errors.has('name_{{ $locale }}')" class="form-control-feedback form-text" v-cloak>{{'{{'}} errors.first('name_{{ $locale }}') }}</div>
-                </div>
+    <div class="col-md" v-show="shouldShowLangGroup('{{ $locale }}')" v-cloak>
+        <div class="form-group row align-items-center" :class="{'has-danger': errors.has('name_{{ $locale }}'), 'has-success': fields.name_{{ $locale }} && fields.name_{{ $locale }}.valid }">
+            <label for="name_{{ $locale }}" class="col-md-2 col-form-label text-md-right">{{ trans('admin.author.columns.name') }}</label>
+            <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
+                <input type="text" v-model="form.name.{{ $locale }}" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('name_{{ $locale }}'), 'form-control-success': fields.name_{{ $locale }} && fields.name_{{ $locale }}.valid }" id="name_{{ $locale }}" name="name_{{ $locale }}" placeholder="{{ trans('admin.author.columns.name') }}">
+                <div v-if="errors.has('name_{{ $locale }}')" class="form-control-feedback form-text" v-cloak>{{'{{'}} errors.first('name_{{ $locale }}') }}</div>
             </div>
         </div>
+    </div>
     @endforeach
 </div>
 
 
+@isset($author)
+<div class="card">
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Author::class)->getMediaCollection('cover'),
+    'media' => $author->getThumbs200ForCollection('cover'),
+    'label' => 'Cover'
+    ])
+</div>
+<!-- <div class="card">
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Author::class)->getMediaCollection('pdf'),
+    'media' => $author->getThumbs200ForCollection('pdf'),
+    'label' => 'PDF appendix'
+    ])
+</div>
+<div class="card">
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Author::class)->getMediaCollection('gallery'),
+    'media' => $author->getThumbs200ForCollection('gallery'),
+    'label' => 'Gallery'
+    ])
+</div> -->
+@else
+<div class="card">
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Author::class)->getMediaCollection('cover'),
+    'label' => 'Cover'
+    ])
+</div>
+<!-- <div class="card">
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Author::class)->getMediaCollection('pdf'),
+    'label' => 'PDF appendix'
+    ])
+</div>
+<div class="card">
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Author::class)->getMediaCollection('gallery'),
+    'label' => 'Gallery'
+    ])
+</div> -->
+@endisset

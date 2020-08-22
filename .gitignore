@@ -10,5 +10,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.history/
 .history/config/translatable_20200822112118.php
 .history/config/translatable_20200822112126.php
+public/media/
+storage/uploads/

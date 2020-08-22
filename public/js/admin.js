@@ -116328,13 +116328,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('author-form', {
+Vue.component("author-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
       form: {
         name: this.getLocalizedFormDefaults()
-      }
+      },
+      mediaCollections: ["cover", "gallery", "pdf"]
     };
   }
 });
@@ -116522,7 +116523,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('post-form', {
+Vue.component("post-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
@@ -116530,13 +116531,14 @@ Vue.component('post-form', {
         title: this.getLocalizedFormDefaults(),
         location: this.getLocalizedFormDefaults(),
         body: this.getLocalizedFormDefaults(),
-        published_at: '',
+        published_at: "",
         enabled: false,
-        popularity: '',
-        category_id: '',
-        author_id: '',
-        tags_id: ''
-      }
+        popularity: "",
+        category_id: "",
+        author_id: "",
+        tags_id: ""
+      },
+      mediaCollections: ["cover", "gallery", "pdf"]
     };
   }
 });

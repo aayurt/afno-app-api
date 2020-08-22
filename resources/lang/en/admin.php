@@ -295,5 +295,22 @@ return [
         ],
     ],
 
+    'author' => [
+        'title' => 'Authors',
+
+        'actions' => [
+            'index' => 'Authors',
+            'create' => 'New Author',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
