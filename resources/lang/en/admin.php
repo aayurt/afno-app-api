@@ -29,5 +29,84 @@ return [
         ],
     ],
 
+    'category' => [
+        'title' => 'Categories',
+
+        'actions' => [
+            'index' => 'Categories',
+            'create' => 'New Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            
+        ],
+    ],
+
+    'author' => [
+        'title' => 'Authors',
+
+        'actions' => [
+            'index' => 'Authors',
+            'create' => 'New Author',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            
+        ],
+    ],
+
+    'sub-category' => [
+        'title' => 'Sub Categories',
+
+        'actions' => [
+            'index' => 'Sub Categories',
+            'create' => 'New Sub Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'sub_title' => 'Sub title',
+            'description' => 'Description',
+            'category_id' => 'Category',
+            
+        ],
+    ],
+
+    'post' => [
+        'title' => 'Posts',
+
+        'actions' => [
+            'index' => 'Posts',
+            'create' => 'New Post',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+            'will_be_published' => 'Post will be published at',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'location' => 'Location',
+            'body' => 'Body',
+            'published_at' => 'Published at',
+            'enabled' => 'Enabled',
+            'popularity' => 'Popularity',
+            'category_id' => 'Category',
+            'author_id' => 'Author',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
