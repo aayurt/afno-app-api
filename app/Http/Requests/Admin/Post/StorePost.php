@@ -18,20 +18,20 @@ class StorePost extends TranslatableFormRequest
         return Gate::allows('admin.post.create');
     }
 
-/**
+    /**
      * Get the validation rules that apply to the requests untranslatable fields.
      *
      * @return array
      */
-    public function untranslatableRules(): array {
+    public function untranslatableRules(): array
+    {
         return [
             'published_at' => ['nullable', 'date'],
             'enabled' => ['required', 'boolean'],
             'popularity' => ['required', 'integer'],
             'category_id' => ['nullable', 'integer'],
             'author_id' => ['nullable', 'integer'],
-            'tags_id' => ['nullable', 'integer'],
-            
+            'tags' => ['required'],
         ];
     }
 
@@ -40,20 +40,21 @@ class StorePost extends TranslatableFormRequest
      *
      * @return array
      */
-    public function translatableRules($locale): array {
+    public function translatableRules($locale): array
+    {
         return [
             'title' => ['required', 'string'],
             'location' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -61,5 +62,13 @@ class StorePost extends TranslatableFormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+    public function getTags(): array
+    {
+        if ($this->has('tags')) {
+            $tags = $this->get('tags');
+            return array_column($tags, 'id');
+        }
+        return [];
     }
 }

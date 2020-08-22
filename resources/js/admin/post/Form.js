@@ -2,6 +2,7 @@ import AppForm from "../app-components/Form/AppForm";
 
 Vue.component("post-form", {
     mixins: [AppForm],
+    props: ["availableTags"],
     data: function() {
         return {
             form: {
@@ -13,7 +14,8 @@ Vue.component("post-form", {
                 popularity: "",
                 category_id: "",
                 author_id: "",
-                tags_id: ""
+                // tags_id: "",
+                tags: ""
             },
             mediaCollections: ["cover", "gallery", "pdf"]
         };

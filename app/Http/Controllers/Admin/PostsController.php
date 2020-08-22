@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Post\IndexPost;
 use App\Http\Requests\Admin\Post\StorePost;
 use App\Http\Requests\Admin\Post\UpdatePost;
 use App\Models\Post;
+use App\Models\Tag;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -40,10 +41,13 @@ class PostsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id', 'tags_id'],
+            ['id', 'title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id'],
 
             // set columns to searchIn
-            ['id', 'title', 'location', 'body']
+            ['id', 'title', 'location', 'body'],
+            function ($query) use ($request) {
+                $query->with(['tags']);
+            }
         );
 
         if ($request->ajax()) {
@@ -68,7 +72,9 @@ class PostsController extends Controller
     {
         $this->authorize('admin.post.create');
 
-        return view('admin.post.create');
+        return view('admin.post.create', [
+            'tags' => Tag::all(),
+        ]);
     }
 
     /**
@@ -81,9 +87,15 @@ class PostsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['tags'] = $request->getTags();
 
+        DB::transaction(function () use ($sanitized) {
+            // Store the ArticlesWithRelationship
+            $post = Post::create($sanitized);
+            $post->tags()->sync($sanitized['tags']);
+        });
         // Store the Post
-        $post = Post::create($sanitized);
+        // $post = Post::create($sanitized);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/posts'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -117,9 +129,10 @@ class PostsController extends Controller
     {
         $this->authorize('admin.post.edit', $post);
 
-
+        $post->load('tags');
         return view('admin.post.edit', [
             'post' => $post,
+            'tags' => Tag::all(),
         ]);
     }
 
@@ -134,9 +147,15 @@ class PostsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['tags'] = $request->getTags();
 
+        DB::transaction(function () use ($post, $sanitized) {
+            // Update changed values post
+            $post->update($sanitized);
+            $post->tags()->sync($sanitized['tags']);
+        });
         // Update changed values Post
-        $post->update($sanitized);
+        // $post->update($sanitized);
 
         if ($request->ajax()) {
             return [
@@ -175,7 +194,7 @@ class PostsController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyPost $request) : Response
+    public function bulkDestroy(BulkDestroyPost $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

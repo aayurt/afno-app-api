@@ -116525,6 +116525,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component("post-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["availableTags"],
   data: function data() {
     return {
       form: {
@@ -116536,7 +116537,8 @@ Vue.component("post-form", {
         popularity: "",
         category_id: "",
         author_id: "",
-        tags_id: ""
+        // tags_id: "",
+        tags: ""
       },
       mediaCollections: ["cover", "gallery", "pdf"]
     };

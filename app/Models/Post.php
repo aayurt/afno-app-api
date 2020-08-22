@@ -81,4 +81,8 @@ class Post extends Model implements HasMedia
     {
         return url('/admin/posts/' . $this->getKey());
     }
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

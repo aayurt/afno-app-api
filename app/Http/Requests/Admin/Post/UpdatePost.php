@@ -19,12 +19,13 @@ class UpdatePost extends TranslatableFormRequest
         return Gate::allows('admin.post.edit', $this->post);
     }
 
-/**
+    /**
      * Get the validation rules that apply to the requests untranslatable fields.
      *
      * @return array
      */
-    public function untranslatableRules(): array {
+    public function untranslatableRules(): array
+    {
         return [
             'published_at' => ['nullable', 'date'],
             'enabled' => ['sometimes', 'boolean'],
@@ -32,7 +33,7 @@ class UpdatePost extends TranslatableFormRequest
             'category_id' => ['nullable', 'integer'],
             'author_id' => ['nullable', 'integer'],
             'tags_id' => ['nullable', 'integer'],
-            
+            'tags' => ['required'],
 
         ];
     }
@@ -42,12 +43,13 @@ class UpdatePost extends TranslatableFormRequest
      *
      * @return array
      */
-    public function translatableRules($locale): array {
+    public function translatableRules($locale): array
+    {
         return [
             'title' => ['sometimes', 'string'],
             'location' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
-            
+
         ];
     }
 
@@ -71,5 +73,13 @@ class UpdatePost extends TranslatableFormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+    public function getTags(): array
+    {
+        if ($this->has('tags')) {
+            $tags = $this->get('tags');
+            return array_column($tags, 'id');
+        }
+        return [];
     }
 }
