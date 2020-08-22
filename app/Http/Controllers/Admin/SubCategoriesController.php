@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\SubCategory\DestroySubCategory;
 use App\Http\Requests\Admin\SubCategory\IndexSubCategory;
 use App\Http\Requests\Admin\SubCategory\StoreSubCategory;
 use App\Http\Requests\Admin\SubCategory\UpdateSubCategory;
+use App\Models\Category;
 use App\Models\SubCategory;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -43,7 +44,13 @@ class SubCategoriesController extends Controller
             ['id', 'sub_title', 'description', 'category_id'],
 
             // set columns to searchIn
-            ['id', 'sub_title', 'description']
+            ['id', 'sub_title', 'description'],
+            function ($query) use ($request) {
+                $query->with(['category']);
+                if ($request->has('categories')) {
+                    $query->whereIn('category_id', $request->get('categories'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -55,7 +62,10 @@ class SubCategoriesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.sub-category.index', ['data' => $data]);
+        return view('admin.sub-category.index', [
+            'data' => $data,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -68,7 +78,10 @@ class SubCategoriesController extends Controller
     {
         $this->authorize('admin.sub-category.create');
 
-        return view('admin.sub-category.create');
+        return view('admin.sub-category.create', [
+            'categories' => Category::all()
+
+        ]);
     }
 
     /**
@@ -120,6 +133,8 @@ class SubCategoriesController extends Controller
 
         return view('admin.sub-category.edit', [
             'subCategory' => $subCategory,
+            'categories' => Category::all()
+
         ]);
     }
 
@@ -174,7 +189,7 @@ class SubCategoriesController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroySubCategory $request) : Response
+    public function bulkDestroy(BulkDestroySubCategory $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

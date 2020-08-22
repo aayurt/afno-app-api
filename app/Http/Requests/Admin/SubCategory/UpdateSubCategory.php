@@ -18,15 +18,16 @@ class UpdateSubCategory extends TranslatableFormRequest
         return Gate::allows('admin.sub-category.edit', $this->subCategory);
     }
 
-/**
+    /**
      * Get the validation rules that apply to the requests untranslatable fields.
      *
      * @return array
      */
-    public function untranslatableRules(): array {
+    public function untranslatableRules(): array
+    {
         return [
-            'category_id' => ['nullable', 'integer'],
-            
+            'category_id' => ['sometimes', 'integer'],
+
 
         ];
     }
@@ -36,11 +37,12 @@ class UpdateSubCategory extends TranslatableFormRequest
      *
      * @return array
      */
-    public function translatableRules($locale): array {
+    public function translatableRules($locale): array
+    {
         return [
             'sub_title' => ['sometimes', 'string'],
             'description' => ['nullable', 'string'],
-            
+
         ];
     }
 

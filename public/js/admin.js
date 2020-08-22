@@ -116691,14 +116691,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('sub-category-form', {
+Vue.component("sub-category-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["categories"],
   data: function data() {
     return {
       form: {
         sub_title: this.getLocalizedFormDefaults(),
         description: this.getLocalizedFormDefaults(),
-        category_id: ''
+        category_id: ""
       }
     };
   }

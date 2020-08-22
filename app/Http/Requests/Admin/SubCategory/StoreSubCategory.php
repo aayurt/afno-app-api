@@ -25,7 +25,7 @@ class StoreSubCategory extends TranslatableFormRequest
      */
     public function untranslatableRules(): array {
         return [
-            'category_id' => ['nullable', 'integer'],
+            'category_id' => ['required', 'integer'],
             
         ];
     }

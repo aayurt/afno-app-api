@@ -43,7 +43,8 @@ class CategoriesController extends Controller
             ['id', 'title', 'description'],
 
             // set columns to searchIn
-            ['id', 'title', 'description']
+            ['id', 'title', 'description'],
+
         );
 
         if ($request->ajax()) {
@@ -117,7 +118,6 @@ class CategoriesController extends Controller
     {
         $this->authorize('admin.category.edit', $category);
 
-
         return view('admin.category.edit', [
             'category' => $category,
         ]);
@@ -174,7 +174,7 @@ class CategoriesController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyCategory $request) : Response
+    public function bulkDestroy(BulkDestroyCategory $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

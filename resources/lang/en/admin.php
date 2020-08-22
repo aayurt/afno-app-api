@@ -312,5 +312,24 @@ return [
         ],
     ],
 
+    'sub-category' => [
+        'title' => 'Sub Categories',
+
+        'actions' => [
+            'index' => 'Sub Categories',
+            'create' => 'New Sub Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'sub_title' => 'Sub title',
+            'description' => 'Description',
+            'category_id' => 'Category',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

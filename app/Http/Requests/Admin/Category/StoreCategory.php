@@ -18,15 +18,14 @@ class StoreCategory extends TranslatableFormRequest
         return Gate::allows('admin.category.create');
     }
 
-/**
+    /**
      * Get the validation rules that apply to the requests untranslatable fields.
      *
      * @return array
      */
-    public function untranslatableRules(): array {
-        return [
-            
-        ];
+    public function untranslatableRules(): array
+    {
+        return [];
     }
 
     /**
@@ -34,19 +33,20 @@ class StoreCategory extends TranslatableFormRequest
      *
      * @return array
      */
-    public function translatableRules($locale): array {
+    public function translatableRules($locale): array
+    {
         return [
             'title' => ['required', 'string'],
             'description' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -54,5 +54,12 @@ class StoreCategory extends TranslatableFormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+    public function getSubCategoryId()
+    {
+        if ($this->has('subCategory')) {
+            return $this->get('subCategory')['id'];
+        }
+        return null;
     }
 }
