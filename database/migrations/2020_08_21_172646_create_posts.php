@@ -15,12 +15,11 @@ class CreatePosts extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('location')->nullable();
-            $table->text('body')->nullable();
+            $table->jsonb('title');
+            $table->jsonb('location')->nullable();
+            $table->jsonb('body')->nullable();
             $table->date('published_at')->nullable();
             $table->boolean('enabled')->default(false);
-            $table->jsonb('lang')->nullable();
             $table->integer('popularity')->default(0);
             $table->timestamps();
         });
