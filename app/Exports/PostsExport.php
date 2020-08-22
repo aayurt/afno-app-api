@@ -33,6 +33,7 @@ class PostsExport implements FromCollection, WithMapping, WithHeadings
             trans('admin.post.columns.popularity'),
             trans('admin.post.columns.category_id'),
             trans('admin.post.columns.author_id'),
+            trans('admin.post.columns.tags_id'),
         ];
     }
 
@@ -53,6 +54,7 @@ class PostsExport implements FromCollection, WithMapping, WithHeadings
             $post->popularity,
             $post->category_id,
             $post->author_id,
+            $post->tags_id,
         ];
     }
 }

@@ -66,3 +66,31 @@ $factory->define(App\Models\Post::class, static function (Faker\Generator $faker
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Tag::class, static function (Faker\Generator $faker) {
+    return [
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        'title' => ['en' => $faker->sentence],
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Post::class, static function (Faker\Generator $faker) {
+    return [
+        'published_at' => $faker->date(),
+        'enabled' => $faker->boolean(),
+        'popularity' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'category_id' => $faker->randomNumber(5),
+        'author_id' => $faker->randomNumber(5),
+        'tags_id' => $faker->randomNumber(5),
+        
+        'title' => ['en' => $faker->sentence],
+        'location' => ['en' => $faker->sentence],
+        'body' => ['en' => $faker->sentence],
+        
+    ];
+});

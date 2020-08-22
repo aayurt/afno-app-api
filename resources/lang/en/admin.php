@@ -108,5 +108,48 @@ return [
         ],
     ],
 
+    'tag' => [
+        'title' => 'Tags',
+
+        'actions' => [
+            'index' => 'Tags',
+            'create' => 'New Tag',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'post' => [
+        'title' => 'Posts',
+
+        'actions' => [
+            'index' => 'Posts',
+            'create' => 'New Post',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+            'will_be_published' => 'Post will be published at',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'location' => 'Location',
+            'body' => 'Body',
+            'published_at' => 'Published at',
+            'enabled' => 'Enabled',
+            'popularity' => 'Popularity',
+            'category_id' => 'Category',
+            'author_id' => 'Author',
+            'tags_id' => 'Tags',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

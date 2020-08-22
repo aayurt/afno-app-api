@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexPost extends FormRequest
+class IndexTag extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class IndexPost extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.post.index');
+        return Gate::allows('admin.tag.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class IndexPost extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,title,location,body,published_at,enabled,popularity,category_id,author_id,tags_id|nullable',
+            'orderBy' => 'in:id,title|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

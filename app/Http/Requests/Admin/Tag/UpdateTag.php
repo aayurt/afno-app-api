@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\Tag;
 
 use Brackets\Translatable\TranslatableFormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class StorePost extends TranslatableFormRequest
+class UpdateTag extends TranslatableFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class StorePost extends TranslatableFormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.post.create');
+        return Gate::allows('admin.tag.edit', $this->tag);
     }
 
 /**
@@ -25,13 +25,8 @@ class StorePost extends TranslatableFormRequest
      */
     public function untranslatableRules(): array {
         return [
-            'published_at' => ['nullable', 'date'],
-            'enabled' => ['required', 'boolean'],
-            'popularity' => ['required', 'integer'],
-            'category_id' => ['nullable', 'integer'],
-            'author_id' => ['nullable', 'integer'],
-            'tags_id' => ['nullable', 'integer'],
             
+
         ];
     }
 
@@ -42,21 +37,20 @@ class StorePost extends TranslatableFormRequest
      */
     public function translatableRules($locale): array {
         return [
-            'title' => ['required', 'string'],
-            'location' => ['nullable', 'string'],
-            'body' => ['nullable', 'string'],
+            'title' => ['sometimes', 'string'],
             
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
+
 
         //Add your code for manipulation with request data here
 

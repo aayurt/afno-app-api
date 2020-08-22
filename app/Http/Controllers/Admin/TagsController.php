@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Exports\PostsExport;
+use App\Exports\TagsExport;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Post\BulkDestroyPost;
-use App\Http\Requests\Admin\Post\DestroyPost;
-use App\Http\Requests\Admin\Post\IndexPost;
-use App\Http\Requests\Admin\Post\StorePost;
-use App\Http\Requests\Admin\Post\UpdatePost;
-use App\Models\Post;
+use App\Http\Requests\Admin\Tag\BulkDestroyTag;
+use App\Http\Requests\Admin\Tag\DestroyTag;
+use App\Http\Requests\Admin\Tag\IndexTag;
+use App\Http\Requests\Admin\Tag\StoreTag;
+use App\Http\Requests\Admin\Tag\UpdateTag;
+use App\Models\Tag;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -23,27 +23,27 @@ use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
 
-class PostsController extends Controller
+class TagsController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexPost $request
+     * @param IndexTag $request
      * @return array|Factory|View
      */
-    public function index(IndexPost $request)
+    public function index(IndexTag $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Post::class)->processRequestAndGet(
+        $data = AdminListing::create(Tag::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id', 'tags_id'],
+            ['id', 'title'],
 
             // set columns to searchIn
-            ['id', 'title', 'location', 'body']
+            ['id', 'title']
         );
 
         if ($request->ajax()) {
@@ -55,7 +55,7 @@ class PostsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.post.index', ['data' => $data]);
+        return view('admin.tag.index', ['data' => $data]);
     }
 
     /**
@@ -66,42 +66,42 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.post.create');
+        $this->authorize('admin.tag.create');
 
-        return view('admin.post.create');
+        return view('admin.tag.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StorePost $request
+     * @param StoreTag $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StorePost $request)
+    public function store(StoreTag $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Post
-        $post = Post::create($sanitized);
+        // Store the Tag
+        $tag = Tag::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/posts'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/tags'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/posts');
+        return redirect('admin/tags');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Post $post
+     * @param Tag $tag
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Post $post)
+    public function show(Tag $tag)
     {
-        $this->authorize('admin.post.show', $post);
+        $this->authorize('admin.tag.show', $tag);
 
         // TODO your code goes here
     }
@@ -109,57 +109,56 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Post $post
+     * @param Tag $tag
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Post $post)
+    public function edit(Tag $tag)
     {
-        $this->authorize('admin.post.edit', $post);
+        $this->authorize('admin.tag.edit', $tag);
 
 
-        return view('admin.post.edit', [
-            'post' => $post,
+        return view('admin.tag.edit', [
+            'tag' => $tag,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdatePost $request
-     * @param Post $post
+     * @param UpdateTag $request
+     * @param Tag $tag
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdatePost $request, Post $post)
+    public function update(UpdateTag $request, Tag $tag)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Post
-        $post->update($sanitized);
+        // Update changed values Tag
+        $tag->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/posts'),
+                'redirect' => url('admin/tags'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
-                'object' => $post
             ];
         }
 
-        return redirect('admin/posts');
+        return redirect('admin/tags');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyPost $request
-     * @param Post $post
+     * @param DestroyTag $request
+     * @param Tag $tag
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyPost $request, Post $post)
+    public function destroy(DestroyTag $request, Tag $tag)
     {
-        $post->delete();
+        $tag->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -171,17 +170,17 @@ class PostsController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyPost $request
+     * @param BulkDestroyTag $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyPost $request) : Response
+    public function bulkDestroy(BulkDestroyTag $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Post::whereIn('id', $bulkChunk)->delete();
+                    Tag::whereIn('id', $bulkChunk)->delete();
 
                     // TODO your code goes here
                 });
@@ -197,6 +196,6 @@ class PostsController extends Controller
      */
     public function export(): ?BinaryFileResponse
     {
-        return Excel::download(app(PostsExport::class), 'posts.xlsx');
+        return Excel::download(app(TagsExport::class), 'tags.xlsx');
     }
 }

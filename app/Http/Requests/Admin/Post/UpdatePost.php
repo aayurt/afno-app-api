@@ -31,6 +31,7 @@ class UpdatePost extends TranslatableFormRequest
             'popularity' => ['sometimes', 'integer'],
             'category_id' => ['nullable', 'integer'],
             'author_id' => ['nullable', 'integer'],
+            'tags_id' => ['nullable', 'integer'],
             
 
         ];

@@ -13,6 +13,7 @@ Vue.component('post-form', {
                 popularity:  '' ,
                 category_id:  '' ,
                 author_id:  '' ,
+                tags_id:  '' ,
                 
             }
         }

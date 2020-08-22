@@ -5,3 +5,4 @@ import './category';
 import './author';
 import './sub-category';
 import './post';
+import './tag';
