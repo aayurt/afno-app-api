@@ -69,4 +69,8 @@ class Author extends Model implements HasMedia
     {
         return url('/admin/authors/' . $this->getKey());
     }
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

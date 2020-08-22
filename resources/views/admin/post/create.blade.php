@@ -7,7 +7,7 @@
 <div class="container-xl">
 
 
-    <post-form :action="'{{ url('admin/posts') }}'" :locales="{{ json_encode($locales) }}" :send-empty-locales="false" :available-tags="{{ $tags->toJson() }}" v-cloak inline-template>
+    <post-form :action="'{{ url('admin/posts') }}'" :locales="{{ json_encode($locales) }}" :send-empty-locales="false" :available-tags="{{ $tags->toJson() }}" :authors="{{$authors->toJson()}}" :categories="{{$categories->toJson()}}" v-cloak inline-template>
 
         <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
 

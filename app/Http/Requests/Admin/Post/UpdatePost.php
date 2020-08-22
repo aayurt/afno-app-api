@@ -82,4 +82,18 @@ class UpdatePost extends TranslatableFormRequest
         }
         return [];
     }
+    public function getAuthorId()
+    {
+        if ($this->has('author')) {
+            return $this->get('author')['id'];
+        }
+        return null;
+    }
+    public function getCategoryId()
+    {
+        if ($this->has('category')) {
+            return $this->get('category')['id'];
+        }
+        return null;
+    }
 }

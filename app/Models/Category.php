@@ -39,4 +39,8 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class);
     }
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

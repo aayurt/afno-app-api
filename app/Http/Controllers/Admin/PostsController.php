@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\Post\DestroyPost;
 use App\Http\Requests\Admin\Post\IndexPost;
 use App\Http\Requests\Admin\Post\StorePost;
 use App\Http\Requests\Admin\Post\UpdatePost;
+use App\Models\Author;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -46,7 +48,13 @@ class PostsController extends Controller
             // set columns to searchIn
             ['id', 'title', 'location', 'body'],
             function ($query) use ($request) {
-                $query->with(['tags']);
+                $query->with(['tags', 'category', 'author']);
+                if ($request->has('categories')) {
+                    $query->whereIn('category_id', $request->get('categories'));
+                }
+                if ($request->has('authors')) {
+                    $query->whereIn('author_id', $request->get('authors'));
+                }
             }
         );
 
@@ -59,7 +67,11 @@ class PostsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.post.index', ['data' => $data]);
+        return view('admin.post.index', [
+            'data' => $data,
+            'categories' => Category::all(),
+            'authors' => Author::all()
+        ]);
     }
 
     /**
@@ -74,6 +86,8 @@ class PostsController extends Controller
 
         return view('admin.post.create', [
             'tags' => Tag::all(),
+            'categories' => Category::all(),
+            'authors' => Author::all()
         ]);
     }
 
@@ -88,6 +102,8 @@ class PostsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['tags'] = $request->getTags();
+        // $sanitized['category_id'] = $request->getCategoryId();
+        // $sanitized['author_id'] = $request->getAuthorId();
 
         DB::transaction(function () use ($sanitized) {
             // Store the ArticlesWithRelationship
@@ -133,6 +149,8 @@ class PostsController extends Controller
         return view('admin.post.edit', [
             'post' => $post,
             'tags' => Tag::all(),
+            'categories' => Category::all(),
+            'authors' => Author::all()
         ]);
     }
 
@@ -148,6 +166,8 @@ class PostsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['tags'] = $request->getTags();
+        // $sanitized['category_id'] = $request->getCategoryId();
+        // $sanitized['author_id'] = $request->getAuthorId();
 
         DB::transaction(function () use ($post, $sanitized) {
             // Update changed values post

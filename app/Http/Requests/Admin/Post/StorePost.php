@@ -32,6 +32,8 @@ class StorePost extends TranslatableFormRequest
             'category_id' => ['nullable', 'integer'],
             'author_id' => ['nullable', 'integer'],
             'tags' => ['required'],
+            // 'author' => ['required'],
+            // 'category' => ['required'],
         ];
     }
 
@@ -70,5 +72,19 @@ class StorePost extends TranslatableFormRequest
             return array_column($tags, 'id');
         }
         return [];
+    }
+    public function getAuthorId()
+    {
+        if ($this->has('author')) {
+            return $this->get('author')['id'];
+        }
+        return null;
+    }
+    public function getCategoryId()
+    {
+        if ($this->has('category')) {
+            return $this->get('category')['id'];
+        }
+        return null;
     }
 }

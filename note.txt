@@ -1,2 +1,3 @@
 1. The build in public should also be checked which is result of compiling.
-2.
+2. // $sanitized['category_id'] = $request->getCategoryId();
+adding this cause error in update / store controller

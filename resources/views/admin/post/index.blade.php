@@ -113,8 +113,20 @@
                                     </td>
 
                                     <td>@{{ item.popularity }}</td>
-                                    <td>@{{ item.category_id }}</td>
-                                    <td>@{{ item.author_id }}</td>
+                                    <td>
+                                        @foreach($categories as $category)
+
+                                        <div v-if="item.category_id =={{$category->id}}">{{$category->title}}</div>
+
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($authors as $author)
+
+                                        <div v-if="item.author_id =={{$author->id}}">{{$author->name}}</div>
+
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <div v-for="tag in item.tags">
                                             <span class="badge badge-success text-white">@{{ tag.title }}</span>

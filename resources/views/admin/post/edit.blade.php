@@ -6,7 +6,7 @@
 
 <div class="container-xl">
 
-    <post-form :action="'{{ $post->resource_url }}'" :data="{{ $post->toJsonAllLocales() }}" :locales="{{ json_encode($locales) }}" :available-tags="{{ $tags->toJson() }}" :send-empty-locales="false" v-cloak inline-template>
+    <post-form :action="'{{ $post->resource_url }}'" :data="{{ $post->toJsonAllLocales() }}" :locales="{{ json_encode($locales) }}" :available-tags="{{ $tags->toJson() }}" :authors="{{$authors->toJson()}}" :categories="{{$categories->toJson()}}" :send-empty-locales="false" v-cloak inline-template>
 
         <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
 
