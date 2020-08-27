@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
+use App;
 
 class PostsController extends Controller
 {
@@ -133,7 +134,14 @@ class PostsController extends Controller
 
         // TODO your code goes here
     }
+    public function showPost($lang)
+    {
+        App::setLocale($lang);
+        $post = Post::with(['category', 'tags', 'author', 'media'])->get();
+        return response()->json(['response' => "success", 'post_list' => $post]);
 
+        // TODO your code goes here
+    }
     /**
      * Show the form for editing the specified resource.
      *

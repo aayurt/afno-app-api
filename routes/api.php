@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group([
+    /*'middleware' => 'api',*/  // We will add this middleware inside our AuthController.php
+    //'prefix' => 'auth',
+    'namespace' => 'Admin'  //If the all the controllers related to API are inside API folder.
+], function () {
+
+    Route::get('category/{lang}', 'CategoriesController@showCategory');
+    Route::get('post/{lang}', 'PostsController@showPost');
+});
