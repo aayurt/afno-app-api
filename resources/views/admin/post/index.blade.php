@@ -81,7 +81,8 @@
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.title }}</td>
                                     <td>@{{ item.location }}</td>
-                                    <td class="text-center text-nowrap">
+                                    <td>@{{ item.published_at }}</td>
+                                    <!-- <td class="text-center text-nowrap">
                                         <span v-if="item.published_at <= now">
                                             @{{ item.published_at | datetime('DD.MM.YYYY, HH:mm') }}
                                         </span>
@@ -103,7 +104,7 @@
                                                 <button type="submit" class="btn btn-sm btn-danger" title="{{ trans('brackets/admin-ui::admin.operation.unpublish_now') }}"><i class="fa fa-send"></i>&nbsp;&nbsp;{{ trans('brackets/admin-ui::admin.operation.unpublish_now') }}</button>
                                             </form>
                                         </div>
-                                    </td>
+                                    </td> -->
 
                                     <td>
                                         <label class="switch switch-3d switch-success">

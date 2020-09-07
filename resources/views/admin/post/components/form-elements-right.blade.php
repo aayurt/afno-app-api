@@ -18,6 +18,7 @@
 </div>
 
 
+
 @isset($post)
 <div class="card">
     @include('brackets/admin-ui::admin.includes.media-uploader', [

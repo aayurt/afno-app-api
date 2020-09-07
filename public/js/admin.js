@@ -116538,7 +116538,7 @@ Vue.component("post-form", {
         category_id: "",
         author_id: "",
         // tags_id: "",
-        tags: ""
+        tags: []
       },
       mediaCollections: ["cover", "gallery", "pdf"]
     };

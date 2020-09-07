@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Category\StoreCategory;
 use App\Http\Requests\Admin\Category\UpdateCategory;
 use App;
 use App\Models\Category;
+use App\Models\Post;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -112,9 +113,12 @@ class CategoriesController extends Controller
         App::setLocale($lang);
         $category = Category::all();
         return response()->json(['response' => "success", 'category_list' => $category]);
-        // $this->authorize('admin.category.show', $category);
-
-        // TODO your code goes here
+    }
+    public function showCategoryPosts($cid, $lang)
+    {
+        App::setLocale($lang);
+        $posts = Category::with('post')->find($cid);
+        return response()->json(['response' => "success", 'category_post_list' => $posts]);
     }
 
 

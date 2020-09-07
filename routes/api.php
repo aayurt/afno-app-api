@@ -23,7 +23,7 @@ Route::group([
     //'prefix' => 'auth',
     'namespace' => 'Admin'  //If the all the controllers related to API are inside API folder.
 ], function () {
-
     Route::get('category/{lang}', 'CategoriesController@showCategory');
     Route::get('post/{lang}', 'PostsController@showPost');
+    Route::get('postcategories/{cid}/{lang}', 'CategoriesController@showCategoryPosts');
 });
