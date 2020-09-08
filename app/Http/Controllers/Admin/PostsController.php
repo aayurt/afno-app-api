@@ -137,10 +137,8 @@ class PostsController extends Controller
     public function showPost($lang)
     {
         App::setLocale($lang);
-        $post = Post::with(['category', 'tags', 'author', 'media'])->get();
+        $post = Post::with(['category', 'tags', 'author', 'media'])->orderBy('popularity', 'DESC')->take(10)->get();
         return response()->json(['response' => "success", 'post_list' => $post]);
-
-        // TODO your code goes here
     }
     /**
      * Show the form for editing the specified resource.

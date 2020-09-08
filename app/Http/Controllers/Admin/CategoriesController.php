@@ -117,7 +117,20 @@ class CategoriesController extends Controller
     public function showCategoryPosts($cid, $lang)
     {
         App::setLocale($lang);
-        $posts = Category::with('post')->find($cid);
+        $posts = Category::with(['post.tags', 'post.author'])->find($cid);
+        // $post_list = $posts->post;
+        // $post_list_new = [];
+        // foreach ($post_list as $key) {
+        //     $a = [
+        //         "id" => $$key->id,
+        //         "title" => $key->title,
+        //         "location" => $key->location,
+        //         "body" => $key->body,
+        //         "published_at" => $key->published_at,
+        //         "popularity" => $key->popularity
+        //     ];
+        //     array_push($post_list_new, $a);
+        // }
         return response()->json(['response' => "success", 'category_post_list' => $posts]);
     }
 
