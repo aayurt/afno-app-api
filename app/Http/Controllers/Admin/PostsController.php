@@ -26,6 +26,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
 use App;
+use Carbon\Carbon;
 
 class PostsController extends Controller
 {
@@ -140,6 +141,8 @@ class PostsController extends Controller
         $post = Post::with(['category', 'tags', 'author', 'media'])->orderBy('popularity', 'DESC')->take(10)->get();
         return response()->json(['response' => "success", 'post_list' => $post]);
     }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -243,5 +246,38 @@ class PostsController extends Controller
     public function export(): ?BinaryFileResponse
     {
         return Excel::download(app(PostsExport::class), 'posts.xlsx');
+    }
+    public function showCategoryNepalPoliticsWorldPost($lang)
+    {
+        App::setLocale($lang);
+        $mytime = Carbon::now();
+        $posts = Post::with((['category', 'author']))
+            ->where(
+                "category_id",
+                "=",
+                53
+            )->orWhere(
+                "category_id",
+                "=",
+                52
+            )->orWhere(
+                "category_id",
+                "=",
+                56
+            )
+            ->orderBy('popularity', 'DESC')->take(6)
+            ->get();
+
+        // $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+        foreach ($posts as $post) {
+            $published_at = $post->published_at;
+            $published_at_convert = new Carbon($published_at);
+            $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+            // $diff_in_minutes = $mytime->diffInSeconds($published_at_convert);
+            $post->time = $diff_in_minutes;
+        }
+        return response()->json([
+            'response' => "success", 'post_list' => $posts,
+        ]);
     }
 }

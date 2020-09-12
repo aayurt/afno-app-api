@@ -114,6 +114,7 @@ class CategoriesController extends Controller
         $category = Category::all();
         return response()->json(['response' => "success", 'category_list' => $category]);
     }
+
     public function showCategoryPosts($cid, $lang)
     {
         App::setLocale($lang);
