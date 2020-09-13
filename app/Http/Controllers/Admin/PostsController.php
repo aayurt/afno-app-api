@@ -251,7 +251,7 @@ class PostsController extends Controller
     {
         App::setLocale($lang);
         $mytime = Carbon::now();
-        $posts = Post::with((['category', 'author']))
+        $posts = Post::with((['category', 'author', 'media']))
             ->where(
                 "category_id",
                 "=",
