@@ -265,7 +265,7 @@ class PostsController extends Controller
                 "=",
                 56
             )
-            ->orderBy('popularity', 'DESC')->take(6)
+            ->orderBy('published_at', 'DESC')->take(10)
             ->get();
 
         // $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
@@ -273,8 +273,13 @@ class PostsController extends Controller
             $published_at = $post->published_at;
             $published_at_convert = new Carbon($published_at);
             $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
-            // $diff_in_minutes = $mytime->diffInSeconds($published_at_convert);
+            $diff_in_days = $mytime->diffInDays($published_at_convert);
             $post->time = $diff_in_minutes;
+            if ($diff_in_days > 0) {
+                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+            } else {
+                $post->popularitypopularity_compare = -100;
+            }
         }
         return response()->json([
             'response' => "success", 'post_list' => $posts,
