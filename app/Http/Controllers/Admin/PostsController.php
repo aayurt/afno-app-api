@@ -285,4 +285,35 @@ class PostsController extends Controller
             'response' => "success", 'post_list' => $posts,
         ]);
     }
+    public function showPostDifferentCategory($id, $lang)
+    {
+        App::setLocale($lang);
+        $mytime = Carbon::now();
+
+        $posts = Post::with((['category', 'author', 'media']))
+            ->where(
+                "category_id",
+                "=",
+                $id
+            )
+            ->orderBy('published_at', 'DESC')->take(10)
+            ->get();
+
+        // $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+        foreach ($posts as $post) {
+            $published_at = $post->published_at;
+            $published_at_convert = new Carbon($published_at);
+            $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+            $diff_in_days = $mytime->diffInDays($published_at_convert);
+            $post->time = $diff_in_minutes;
+            if ($diff_in_days > 0) {
+                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+            } else {
+                $post->popularitypopularity_compare = -100;
+            }
+        }
+        return response()->json([
+            'response' => "success", 'post_list' => $posts,
+        ]);
+    }
 }
