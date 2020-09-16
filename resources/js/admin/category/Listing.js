@@ -1,5 +1,5 @@
-import AppListing from '../app-components/Listing/AppListing';
+import AppListing from "../app-components/Listing/AppListing";
 
-Vue.component('category-listing', {
+Vue.component("category-listing", {
     mixins: [AppListing]
 });

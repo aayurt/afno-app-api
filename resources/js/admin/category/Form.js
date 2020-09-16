@@ -1,15 +1,13 @@
-import AppForm from '../app-components/Form/AppForm';
+import AppForm from "../app-components/Form/AppForm";
 
-Vue.component('category-form', {
+Vue.component("category-form", {
     mixins: [AppForm],
     data: function() {
         return {
             form: {
-                title:  this.getLocalizedFormDefaults() ,
-                description:  this.getLocalizedFormDefaults() ,
-                
+                title: this.getLocalizedFormDefaults(),
+                description: this.getLocalizedFormDefaults()
             }
-        }
+        };
     }
-
 });

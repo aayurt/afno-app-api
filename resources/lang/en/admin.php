@@ -22,10 +22,10 @@ return [
             'activated' => 'Activated',
             'forbidden' => 'Forbidden',
             'language' => 'Language',
-                
+
             //Belongs to many relations
             'roles' => 'Roles',
-                
+
         ],
     ],
 
@@ -43,7 +43,7 @@ return [
             'id' => 'ID',
             'title' => 'Title',
             'description' => 'Description',
-            
+
         ],
     ],
 
@@ -60,28 +60,28 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
-    'sub-category' => [
-        'title' => 'Sub Categories',
+    // 'sub-category' => [
+    //     'title' => 'Sub Categories',
 
-        'actions' => [
-            'index' => 'Sub Categories',
-            'create' => 'New Sub Category',
-            'edit' => 'Edit :name',
-            'export' => 'Export',
-        ],
+    //     'actions' => [
+    //         'index' => 'Sub Categories',
+    //         'create' => 'New Sub Category',
+    //         'edit' => 'Edit :name',
+    //         'export' => 'Export',
+    //     ],
 
-        'columns' => [
-            'id' => 'ID',
-            'sub_title' => 'Sub title',
-            'description' => 'Description',
-            'category_id' => 'Category',
-            
-        ],
-    ],
+    //     'columns' => [
+    //         'id' => 'ID',
+    //         'sub_title' => 'Sub title',
+    //         'description' => 'Description',
+    //         'category_id' => 'Category',
+
+    //     ],
+    // ],
 
     'post' => [
         'title' => 'Posts',
@@ -104,7 +104,7 @@ return [
             'popularity' => 'Popularity',
             'category_id' => 'Category',
             'author_id' => 'Author',
-            
+
         ],
     ],
 
@@ -121,7 +121,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'title' => 'Title',
-            
+
         ],
     ],
 
@@ -147,7 +147,7 @@ return [
             'category_id' => 'Category',
             'author_id' => 'Author',
             'tags_id' => 'Tags',
-            
+
         ],
     ],
 
@@ -172,10 +172,10 @@ return [
             'activated' => 'Activated',
             'forbidden' => 'Forbidden',
             'language' => 'Language',
-                
+
             //Belongs to many relations
             'roles' => 'Roles',
-                
+
         ],
     ],
 
@@ -194,7 +194,7 @@ return [
             'sub_title' => 'Sub title',
             'description' => 'Description',
             'category_id' => 'Category',
-            
+
         ],
     ],
 
@@ -211,7 +211,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'title' => 'Title',
-            
+
         ],
     ],
 
@@ -230,7 +230,7 @@ return [
             'sub_title' => 'Sub title',
             'description' => 'Description',
             'category_id' => 'Category',
-            
+
         ],
     ],
 
@@ -247,7 +247,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -265,7 +265,7 @@ return [
             'id' => 'ID',
             'title' => 'Title',
             'description' => 'Description',
-            
+
         ],
     ],
 
@@ -291,7 +291,7 @@ return [
             'category_id' => 'Category',
             'author_id' => 'Author',
             'tags_id' => 'Tags',
-            
+
         ],
     ],
 
@@ -308,7 +308,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
-            
+
         ],
     ],
 
@@ -327,7 +327,7 @@ return [
             'sub_title' => 'Sub title',
             'description' => 'Description',
             'category_id' => 'Category',
-            
+
         ],
     ],
 
