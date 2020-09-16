@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
+use Carbon\Carbon;
 
 class CategoriesController extends Controller
 {
@@ -118,7 +119,21 @@ class CategoriesController extends Controller
     public function showCategoryPosts($cid, $lang)
     {
         App::setLocale($lang);
-        $posts = Category::with(['post.tags', 'post.author'])->find($cid);
+        $mytime = Carbon::now();
+        $category = Category::with(['post.tags', 'post.author', 'post.media'])->find($cid);
+        $posts = $category->post;
+        foreach ($posts as $post) {
+            $published_at = $post->published_at;
+            $published_at_convert = new Carbon($published_at);
+            $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+            $diff_in_days = $mytime->diffInDays($published_at_convert);
+            $post->time = $diff_in_minutes;
+            if ($diff_in_days > 0) {
+                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+            } else {
+                $post->popularitypopularity_compare = -100;
+            }
+        }
         // $post_list = $posts->post;
         // $post_list_new = [];
         // foreach ($post_list as $key) {
@@ -132,7 +147,7 @@ class CategoriesController extends Controller
         //     ];
         //     array_push($post_list_new, $a);
         // }
-        return response()->json(['response' => "success", 'category_post_list' => $posts]);
+        return response()->json(['response' => "success", 'category_post_list' => $category]);
     }
 
 
