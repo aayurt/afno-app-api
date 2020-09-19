@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-12 col-xl-5 col-xxl-4">
+                <div class="col-md-12 col-lg-12 col-xl-3 col-xxl-4">
                     @include('admin.post.components.form-elements-right', ['showHistory' => true])
                 </div>
             </div>
