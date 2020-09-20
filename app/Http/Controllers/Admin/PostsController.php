@@ -259,6 +259,11 @@ class PostsController extends Controller
         $mytime = Carbon::now();
         $posts = Post::with((['category', 'author', 'media']))
             ->where(
+                "enabled",
+                "=",
+                1
+            )
+            ->where(
                 "category_id",
                 "=",
                 53
@@ -302,6 +307,42 @@ class PostsController extends Controller
                 "category_id",
                 "=",
                 $id
+            )->where(
+                "enabled",
+                "=",
+                1
+            )
+            ->orderBy('published_at', 'DESC')->take($limit)
+            ->get();
+
+        // $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+        foreach ($posts as $post) {
+            $published_at = $post->published_at;
+            $published_at_convert = new Carbon($published_at);
+            $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
+            $diff_in_days = $mytime->diffInDays($published_at_convert);
+            $post->time = $diff_in_minutes;
+            if ($diff_in_days > 0) {
+                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+            } else {
+                $post->popularitypopularity_compare = -100;
+            }
+        }
+        return response()->json([
+            'response' => "success", 'post_list' => $posts,
+        ]);
+    }
+    // Latest
+    public function latestPost($lang, Request $request)
+    {
+        App::setLocale($lang);
+        $limit = $request->input('limit') ? $request->input('limit') : 10;
+        $mytime = Carbon::now();
+        $posts = Post::with((['category', 'author', 'media']))
+            ->where(
+                "enabled",
+                "=",
+                1
             )
             ->orderBy('published_at', 'DESC')->take($limit)
             ->get();

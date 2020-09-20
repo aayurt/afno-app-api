@@ -29,4 +29,5 @@ Route::group([
     Route::get('postcategories/{cid}/{lang}', 'CategoriesController@showCategoryPosts');
     Route::get('getHome/{lang}', 'PostsController@showCategoryNepalPoliticsWorldPost');
     Route::get('getCategory/{id}/{lang}', 'PostsController@showPostDifferentCategory');
+    Route::get('postLatest/{lang}', 'PostsController@latestPost');
 });
