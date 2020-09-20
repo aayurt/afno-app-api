@@ -20,6 +20,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -290,9 +291,10 @@ class PostsController extends Controller
             'response' => "success", 'post_list' => $posts,
         ]);
     }
-    public function showPostDifferentCategory($id, $lang)
+    public function showPostDifferentCategory($id, $lang, Request $request)
     {
         App::setLocale($lang);
+        $limit = $request->input('limit') ? $request->input('limit') : 10;
         $mytime = Carbon::now();
 
         $posts = Post::with((['category', 'author', 'media']))
@@ -301,7 +303,7 @@ class PostsController extends Controller
                 "=",
                 $id
             )
-            ->orderBy('published_at', 'DESC')->take(10)
+            ->orderBy('published_at', 'DESC')->take($limit)
             ->get();
 
         // $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
