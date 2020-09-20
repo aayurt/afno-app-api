@@ -141,7 +141,12 @@ class PostsController extends Controller
         $post = Post::with(['category', 'tags', 'author', 'media'])->orderBy('popularity', 'DESC')->take(10)->get();
         return response()->json(['response' => "success", 'post_list' => $post]);
     }
-
+    public function showSinglePost($id, $lang)
+    {
+        App::setLocale($lang);
+        $post = Post::with(['category', 'tags', 'author', 'media'])->findOrFail($id);
+        return response()->json(['response' => "success", 'post' => $post]);
+    }
 
     /**
      * Show the form for editing the specified resource.

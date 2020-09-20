@@ -25,6 +25,7 @@ Route::group([
 ], function () {
     Route::get('category/{lang}', 'CategoriesController@showCategory');
     Route::get('post/{lang}', 'PostsController@showPost');
+    Route::get('post/{id}/{lang}', 'PostsController@showSinglePost');
     Route::get('postcategories/{cid}/{lang}', 'CategoriesController@showCategoryPosts');
     Route::get('getHome/{lang}', 'PostsController@showCategoryNepalPoliticsWorldPost');
     Route::get('getCategory/{id}/{lang}', 'PostsController@showPostDifferentCategory');
