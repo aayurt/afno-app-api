@@ -125,8 +125,8 @@ class CategoriesController extends Controller
         foreach ($posts as $post) {
             $published_at = $post->published_at;
             $published_at_convert = new Carbon($published_at);
-            $diff_in_minutes = $mytime->diffForHumans($published_at_convert);
-            $diff_in_days = $mytime->diffInDays($published_at_convert);
+            $diff_in_minutes = $published_at_convert->diffForHumans($mytime);
+            $diff_in_days = $published_at_convert->diffInDays($mytime);
             $post->time = $diff_in_minutes;
             if ($diff_in_days > 0) {
                 $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
