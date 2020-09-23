@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+!/vendor/brackets/admin-listing/*
 .env
 .env.backup
 .phpunit.result.cache

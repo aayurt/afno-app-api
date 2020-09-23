@@ -41,7 +41,7 @@ class PostsController extends Controller
     public function index(IndexPost $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Post::class)->processRequestAndGet(
+        $data = AdminListing::create(Post::class)->processRequestAndGetAAA(
             // pass the request with params
             $request,
 
@@ -58,7 +58,9 @@ class PostsController extends Controller
                 if ($request->has('authors')) {
                     $query->whereIn('author_id', $request->get('authors'));
                 }
-            }
+            },
+            null,
+            ['orderBy' => 'title', 'orderDirection' => 'desc']
         );
 
         if ($request->ajax()) {

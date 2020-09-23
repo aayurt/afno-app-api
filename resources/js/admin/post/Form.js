@@ -4,14 +4,16 @@ Vue.component("post-form", {
     mixins: [AppForm],
     props: ["availableTags", "authors", "categories"],
     data: function() {
+        var moment = require("moment");
+        var now = moment().format("YYYY-MM-DD HH:MM:SS");
         return {
             form: {
                 title: this.getLocalizedFormDefaults(),
                 location: this.getLocalizedFormDefaults(),
                 body: this.getLocalizedFormDefaults(),
-                published_at: "",
+                published_at: now,
                 enabled: false,
-                popularity: "",
+                popularity: 0,
                 category_id: "",
                 author_id: "",
                 // tags_id: "",
