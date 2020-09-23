@@ -60,7 +60,7 @@ class PostsController extends Controller
                 }
             },
             null,
-            ['orderBy' => 'title', 'orderDirection' => 'desc']
+            ['orderBy' => 'id', 'orderDirection' => 'desc']
         );
 
         if ($request->ajax()) {
@@ -288,6 +288,12 @@ class PostsController extends Controller
             $diff_in_minutes = $published_at_convert->diffForHumans($mytime);
             $diff_in_days = $mytime->diffInDays($published_at_convert);
             $post->time = $diff_in_minutes;
+            unset($post['body']);
+            unset($post['enabled']);
+            unset($post['created_at']);
+            unset($post['updated_at']);
+            unset($post['resource_url']);
+            unset($post['category']);
             if ($diff_in_days > 0) {
                 $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
             } else {
@@ -319,11 +325,18 @@ class PostsController extends Controller
 
         // $diff_in_minutes = $published_at_convert->diffForHumans($mytime);
         foreach ($posts as $post) {
+
             $published_at = $post->published_at;
             $published_at_convert = new Carbon($published_at);
             $diff_in_minutes = $published_at_convert->diffForHumans($mytime);
             $diff_in_days = $published_at_convert->diffInDays($mytime);
             $post->time = $diff_in_minutes;
+            unset($post['body']);
+            unset($post['enabled']);
+            unset($post['created_at']);
+            unset($post['updated_at']);
+            unset($post['resource_url']);
+            unset($post['category']);
             if ($diff_in_days > 0) {
                 $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
             } else {
