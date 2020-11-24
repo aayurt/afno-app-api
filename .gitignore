@@ -15,5 +15,6 @@ yarn-error.log
 .history/config/translatable_20200822112118.php
 .history/config/translatable_20200822112126.php
 public/media/
+public/uploads/
 storage/uploads/
 /bandhavBackend.zip
