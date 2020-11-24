@@ -130,7 +130,7 @@ return [
     ],
 
     'footer' => [
-        'powered_by' => 'Powered by', // we leave this in english intentionally
+        'powered_by' => '', // we leave this in english intentionally
     ]
 
 ];
