@@ -171,3 +171,14 @@ $factory->define(App\Models\Post::class, static function (Faker\Generator $faker
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Ad::class, static function (Faker\Generator $faker) {
+    return [
+        'page' => $faker->sentence,
+        'direction' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

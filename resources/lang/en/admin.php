@@ -331,5 +331,22 @@ return [
         ],
     ],
 
+    'ad' => [
+        'title' => 'Ads',
+
+        'actions' => [
+            'index' => 'Ads',
+            'create' => 'New Ad',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'page' => 'Page',
+            'direction' => 'Direction',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

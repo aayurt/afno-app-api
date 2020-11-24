@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostTagsRelationTable extends Migration
+// CreatePostTagsRelationTable was name before
+class CreatePostTag extends Migration
 {
     /**
      * Run the migrations.

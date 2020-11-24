@@ -6,3 +6,4 @@ import './author';
 import './sub-category';
 import './post';
 import './tag';
+import './ad';
