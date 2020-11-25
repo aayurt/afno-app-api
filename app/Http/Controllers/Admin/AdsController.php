@@ -185,20 +185,28 @@ class AdsController extends Controller
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
     }
-      public function latestPost(Request $request)
+      public function ads($page,$direction)
     {
-        // $posts = Ad::with((['category', 'author', 'media']))
-        //     ->where(
-        //         "enabled",
-        //         "=",
-        //         1
-        //     )
-        //     ->orderBy('published_at', 'DESC')->take($limit)
-        //     ->get();
-
-      
+        try{
+            $single_ad = Ad::with(['media'])
+            ->where(
+                "page",
+               $page
+            )
+            ->where(
+                "direction",
+               $direction
+            )
+            ->get();
+        $image = "media/".$single_ad[0]->media[0]->id."/".$single_ad[0]->media[0]->file_name;
         return response()->json([
-            'response' => "success", 'post_list' => $posts,
+            'response' => "success", 'ad_image' => $image,
         ]);
+        }catch(Exception $e){
+            return response()->json([
+            'response' => "success", 'ad_image' => "",
+        ]);
+        }
+        
     }
 }
