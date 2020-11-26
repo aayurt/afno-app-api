@@ -187,8 +187,7 @@ class AdsController extends Controller
     }
       public function ads($page,$direction)
     {
-        try{
-            $single_ad = Ad::with(['media'])
+            $ad_contents = Ad::with(['media'])
             ->where(
                 "page",
                $page
@@ -198,15 +197,18 @@ class AdsController extends Controller
                $direction
             )
             ->get();
-        $image = "media/".$single_ad[0]->media[0]->id."/".$single_ad[0]->media[0]->file_name;
-        return response()->json([
-            'response' => "success", 'ad_image' => $image,
-        ]);
-        }catch(Exception $e){
-            return response()->json([
-            'response' => "success", 'ad_image' => "",
-        ]);
+     
+         $images = [];
+        
+        foreach ($ad_contents as $ad_image) {
+               array_push($images,["img"=>"media/".$ad_image->media[0]->id."/".$ad_image->media[0]->file_name]);
         }
+        
+    
+        return response()->json([
+            'response' => "success", 'ad_image' => $images,
+        ]);
+       
         
     }
 }
