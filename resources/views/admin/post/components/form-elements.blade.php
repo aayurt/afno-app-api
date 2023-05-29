@@ -31,6 +31,7 @@
     @endforeach
 </div>
 
+
 <div class="row">
     @foreach($locales as $locale)
     <div class="col-md" v-show="shouldShowLangGroup('{{ $locale }}')" v-cloak>

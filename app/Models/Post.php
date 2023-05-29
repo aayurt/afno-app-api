@@ -24,6 +24,7 @@ class Post extends Model implements HasMedia
     use AutoProcessMediaTrait;
     protected $fillable = [
         'title',
+        'sub_title',
         'location',
         'body',
         'published_at',
@@ -47,6 +48,8 @@ class Post extends Model implements HasMedia
         'title',
         'location',
         'body',
+        'sub_title',
+
 
     ];
 

@@ -25,7 +25,7 @@ class IndexPost extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,title,location,body,published_at,enabled,popularity,category_id,author_id,tags_id|nullable',
+            'orderBy' => 'in:id,title,sub_title,location,body,published_at,enabled,popularity,category_id,author_id,tags_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

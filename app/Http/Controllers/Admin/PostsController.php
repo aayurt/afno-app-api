@@ -46,10 +46,10 @@ class PostsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id'],
+            ['id', 'title','sub_title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id'],
 
             // set columns to searchIn
-            ['id', 'title', 'location', 'body'],
+            ['id', 'title', 'location', 'body','sub_title'],
             function ($query) use ($request) {
                 $query->with(['tags', 'category', 'author']);
                 if ($request->has('categories')) {

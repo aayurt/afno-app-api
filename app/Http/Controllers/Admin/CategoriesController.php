@@ -35,6 +35,7 @@ class CategoriesController extends Controller
      * @param IndexCategory $request
      * @return array|Factory|View
      */
+
     public function index(IndexCategory $request)
     {
         // create and AdminListing instance for a specific model and

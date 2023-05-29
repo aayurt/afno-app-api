@@ -182,3 +182,116 @@ $factory->define(App\Models\Ad::class, static function (Faker\Generator $faker) 
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Post::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Tag::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Author::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Post::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'location' => $faker->text(),
+        'body' => $faker->text(),
+        'published_at' => $faker->date(),
+        'enabled' => $faker->boolean(),
+        'popularity' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'category_id' => $faker->randomNumber(5),
+        'author_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Tag::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Category::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'description' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Author::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SubCategory::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SubCategory::class, static function (Faker\Generator $faker) {
+    return [
+        'sub_title' => $faker->text(),
+        'description' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'category_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Category::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Post::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'location' => $faker->text(),
+        'sub_title' => $faker->text(),
+        'body' => $faker->text(),
+        'published_at' => $faker->date(),
+        'enabled' => $faker->boolean(),
+        'popularity' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'category_id' => $faker->randomNumber(5),
+        'author_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});

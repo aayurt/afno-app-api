@@ -49,7 +49,7 @@ class UpdatePost extends TranslatableFormRequest
             'title' => ['sometimes', 'string'],
             'location' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
-
+            'sub_title' => ['nullable', 'string'],
         ];
     }
 

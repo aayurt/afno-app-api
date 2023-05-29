@@ -46,6 +46,7 @@ class StorePost extends TranslatableFormRequest
     {
         return [
             'title' => ['required', 'string'],
+            'sub_title' => ['nullable', 'string'],
             'location' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
 

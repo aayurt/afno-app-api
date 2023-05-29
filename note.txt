@@ -1,3 +1,13 @@
 1. The build in public should also be checked which is result of compiling.
 2. // $sanitized['category_id'] = $request->getCategoryId();
 adding this cause error in update / store controller
+
+
+1. delete create_media_table 
+2. delete fill_default_admin_user_and_permissions
+ php artisan admin:generate posts
+ php artisan admin:generate tags
+ php artisan admin:generate categories
+ php artisan admin:generate authors
+
+PASSWORD: IBUb4ETRBZ

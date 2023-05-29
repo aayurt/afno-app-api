@@ -4,7 +4,7 @@
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.content') }}</li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/categories') }}"><i class="nav-icon icon-flag"></i> {{ trans('admin.category.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/authors') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.author.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/sub-categories') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.sub-category.title') }}</a></li>
+           <!-- <li class="nav-item"><a class="nav-link" href="{{ url('admin/sub-categories') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.sub-category.title') }}</a></li> -->
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/posts') }}"><i class="nav-icon icon-flag"></i> {{ trans('admin.post.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/tags') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.tag.title') }}</a></li>
            <!-- <li class="nav-item"><a class="nav-link" href="{{ url('admin/ads') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.ad.title') }}</a></li> -->

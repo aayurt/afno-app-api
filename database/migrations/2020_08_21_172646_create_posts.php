@@ -17,6 +17,7 @@ class CreatePosts extends Migration
             $table->increments('id');
             $table->jsonb('title');
             $table->jsonb('location')->nullable();
+            $table->jsonb('sub_title')->nullable();
             $table->jsonb('body')->nullable();
             $table->date('published_at')->nullable();
             $table->boolean('enabled')->default(false);

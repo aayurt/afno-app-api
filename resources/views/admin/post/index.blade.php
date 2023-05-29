@@ -49,6 +49,7 @@
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.post.columns.id') }}</th>
                                     <th is='sortable' :column="'title'">{{ trans('admin.post.columns.title') }}</th>
+                                    <th is='sortable' :column="'title'">{{ trans('admin.post.columns.sub_title') }}</th>
                                     <th is='sortable' :column="'location'">{{ trans('admin.post.columns.location') }}</th>
                                     <th is='sortable' class="text-center" :column="'published_at'">{{ trans('admin.post.columns.published_at') }}</th>
                                     <th is='sortable' :column="'enabled'">{{ trans('admin.post.columns.enabled') }}</th>
@@ -80,6 +81,7 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.title }}</td>
+                                    <td>@{{ item.sub_title }}</td>
                                     <td>@{{ item.location }}</td>
                                     <td>@{{ item.published_at }}</td>
                                     <!-- <td class="text-center text-nowrap">

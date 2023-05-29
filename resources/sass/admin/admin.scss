@@ -6,3 +6,17 @@
 
 // Your own, project specific styles
 @import "styles/index";
+.app-header.navbar {
+    background-image: linear-gradient(
+        to right,
+        #051937,
+        #252b67,
+        #5c3592,
+        #9f34b2,
+        #eb12c5
+    );
+}
+
+.sidebar {
+    background-color: #051937;
+}
