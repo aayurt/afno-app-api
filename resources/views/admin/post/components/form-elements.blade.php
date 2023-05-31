@@ -49,6 +49,22 @@
 <div class="row">
     @foreach($locales as $locale)
     <div class="col-md" v-show="shouldShowLangGroup('{{ $locale }}')" v-cloak>
+        <div class="form-group row align-items-center" :class="{'has-danger': errors.has('sub_title_{{ $locale }}'), 'has-success': fields.sub_title_{{ $locale }} && fields.sub_title_{{ $locale }}.valid }">
+            <label for="sub_title_{{ $locale }}" class="col-md-2 col-form-label text-md-right">{{ trans('admin.post.columns.sub_title') }}</label>
+            <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
+                <div>
+                    <wysiwyg v-model="form.sub_title.{{ $locale }}" v-validate="''" id="sub_title_{{ $locale }}" name="sub_title_{{ $locale }}" :config="mediaWysiwygConfig"></wysiwyg>
+                </div>
+                <div v-if="errors.has('sub_title_{{ $locale }}')" class="form-control-feedback form-text" v-cloak>{{'{{'}} errors.first('sub_title_{{ $locale }}') }}</div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
+<div class="row">
+    @foreach($locales as $locale)
+    <div class="col-md" v-show="shouldShowLangGroup('{{ $locale }}')" v-cloak>
         <div class="form-group row align-items-center" :class="{'has-danger': errors.has('body_{{ $locale }}'), 'has-success': fields.body_{{ $locale }} && fields.body_{{ $locale }}.valid }">
             <label for="body_{{ $locale }}" class="col-md-2 col-form-label text-md-right">{{ trans('admin.post.columns.body') }}</label>
             <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
