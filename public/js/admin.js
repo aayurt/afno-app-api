@@ -116876,6 +116876,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 /***/ }),
 
 /***/ "./resources/js/admin/index.js":
@@ -116896,6 +116898,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./post */ "./resources/js/admin/post/index.js");
 /* harmony import */ var _tag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tag */ "./resources/js/admin/tag/index.js");
 /* harmony import */ var _ad__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ad */ "./resources/js/admin/ad/index.js");
+/* harmony import */ var _role__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./role */ "./resources/js/admin/role/index.js");
+
 
 
 
@@ -117078,6 +117082,64 @@ Vue.component('profile-edit-profile-form', {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/profile-edit-profile/Form.js");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/role/Form.js":
+/*!*****************************************!*\
+  !*** ./resources/js/admin/role/Form.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('role-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        name: '',
+        guard_name: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/role/Listing.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/role/Listing.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('role-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/role/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/role/index.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/role/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/role/Form.js");
+
 
 
 /***/ }),

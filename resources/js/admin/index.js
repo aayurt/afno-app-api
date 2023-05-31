@@ -7,3 +7,4 @@ import './sub-category';
 import './post';
 import './tag';
 import './ad';
+import './role';
