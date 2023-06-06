@@ -19,12 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group([
-    /*'middleware' => 'api',*/  // We will add this middleware inside our AuthController.php
+    /*'middleware' => 'api',*/    // We will add this middleware inside our AuthController.php
     //'prefix' => 'auth',
-    'namespace' => 'Admin'  //If the all the controllers related to API are inside API folder.
+    'namespace' => 'Admin' //If the all the controllers related to API are inside API folder.
 ], function () {
     Route::get('category/{lang}', 'CategoriesController@showCategory');
     Route::get('post/{lang}', 'PostsController@showPost');
+    Route::post('post', 'PostsController@showPostPost');
+
     Route::get('post/{id}/{lang}', 'PostsController@showSinglePost');
     Route::get('postcategories/{cid}/{lang}', 'CategoriesController@showCategoryPosts');
     Route::get('getHome/{lang}', 'PostsController@showCategoryNepalPoliticsWorldPost');

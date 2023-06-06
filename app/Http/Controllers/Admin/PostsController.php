@@ -46,10 +46,10 @@ class PostsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title','sub_title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id'],
+            ['id', 'title', 'sub_title', 'location', 'body', 'published_at', 'enabled', 'popularity', 'category_id', 'author_id'],
 
             // set columns to searchIn
-            ['id', 'title', 'location', 'body','sub_title'],
+            ['id', 'title', 'location', 'body', 'sub_title'],
             function ($query) use ($request) {
                 $query->with(['tags', 'category', 'author']);
                 if ($request->has('categories')) {
@@ -141,13 +141,52 @@ class PostsController extends Controller
     public function showPost($lang)
     {
         App::setLocale($lang);
-        $post = Post::with(['category', 'tags', 'author', 'media'])->orderBy('popularity', 'DESC')->take(10)->get();
+        $post = Post::with(['category', 'tags', 'author', 'media'])->orderBy('popularity', 'DESC')->select(
+            "id",
+            "title",
+            "location",
+            "sub_title",
+            "published_at",
+            "enabled",
+            "popularity",
+            "created_at",
+            "updated_at",
+            "category_id",
+            "author_id",
+
+        )->take(10)->get();
+        return response()->json(['response' => "success", 'post_list' => $post]);
+    }
+    public function showPostPost(Request $request)
+    {
+        $targetDate = $request->input('updated_at');
+        $lang = $request->input('lang');
+        App::setLocale($lang);
+        $post = Post::with(['category', 'tags', 'author', 'media'])->orderBy('popularity', 'DESC')->select(
+            "id",
+            "title",
+            "location",
+            "sub_title",
+            "published_at",
+            "enabled",
+            "popularity",
+            "created_at",
+            "updated_at",
+            "category_id",
+            "author_id",
+
+        )
+            ->where('updated_at', '>=', $targetDate)
+            ->take(10)->get();
         return response()->json(['response' => "success", 'post_list' => $post]);
     }
     public function showSinglePost($id, $lang)
     {
         App::setLocale($lang);
-        $post = Post::with(['category', 'tags', 'author', 'media'])->findOrFail($id);
+        $post = Post::with(['category', 'tags', 'author', 'media'])->select(
+            "id",
+            "body",
+        )->findOrFail($id);
         return response()->json(['response' => "success", 'post' => $post]);
     }
 
@@ -295,13 +334,14 @@ class PostsController extends Controller
             unset($post['resource_url']);
             unset($post['category']);
             if ($diff_in_days > 0) {
-                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+                $post->popularitypopularity_compare = $post->popularity - $diff_in_days;
             } else {
                 $post->popularitypopularity_compare = -100;
             }
         }
         return response()->json([
-            'response' => "success", 'post_list' => $posts,
+            'response' => "success",
+            'post_list' => $posts,
         ]);
     }
     public function showPostDifferentCategory($id, $lang, Request $request)
@@ -338,13 +378,14 @@ class PostsController extends Controller
             unset($post['resource_url']);
             unset($post['category']);
             if ($diff_in_days > 0) {
-                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+                $post->popularitypopularity_compare = $post->popularity - $diff_in_days;
             } else {
                 $post->popularitypopularity_compare = -100;
             }
         }
         return response()->json([
-            'response' => "success", 'post_list' => $posts,
+            'response' => "success",
+            'post_list' => $posts,
         ]);
     }
     // Latest
@@ -370,13 +411,14 @@ class PostsController extends Controller
             $diff_in_days = $mytime->diffInDays($published_at_convert);
             $post->time = $diff_in_minutes;
             if ($diff_in_days > 0) {
-                $post->popularitypopularity_compare =  $post->popularity - $diff_in_days;
+                $post->popularitypopularity_compare = $post->popularity - $diff_in_days;
             } else {
                 $post->popularitypopularity_compare = -100;
             }
         }
         return response()->json([
-            'response' => "success", 'post_list' => $posts,
+            'response' => "success",
+            'post_list' => $posts,
         ]);
     }
 }
