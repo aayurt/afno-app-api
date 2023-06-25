@@ -16,4 +16,21 @@ PASSWORD: tQSVTfgVhc
 FOR GENERATION ADMIN
 ======
 1. generate admin topics with relations
-2. 
+    - generate migration
+    - generate admin...
+    - generate the permissions...
+2. in the views
+    - admin 
+        - arrange the forms components blade.php
+        - set the form
+        - adding the translations
+            - adding the translations in the diff places like models, resources/js/admin/[affiliatedGroup], request/admin/[Member/StoreMember]
+
+        - for adding the realtions like dropdowns
+            -  set the relationship in the ...
+                - in the model, add the relation eg. affiliatedCategories added in the affiliatedGroup
+                - in the controller, [for sending the related data to UI] affiliatedCategories added in the controller affiliatedGroup in index, create, edit
+                - 
+            -  in the js admin add the props
+            -  in view blade. you can use the prop value with the help of :value type which can then be used.
+        - for the view with transalctions add locales

@@ -12,6 +12,8 @@
             :action="'{{ url('admin/affiliated-groups') }}'"
             :locales="{{ json_encode($locales) }}"
             :send-empty-locales="false"
+            :affiliatedCategories="{{$affiliatedCategories->toJson()}}" 
+
             v-cloak
             inline-template>
 

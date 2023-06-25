@@ -41,8 +41,6 @@ class StoreAffiliatedGroup extends TranslatableFormRequest
             'title' => ['required', 'string'],
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
-
-
         ];
     }
     // public function rules(): array

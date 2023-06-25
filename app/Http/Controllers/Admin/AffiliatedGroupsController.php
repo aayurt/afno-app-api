@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\AffiliatedGroup\DestroyAffiliatedGroup;
 use App\Http\Requests\Admin\AffiliatedGroup\IndexAffiliatedGroup;
 use App\Http\Requests\Admin\AffiliatedGroup\StoreAffiliatedGroup;
 use App\Http\Requests\Admin\AffiliatedGroup\UpdateAffiliatedGroup;
+use App\Models\AffiliatedCategory;
 use App\Models\AffiliatedGroup;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -37,10 +38,19 @@ class AffiliatedGroupsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'enabled', 'affiliated_group_category_id'],
+            ['id', 'title', 'enabled', 'affiliated_group_category_id'],
 
             // set columns to searchIn
-            ['id', 'title', 'short_description', 'description']
+            ['id', 'title', 'short_description', 'description'],
+            function ($query) use ($request) {
+                $query->with(['affiliatedCategories']);
+
+                if ($request->has('affiliatedCategories')) {
+                    $query->whereIn('affiliated_group_category_id', $request->get('affiliatedCategories'));
+                }
+            },
+            null,
+            ['orderBy' => 'id', 'orderDirection' => 'desc']
         );
 
         if ($request->ajax()) {
@@ -52,7 +62,7 @@ class AffiliatedGroupsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.affiliated-group.index', ['data' => $data]);
+        return view('admin.affiliated-group.index', ['data' => $data, 'affiliatedCategories' => AffiliatedCategory::all()]);
     }
 
     /**
@@ -65,7 +75,10 @@ class AffiliatedGroupsController extends Controller
     {
         $this->authorize('admin.affiliated-group.create');
 
-        return view('admin.affiliated-group.create');
+        return view(
+            'admin.affiliated-group.create',
+            ['affiliatedCategories' => AffiliatedCategory::all()]
+        );
     }
 
     /**
@@ -117,6 +130,8 @@ class AffiliatedGroupsController extends Controller
 
         return view('admin.affiliated-group.edit', [
             'affiliatedGroup' => $affiliatedGroup,
+            'affiliatedCategories' => AffiliatedCategory::all()
+
         ]);
     }
 
@@ -171,7 +186,7 @@ class AffiliatedGroupsController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyAffiliatedGroup $request) : Response
+    public function bulkDestroy(BulkDestroyAffiliatedGroup $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

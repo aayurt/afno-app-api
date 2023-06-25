@@ -51,7 +51,7 @@
                 <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
                     <!-- <input type="text" v-model="form.short_description.{{ $locale }}" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('short_description_{{ $locale }}'), 'form-control-success': fields.short_description_{{ $locale }} && fields.short_description_{{ $locale }}.valid }" id="short_description_{{ $locale }}" name="short_description_{{ $locale }}" placeholder="{{ trans('admin.affiliated-group.columns.short_description') }}"> -->
                     <div>
-                        <textarea class="form-control" v-model="form.short_description_{{ $locale }}" v-validate="''" id="short_description_{{ $locale }}" name="short_description_{{ $locale }}" placeholder="{{ trans('admin.affiliated-group.columns.short_description') }}"></textarea>
+                        <textarea class="form-control" v-model="form.short_description.{{ $locale }}" v-validate="''" id="short_description_{{ $locale }}" name="short_description_{{ $locale }}" placeholder="{{ trans('admin.affiliated-group.columns.short_description') }}"></textarea>
                     </div>
                     <div v-if="errors.has('short_description_{{ $locale }}')" class="form-control-feedback form-text" v-cloak>{{'{{'}} errors.first('short_description_{{ $locale }}') }}</div>
                 </div>
@@ -107,12 +107,25 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('affiliated_group_category_id'), 'has-success': fields.affiliated_group_category_id && fields.affiliated_group_category_id.valid }">
+<!-- <div class="form-group row align-items-center" :class="{'has-danger': errors.has('affiliated_group_category_id'), 'has-success': fields.affiliated_group_category_id && fields.affiliated_group_category_id.valid }">
     <label for="affiliated_group_category_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.affiliated-group.columns.affiliated_group_category_id') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.affiliated_group_category_id" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('affiliated_group_category_id'), 'form-control-success': fields.affiliated_group_category_id && fields.affiliated_group_category_id.valid}" id="affiliated_group_category_id" name="affiliated_group_category_id" placeholder="{{ trans('admin.affiliated-group.columns.affiliated_group_category_id') }}">
         <div v-if="errors.has('affiliated_group_category_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('affiliated_group_category_id') }}</div>
     </div>
+</div> -->
+
+
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('affiliated_group_category_id'), 'has-success': fields.affiliated_group_category_id && fields.affiliated_group_category_id.valid }">
+    <label for="affiliated_group_category_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.affiliated-group.columns.affiliated_group_category_id') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <select class="form-control" name="affiliated_group_category_id" id="affiliated_group_category_id" v-model="form.affiliated_group_category_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('affiliated_group_category_id'), 'form-control-success': fields.affiliated_group_category_id && fields.affiliated_group_category_id.valid}">
+            @foreach($affiliatedCategories as $category )
+            <option value="{{$category->id}}">{{ $category->title}}</option>
+            @endforeach
+
+        </select>
+        <!-- <input type="text" v-model="form.affiliated_group_category_id" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('affiliated_group_category_id'), 'form-control-success': fields.affiliated_group_category_id && fields.affiliated_group_category_id.valid}" id="affiliated_group_category_id" name="affiliated_group_category_id" placeholder="{{ trans('admin.post.columns.affiliated_group_category_id') }}"> -->
+        <div v-if="errors.has('affiliated_group_category_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('affiliated_group_category_id') }}</div>
+    </div>
 </div>
-
-

@@ -2,6 +2,7 @@ import AppForm from "../app-components/Form/AppForm";
 
 Vue.component("affiliated-group-form", {
     mixins: [AppForm],
+    props: ["affiliatedCategories"],
     data: function() {
         return {
             form: {

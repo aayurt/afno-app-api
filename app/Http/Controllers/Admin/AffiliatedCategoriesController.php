@@ -37,7 +37,7 @@ class AffiliatedCategoriesController extends Controller
             $request,
 
             // set columns to query
-            ['id'],
+            ['id', 'title'],
 
             // set columns to searchIn
             ['id', 'title']
@@ -171,7 +171,7 @@ class AffiliatedCategoriesController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyAffiliatedCategory $request) : Response
+    public function bulkDestroy(BulkDestroyAffiliatedCategory $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
