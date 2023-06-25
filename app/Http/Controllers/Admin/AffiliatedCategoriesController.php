@@ -19,6 +19,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App;
 
 class AffiliatedCategoriesController extends Controller
 {
@@ -101,6 +102,13 @@ class AffiliatedCategoriesController extends Controller
         $this->authorize('admin.affiliated-category.show', $affiliatedCategory);
 
         // TODO your code goes here
+    }
+
+    public function showAffiliatedCategory($lang)
+    {
+        App::setLocale($lang);
+        $category = AffiliatedCategory::all();
+        return response()->json(['response' => "success", 'category_list' => $category]);
     }
 
     /**

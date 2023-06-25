@@ -19,6 +19,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Carbon\Carbon;
+use App;
 
 class MemberCategoriesController extends Controller
 {
@@ -102,7 +104,12 @@ class MemberCategoriesController extends Controller
 
         // TODO your code goes here
     }
-
+    public function showMemberCategory($lang)
+    {
+        App::setLocale($lang);
+        $category = MemberCategory::all();
+        return response()->json(['response' => "success", 'category_list' => $category]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -20,6 +20,9 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use App\Models\MemberCategory;
+use Illuminate\Http\Request;
+use App;
+use Carbon\Carbon;
 
 class MembersController extends Controller
 {
@@ -69,6 +72,25 @@ class MembersController extends Controller
         }
 
         return view('admin.member.index', ['data' => $data, 'memberCategories' => MemberCategory::all()]);
+    }
+
+    public function showPostMember(Request $request)
+    {
+        $targetDate = $request->input('updated_at');
+        $lang = $request->input('lang');
+        App::setLocale($lang);
+        $post = Member::with(['memberCategories', 'media'])->select(
+            'id',
+            'title',
+            'short_description',
+            'enabled',
+            'member_category_id',
+            "created_at",
+            "updated_at",
+        )
+            ->where('updated_at', '>=', $targetDate)
+            ->take(10)->get();
+        return response()->json(['response' => "success", 'post_list' => $post]);
     }
 
     /**

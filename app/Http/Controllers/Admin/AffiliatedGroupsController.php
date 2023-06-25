@@ -20,6 +20,9 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App;
+use Carbon\Carbon;
 
 class AffiliatedGroupsController extends Controller
 {
@@ -65,6 +68,23 @@ class AffiliatedGroupsController extends Controller
         return view('admin.affiliated-group.index', ['data' => $data, 'affiliatedCategories' => AffiliatedCategory::all()]);
     }
 
+    public function showPostAffiliatedGroups(Request $request)
+    {
+        $targetDate = $request->input('updated_at');
+        $lang = $request->input('lang');
+        App::setLocale($lang);
+        $post = AffiliatedGroup::with(['affiliatedCategories', 'media'])->select(
+            'id',
+            'title',
+            'enabled',
+            'affiliated_group_category_id',
+            "created_at",
+            "updated_at",
+        )
+            ->where('updated_at', '>=', $targetDate)
+            ->take(10)->get();
+        return response()->json(['response' => "success", 'post_list' => $post]);
+    }
     /**
      * Show the form for creating a new resource.
      *
