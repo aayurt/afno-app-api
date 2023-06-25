@@ -318,3 +318,78 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('members')->name('members/')->group(static function() {
+            Route::get('/',                                             'MembersController@index')->name('index');
+            Route::get('/create',                                       'MembersController@create')->name('create');
+            Route::post('/',                                            'MembersController@store')->name('store');
+            Route::get('/{member}/edit',                                'MembersController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MembersController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{member}',                                    'MembersController@update')->name('update');
+            Route::delete('/{member}',                                  'MembersController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('lineages')->name('lineages/')->group(static function() {
+            Route::get('/',                                             'LineagesController@index')->name('index');
+            Route::get('/create',                                       'LineagesController@create')->name('create');
+            Route::post('/',                                            'LineagesController@store')->name('store');
+            Route::get('/{lineage}/edit',                               'LineagesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'LineagesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{lineage}',                                   'LineagesController@update')->name('update');
+            Route::delete('/{lineage}',                                 'LineagesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('member-categories')->name('member-categories/')->group(static function() {
+            Route::get('/',                                             'MemberCategoriesController@index')->name('index');
+            Route::get('/create',                                       'MemberCategoriesController@create')->name('create');
+            Route::post('/',                                            'MemberCategoriesController@store')->name('store');
+            Route::get('/{memberCategory}/edit',                        'MemberCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'MemberCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{memberCategory}',                            'MemberCategoriesController@update')->name('update');
+            Route::delete('/{memberCategory}',                          'MemberCategoriesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('affiliated-groups')->name('affiliated-groups/')->group(static function() {
+            Route::get('/',                                             'AffiliatedGroupsController@index')->name('index');
+            Route::get('/create',                                       'AffiliatedGroupsController@create')->name('create');
+            Route::post('/',                                            'AffiliatedGroupsController@store')->name('store');
+            Route::get('/{affiliatedGroup}/edit',                       'AffiliatedGroupsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AffiliatedGroupsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{affiliatedGroup}',                           'AffiliatedGroupsController@update')->name('update');
+            Route::delete('/{affiliatedGroup}',                         'AffiliatedGroupsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('affiliated-categories')->name('affiliated-categories/')->group(static function() {
+            Route::get('/',                                             'AffiliatedCategoriesController@index')->name('index');
+            Route::get('/create',                                       'AffiliatedCategoriesController@create')->name('create');
+            Route::post('/',                                            'AffiliatedCategoriesController@store')->name('store');
+            Route::get('/{affiliatedCategory}/edit',                    'AffiliatedCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AffiliatedCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{affiliatedCategory}',                        'AffiliatedCategoriesController@update')->name('update');
+            Route::delete('/{affiliatedCategory}',                      'AffiliatedCategoriesController@destroy')->name('destroy');
+        });
+    });
+});

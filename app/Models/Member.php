@@ -11,8 +11,7 @@ use Brackets\Media\HasMedia\AutoProcessMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-
-class Post extends Model implements HasMedia
+class Member extends Model implements HasMedia
 {
     use HasTranslations;
     use HasMediaCollectionsTrait;
@@ -21,35 +20,24 @@ class Post extends Model implements HasMedia
     use AutoProcessMediaTrait;
     protected $fillable = [
         'title',
-        'sub_title',
-        'location',
-        'body',
-        'published_at',
+        'short_description',
+        'description',
         'enabled',
-        'popularity',
-        'category_id',
-        'author_id',
-        'tags_id',
+        'member_category_id',
 
     ];
 
 
     protected $dates = [
-        'published_at',
         'created_at',
         'updated_at',
 
     ];
-    // these attributes are translatable
     public $translatable = [
         'title',
-        'location',
-        'body',
-        'sub_title',
-
-
+        'short_description',
+        'description',
     ];
-
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
@@ -77,21 +65,13 @@ class Post extends Model implements HasMedia
             ->height(1080)
             ->performOnCollections('gallery');
     }
-
     public function getResourceUrlAttribute()
     {
-        return url('/admin/posts/' . $this->getKey());
+        return url('/admin/members/' . $this->getKey());
     }
-    public function tags()
+
+    public function memberCategories()
     {
-        return $this->belongsToMany(Tag::class);
-    }
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-    public function author()
-    {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(MemberCategory::class);
     }
 }

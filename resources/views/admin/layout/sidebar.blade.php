@@ -9,6 +9,11 @@
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/tags') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.tag.title') }}</a></li>
            <!-- <li class="nav-item"><a class="nav-link" href="{{ url('admin/ads') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.ad.title') }}</a></li> -->
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/roles') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.role.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/members') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.member.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/lineages') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.lineage.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/member-categories') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.member-category.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/affiliated-groups') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.affiliated-group.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/affiliated-categories') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.affiliated-category.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

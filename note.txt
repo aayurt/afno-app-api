@@ -11,3 +11,9 @@ adding this cause error in update / store controller
  php artisan admin:generate authors
 
 PASSWORD: tQSVTfgVhc
+
+
+FOR GENERATION ADMIN
+======
+1. generate admin topics with relations
+2. 

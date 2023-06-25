@@ -116638,6 +116638,124 @@ new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
 
 /***/ }),
 
+/***/ "./resources/js/admin/affiliated-category/Form.js":
+/*!********************************************************!*\
+  !*** ./resources/js/admin/affiliated-category/Form.js ***!
+  \********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component("affiliated-category-form", {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        title: this.getLocalizedFormDefaults()
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/affiliated-category/Listing.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/admin/affiliated-category/Listing.js ***!
+  \***********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('affiliated-category-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/affiliated-category/index.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/affiliated-category/index.js ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/affiliated-category/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/affiliated-category/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/affiliated-group/Form.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/admin/affiliated-group/Form.js ***!
+  \*****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component("affiliated-group-form", {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        title: this.getLocalizedFormDefaults(),
+        short_description: this.getLocalizedFormDefaults(),
+        description: this.getLocalizedFormDefaults(),
+        enabled: false,
+        affiliated_group_category_id: ""
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/affiliated-group/Listing.js":
+/*!********************************************************!*\
+  !*** ./resources/js/admin/affiliated-group/Listing.js ***!
+  \********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('affiliated-group-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/affiliated-group/index.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/affiliated-group/index.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/affiliated-group/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/affiliated-group/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/app-components/Form/AppForm.js":
 /*!***********************************************************!*\
   !*** ./resources/js/admin/app-components/Form/AppForm.js ***!
@@ -116899,6 +117017,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tag__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tag */ "./resources/js/admin/tag/index.js");
 /* harmony import */ var _ad__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ad */ "./resources/js/admin/ad/index.js");
 /* harmony import */ var _role__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./role */ "./resources/js/admin/role/index.js");
+/* harmony import */ var _member__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./member */ "./resources/js/admin/member/index.js");
+/* harmony import */ var _lineage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lineage */ "./resources/js/admin/lineage/index.js");
+/* harmony import */ var _member_category__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./member-category */ "./resources/js/admin/member-category/index.js");
+/* harmony import */ var _affiliated_group__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./affiliated-group */ "./resources/js/admin/affiliated-group/index.js");
+/* harmony import */ var _affiliated_category__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./affiliated-category */ "./resources/js/admin/affiliated-category/index.js");
 
 
 
@@ -116907,6 +117030,191 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/lineage/Form.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/lineage/Form.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component("lineage-form", {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        title: this.getLocalizedFormDefaults(),
+        short_description: this.getLocalizedFormDefaults(),
+        description: this.getLocalizedFormDefaults(),
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/lineage/Listing.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/lineage/Listing.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('lineage-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/lineage/index.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/lineage/index.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/lineage/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/lineage/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/member-category/Form.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/member-category/Form.js ***!
+  \****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component("member-category-form", {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        title: this.getLocalizedFormDefaults()
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/member-category/Listing.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/admin/member-category/Listing.js ***!
+  \*******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('member-category-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/member-category/index.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/admin/member-category/index.js ***!
+  \*****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/member-category/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/member-category/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/member/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/member/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component("member-form", {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["memberCategories"],
+  data: function data() {
+    return {
+      form: {
+        title: this.getLocalizedFormDefaults(),
+        short_description: this.getLocalizedFormDefaults(),
+        description: this.getLocalizedFormDefaults(),
+        enabled: false,
+        member_category_id: ""
+      },
+      mediaCollections: ["cover", "gallery", "pdf"]
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/member/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/member/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('member-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/member/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/member/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/member/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/member/Form.js");
 
 
 

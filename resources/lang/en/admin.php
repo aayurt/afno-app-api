@@ -1002,5 +1002,184 @@ return [
         ],
     ],
 
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            'member_category_id' => 'Member category',
+            
+        ],
+    ],
+
+    'lineage' => [
+        'title' => 'Lineages',
+
+        'actions' => [
+            'index' => 'Lineages',
+            'create' => 'New Lineage',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'member-category' => [
+        'title' => 'Member Categories',
+
+        'actions' => [
+            'index' => 'Member Categories',
+            'create' => 'New Member Category',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'affiliated-group' => [
+        'title' => 'Affiliated Groups',
+
+        'actions' => [
+            'index' => 'Affiliated Groups',
+            'create' => 'New Affiliated Group',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            'affiliated_group_category_id' => 'Affiliated group category',
+            
+        ],
+    ],
+
+    'affiliated-category' => [
+        'title' => 'Affiliated Categories',
+
+        'actions' => [
+            'index' => 'Affiliated Categories',
+            'create' => 'New Affiliated Category',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            'member_category_id' => 'Member category',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

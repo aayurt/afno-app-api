@@ -8,3 +8,8 @@ import './post';
 import './tag';
 import './ad';
 import './role';
+import './member';
+import './lineage';
+import './member-category';
+import './affiliated-group';
+import './affiliated-category';
