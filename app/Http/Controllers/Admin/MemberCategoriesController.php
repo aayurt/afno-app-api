@@ -82,7 +82,7 @@ class MemberCategoriesController extends Controller
         $sanitized = $request->getSanitized();
 
         // Store the MemberCategory
-        // $memberCategory = MemberCategory::create($sanitized);
+        $memberCategory = MemberCategory::create($sanitized);
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/member-categories'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
