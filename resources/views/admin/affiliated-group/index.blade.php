@@ -84,8 +84,14 @@
                                                 <span class="switch-slider"></span>
                                             </label>
                                         </td>
+                                        <td>
+                                        @foreach($affiliatedCategories as $category)
 
-                                        <td>@{{ item.affiliated_group_category_id }}</td>
+                                        <div v-if="item.affiliated_group_category_id =={{$category->id}}">{{$category->title}}</div>
+
+                                        @endforeach
+                                    </td>
+                                        <!-- <td>@{{ item.affiliated_group_category_id }}</td> -->
                                         
                                         <td>
                                             <div class="row no-gutters">
