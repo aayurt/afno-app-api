@@ -19,6 +19,9 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LineagesController extends Controller
 {
@@ -54,7 +57,24 @@ class LineagesController extends Controller
 
         return view('admin.lineage.index', ['data' => $data]);
     }
-
+    public function showPostLineage(Request $request)
+    {
+        $targetDate = $request->input('updated_at');
+        $lang = $request->input('lang');
+        App::setLocale($lang);
+        $post = Lineage::with(['media'])->select(
+            'id',
+            'title',
+            'short_description',
+            'description',
+            'enabled',
+            "created_at",
+            "updated_at",
+        )
+            ->where('updated_at', '>=', $targetDate)
+            ->take(10)->get();
+        return response()->json(['response' => "success", 'post_list' => $post]);
+    }
     /**
      * Show the form for creating a new resource.
      *

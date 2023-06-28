@@ -30,6 +30,8 @@ Route::group([
     Route::post('member', 'MembersController@showPostMember');
     Route::post('affiliatedGroup', 'AffiliatedGroupsController@showPostAffiliatedGroups');
     Route::post('post', 'PostsController@showPostPost');
+    Route::post('lineage', 'LineagesController@showPostLineage');
+
 
     Route::get('post/{id}/{lang}', 'PostsController@showSinglePost');
     Route::get('postcategories/{cid}/{lang}', 'CategoriesController@showCategoryPosts');
