@@ -12,7 +12,7 @@ use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 
 
-class AffiliatedGroup extends Model
+class AffiliatedGroup extends Model implements HasMedia
 {
     use HasTranslations;
     use HasMediaCollectionsTrait;
@@ -42,7 +42,30 @@ class AffiliatedGroup extends Model
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('gallery')->accepts('image/*')
+            ->maxNumberOfFiles(20);
+        ;
 
+        $this->addMediaCollection('cover')
+            ->accepts('image/*');
+
+        $this->addMediaCollection('gallery')
+            ->accepts('image/*')
+            ->maxNumberOfFiles(20);
+
+        $this->addMediaCollection('pdf')
+            ->accepts('application/pdf');
+    }
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->autoRegisterThumb200();
+        $this->addMediaConversion('detail_hd')
+            ->width(1920)
+            ->height(1080)
+            ->performOnCollections('gallery');
+    }
     public function getResourceUrlAttribute()
     {
         return url('/admin/affiliated-groups/' . $this->getKey());

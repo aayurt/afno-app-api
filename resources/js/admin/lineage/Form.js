@@ -9,7 +9,8 @@ Vue.component("lineage-form", {
                 short_description: this.getLocalizedFormDefaults(),
                 description: this.getLocalizedFormDefaults(),
                 enabled: false
-            }
+            },
+            mediaCollections: ["cover", "gallery", "pdf"]
         };
     }
 });

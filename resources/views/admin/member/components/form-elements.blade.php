@@ -102,7 +102,7 @@
     </div>
 </div> -->
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('member_category_id'), 'has-success': fields.member_category_id && fields.member_category_id.valid }">
-    <label for="member_category_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.post.columns.member_category_id') }}</label>
+    <label for="member_category_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.member.columns.member_category_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <select class="form-control" name="member_category_id" id="member_category_id" v-model="form.member_category_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('member_category_id'), 'form-control-success': fields.member_category_id && fields.member_category_id.valid}">
             @foreach($memberCategories as $category )
@@ -110,13 +110,13 @@
             @endforeach
 
         </select>
-        <!-- <input type="text" v-model="form.member_category_id" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('member_category_id'), 'form-control-success': fields.member_category_id && fields.member_category_id.valid}" id="member_category_id" name="member_category_id" placeholder="{{ trans('admin.post.columns.member_category_id') }}"> -->
+        <!-- <input type="text" v-model="form.member_category_id" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('member_category_id'), 'form-control-success': fields.member_category_id && fields.member_category_id.valid}" id="member_category_id" name="member_category_id" placeholder="{{ trans('admin.member.columns.member_category_id') }}"> -->
         <div v-if="errors.has('member_category_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('member_category_id') }}</div>
     </div>
 </div>
 
 <!-- <div class="form-group row align-items-center" :class="{'has-danger': errors.has('tags'), 'has-success': this.fields.tags && this.fields.tags.valid }">
-    <label for="tags_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.post.columns.tags_id') }}</label>
+    <label for="tags_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.member.columns.tags_id') }}</label>
     <div class="col-md-8 col-lg-9">
         <multiselect v-model="form.tags" :options="availableTags" :multiple="true" track-by="id" label="title" tag-placeholder="{{ __('Select Tags') }}" placeholder="{{ __('Tags') }}">
         </multiselect>

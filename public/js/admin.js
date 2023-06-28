@@ -116717,7 +116717,8 @@ Vue.component("affiliated-group-form", {
         description: this.getLocalizedFormDefaults(),
         enabled: false,
         affiliated_group_category_id: ""
-      }
+      },
+      mediaCollections: ["cover", "gallery", "pdf"]
     };
   }
 });
@@ -117061,7 +117062,8 @@ Vue.component("lineage-form", {
         short_description: this.getLocalizedFormDefaults(),
         description: this.getLocalizedFormDefaults(),
         enabled: false
-      }
+      },
+      mediaCollections: ["cover", "gallery", "pdf"]
     };
   }
 });

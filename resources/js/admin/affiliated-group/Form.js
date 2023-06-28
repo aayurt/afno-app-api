@@ -11,7 +11,8 @@ Vue.component("affiliated-group-form", {
                 description: this.getLocalizedFormDefaults(),
                 enabled: false,
                 affiliated_group_category_id: ""
-            }
+            },
+            mediaCollections: ["cover", "gallery", "pdf"]
         };
     }
 });
