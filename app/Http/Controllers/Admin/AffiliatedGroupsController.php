@@ -76,6 +76,8 @@ class AffiliatedGroupsController extends Controller
         $post = AffiliatedGroup::with(['affiliatedCategories', 'media'])->select(
             'id',
             'title',
+            'short_description',
+            'description',
             'enabled',
             'affiliated_group_category_id',
             "created_at",
