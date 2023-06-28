@@ -83,6 +83,7 @@ class MembersController extends Controller
             'id',
             'title',
             'short_description',
+            'description',
             'enabled',
             'member_category_id',
             "created_at",
