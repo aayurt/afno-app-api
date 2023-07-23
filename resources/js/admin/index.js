@@ -13,3 +13,6 @@ import './lineage';
 import './member-category';
 import './affiliated-group';
 import './affiliated-category';
+import './student';
+import './student-class';
+import './student-type';

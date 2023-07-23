@@ -1181,5 +1181,69 @@ return [
         ],
     ],
 
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'address' => 'Address',
+            
+        ],
+    ],
+
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'student-class' => [
+        'title' => 'Student Classes',
+
+        'actions' => [
+            'index' => 'Student Classes',
+            'create' => 'New Student Class',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'student-type' => [
+        'title' => 'Student Types',
+
+        'actions' => [
+            'index' => 'Student Types',
+            'create' => 'New Student Type',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

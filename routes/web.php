@@ -393,3 +393,48 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('students')->name('students/')->group(static function() {
+            Route::get('/',                                             'StudentsController@index')->name('index');
+            Route::get('/create',                                       'StudentsController@create')->name('create');
+            Route::post('/',                                            'StudentsController@store')->name('store');
+            Route::get('/{student}/edit',                               'StudentsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'StudentsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{student}',                                   'StudentsController@update')->name('update');
+            Route::delete('/{student}',                                 'StudentsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('student-classes')->name('student-classes/')->group(static function() {
+            Route::get('/',                                             'StudentClassesController@index')->name('index');
+            Route::get('/create',                                       'StudentClassesController@create')->name('create');
+            Route::post('/',                                            'StudentClassesController@store')->name('store');
+            Route::get('/{studentClass}/edit',                          'StudentClassesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'StudentClassesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{studentClass}',                              'StudentClassesController@update')->name('update');
+            Route::delete('/{studentClass}',                            'StudentClassesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('student-types')->name('student-types/')->group(static function() {
+            Route::get('/',                                             'StudentTypesController@index')->name('index');
+            Route::get('/create',                                       'StudentTypesController@create')->name('create');
+            Route::post('/',                                            'StudentTypesController@store')->name('store');
+            Route::get('/{studentType}/edit',                           'StudentTypesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'StudentTypesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{studentType}',                               'StudentTypesController@update')->name('update');
+            Route::delete('/{studentType}',                             'StudentTypesController@destroy')->name('destroy');
+        });
+    });
+});
