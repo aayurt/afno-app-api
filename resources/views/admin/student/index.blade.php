@@ -52,6 +52,8 @@
                                         <th is='sortable' :column="'id'">{{ trans('admin.student.columns.id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.student.columns.name') }}</th>
                                         <th is='sortable' :column="'address'">{{ trans('admin.student.columns.address') }}</th>
+                                    <th is='sortable' :column="'student-type_id'">{{ trans('admin.student-type.columns.id') }}</th>
+
 
                                         <th></th>
                                     </tr>

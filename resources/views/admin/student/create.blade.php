@@ -10,6 +10,8 @@
         
         <student-form
             :action="'{{ url('admin/students') }}'"
+            :types="{{$types->toJson()}}"
+            :classes="{{$classes->toJson()}}"
             v-cloak
             inline-template>
 

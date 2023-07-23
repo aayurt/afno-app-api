@@ -117586,14 +117586,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('student-form', {
+Vue.component("student-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["types", "classes"],
   data: function data() {
     return {
       form: {
-        name: '',
-        address: ''
-      }
+        name: "",
+        address: ""
+      },
+      mediaCollections: ["cover", "gallery", "pdf"]
     };
   }
 });

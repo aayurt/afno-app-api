@@ -10,6 +10,8 @@
             <student-form
                 :action="'{{ $student->resource_url }}'"
                 :data="{{ $student->toJson() }}"
+                :types="{{$types->toJson()}}"
+            :classes="{{$classes->toJson()}}"
                 v-cloak
                 inline-template>
             

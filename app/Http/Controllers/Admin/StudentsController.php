@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\Student\IndexStudent;
 use App\Http\Requests\Admin\Student\StoreStudent;
 use App\Http\Requests\Admin\Student\UpdateStudent;
 use App\Models\Student;
+use App\Models\StudentClass;
+use App\Models\StudentType;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -37,10 +39,27 @@ class StudentsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'name', 'address'],
+            [
+                'id',
+                'name',
+                'address',
+                "student_type_id",
+                "student_class_id",
+            ],
 
             // set columns to searchIn
-            ['id', 'name', 'address']
+            ['id', 'name', 'address'],
+            function ($query) use ($request) {
+                $query->with(['types', 'classes']);
+                if ($request->has('types')) {
+                    $query->whereIn('student_type_id', $request->get('student_types'));
+                }
+                if ($request->has('classes')) {
+                    $query->whereIn('student_class_id', $request->get('student_classes'));
+                }
+            },
+            null,
+            ['orderBy' => 'id', 'orderDirection' => 'desc']
         );
 
         if ($request->ajax()) {
@@ -65,7 +84,10 @@ class StudentsController extends Controller
     {
         $this->authorize('admin.student.create');
 
-        return view('admin.student.create');
+        return view('admin.student.create', [
+            'types' => StudentType::all(),
+            'classes' => StudentClass::all(),
+        ]);
     }
 
     /**
@@ -117,6 +139,8 @@ class StudentsController extends Controller
 
         return view('admin.student.edit', [
             'student' => $student,
+            'types' => StudentType::all(),
+            'classes' => StudentClass::all(),
         ]);
     }
 
@@ -171,7 +195,7 @@ class StudentsController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyStudent $request) : Response
+    public function bulkDestroy(BulkDestroyStudent $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

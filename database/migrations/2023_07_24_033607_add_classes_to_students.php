@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTypesToStudents extends Migration
+class AddClassesToStudents extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddTypesToStudents extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->unsignedInteger('student_type_id')->nullable();
-            $table->foreign('student_type_id')->references('id')->on('student_types')->onDelete('cascade');
+            $table->unsignedInteger('student_class_id')->nullable();
+            $table->foreign('student_class_id')->references('id')->on('student_classes')->onDelete('cascade');
         });
     }
 

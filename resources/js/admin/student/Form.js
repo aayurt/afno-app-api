@@ -1,15 +1,16 @@
-import AppForm from '../app-components/Form/AppForm';
+import AppForm from "../app-components/Form/AppForm";
 
-Vue.component('student-form', {
+Vue.component("student-form", {
     mixins: [AppForm],
+    props: ["types", "classes"],
+
     data: function() {
         return {
             form: {
-                name:  '' ,
-                address:  '' ,
-                
-            }
-        }
+                name: "",
+                address: ""
+            },
+            mediaCollections: ["cover", "gallery", "pdf"]
+        };
     }
-
 });
