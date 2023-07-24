@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Student;
+namespace App\Http\Requests\Admin\BoardMember;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexStudent extends FormRequest
+class IndexBoardMember extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class IndexStudent extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.student.index');
+        return Gate::allows('admin.board-member.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class IndexStudent extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,name,ordination_name,address,dob,gender,email,phone_no,roll_no,student_type_id,student_class_id|nullable',
+            'orderBy' => 'in:id,designation,member_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -1,20 +1,20 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.student.actions.index'))
+@section('title', trans('admin.board-member.actions.index'))
 
 @section('body')
 
-    <student-listing
+    <board-member-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ url('admin/students') }}'"
+        :url="'{{ url('admin/board-members') }}'"
         inline-template>
 
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.student.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/students/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.student.actions.create') }}</a>
+                        <i class="fa fa-align-justify"></i> {{ trans('admin.board-member.actions.index') }}
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/board-members/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.board-member.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -49,27 +49,19 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.student.columns.id') }}</th>
-                                        <th is='sortable' :column="'name'">{{ trans('admin.student.columns.name') }}</th>
-                                        <th is='sortable' :column="'ordination_name'">{{ trans('admin.student.columns.ordination_name') }}</th>
-                                        <th is='sortable' :column="'address'">{{ trans('admin.student.columns.address') }}</th>
-                                        <th is='sortable' :column="'dob'">{{ trans('admin.student.columns.dob') }}</th>
-                                        <th is='sortable' :column="'gender'">{{ trans('admin.student.columns.gender') }}</th>
-                                        <th is='sortable' :column="'email'">{{ trans('admin.student.columns.email') }}</th>
-                                        <th is='sortable' :column="'phone_no'">{{ trans('admin.student.columns.phone_no') }}</th>
-                                        <th is='sortable' :column="'roll_no'">{{ trans('admin.student.columns.roll_no') }}</th>
-                                        <th is='sortable' :column="'student_type_id'">{{ trans('admin.student.columns.student_type_id') }}</th>
-                                        <th is='sortable' :column="'student_class_id'">{{ trans('admin.student.columns.student_class_id') }}</th>
+                                        <th is='sortable' :column="'id'">{{ trans('admin.board-member.columns.id') }}</th>
+                                        <th is='sortable' :column="'designation'">{{ trans('admin.board-member.columns.designation') }}</th>
+                                        <th is='sortable' :column="'member_id'">{{ trans('admin.board-member.columns.member_id') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="13">
-                                            <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/students')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="5">
+                                            <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/board-members')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
                                             <span class="pull-right pr-2">
-                                                <button class="btn btn-sm btn-danger pr-3 pl-3" @click="bulkDelete('/admin/students/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
+                                                <button class="btn btn-sm btn-danger pr-3 pl-3" @click="bulkDelete('/admin/board-members/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
                                             </span>
 
                                         </td>
@@ -84,16 +76,8 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                        <td>@{{ item.name }}</td>
-                                        <td>@{{ item.ordination_name }}</td>
-                                        <td>@{{ item.address }}</td>
-                                        <td>@{{ item.dob | date }}</td>
-                                        <td>@{{ item.gender }}</td>
-                                        <td>@{{ item.email }}</td>
-                                        <td>@{{ item.phone_no }}</td>
-                                        <td>@{{ item.roll_no }}</td>
-                                        <td>@{{ item.student_type_id }}</td>
-                                        <td>@{{ item.student_class_id }}</td>
+                                        <td>@{{ item.designation }}</td>
+                                        <td>@{{ item.member_id }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">
@@ -122,13 +106,13 @@
                                 <i class="icon-magnifier"></i>
                                 <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
                                 <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/students/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.student.actions.create') }}</a>
+                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/board-members/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.board-member.actions.create') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </student-listing>
+    </board-member-listing>
 
 @endsection

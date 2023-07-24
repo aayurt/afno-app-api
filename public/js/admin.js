@@ -116889,6 +116889,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/board-member/Form.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/board-member/Form.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('board-member-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {}
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/board-member/Listing.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/board-member/Listing.js ***!
+  \****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('board-member-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/board-member/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/board-member/index.js ***!
+  \**************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/board-member/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/board-member/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/bootstrap.js":
 /*!*****************************************!*\
   !*** ./resources/js/admin/bootstrap.js ***!
@@ -117027,6 +117082,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _student__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./student */ "./resources/js/admin/student/index.js");
 /* harmony import */ var _student_class__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./student-class */ "./resources/js/admin/student-class/index.js");
 /* harmony import */ var _student_type__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./student-type */ "./resources/js/admin/student-type/index.js");
+/* harmony import */ var _board_member__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./board-member */ "./resources/js/admin/board-member/index.js");
+
 
 
 
@@ -117586,16 +117643,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component("student-form", {
+Vue.component('student-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ["types", "classes"],
   data: function data() {
     return {
       form: {
-        name: "",
-        address: ""
-      },
-      mediaCollections: ["cover", "gallery", "pdf"]
+        name: '',
+        ordination_name: '',
+        address: '',
+        dob: '',
+        gender: '',
+        email: '',
+        phone_no: '',
+        roll_no: '',
+        student_type_id: '',
+        student_class_id: ''
+      }
     };
   }
 });

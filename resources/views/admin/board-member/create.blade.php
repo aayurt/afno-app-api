@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.student.actions.create'))
+@section('title', trans('admin.board-member.actions.create'))
 
 @section('body')
 
@@ -8,19 +8,19 @@
 
                 <div class="card">
         
-        <student-form
-            :action="'{{ url('admin/students') }}'"
+        <board-member-form
+            :action="'{{ url('admin/board-members') }}'"
             v-cloak
             inline-template>
 
             <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
                 
                 <div class="card-header">
-                    <i class="fa fa-plus"></i> {{ trans('admin.student.actions.create') }}
+                    <i class="fa fa-plus"></i> {{ trans('admin.board-member.actions.create') }}
                 </div>
 
                 <div class="card-body">
-                    @include('admin.student.components.form-elements')
+                    @include('admin.board-member.components.form-elements')
                 </div>
                                 
                 <div class="card-footer">
@@ -32,7 +32,7 @@
                 
             </form>
 
-        </student-form>
+        </board-member-form>
 
         </div>
 

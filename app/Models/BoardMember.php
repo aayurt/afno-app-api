@@ -4,25 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class BoardMember extends Model
 {
     protected $fillable = [
-        'name',
-        'ordination_name',
-        'address',
-        'dob',
-        'gender',
-        'email',
-        'phone_no',
-        'roll_no',
-        'student_type_id',
-        'student_class_id',
+        'designation',
+        'member_id',
     
     ];
     
     
     protected $dates = [
-        'dob',
         'created_at',
         'updated_at',
     
@@ -34,6 +25,6 @@ class Student extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/students/'.$this->getKey());
+        return url('/admin/board-members/'.$this->getKey());
     }
 }

@@ -16,3 +16,4 @@ import './affiliated-category';
 import './student';
 import './student-class';
 import './student-type';
+import './board-member';

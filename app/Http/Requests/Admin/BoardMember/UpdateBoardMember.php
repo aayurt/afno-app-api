@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Student;
+namespace App\Http\Requests\Admin\BoardMember;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateStudent extends FormRequest
+class UpdateBoardMember extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class UpdateStudent extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.student.edit', $this->student);
+        return Gate::allows('admin.board-member.edit', $this->boardMember);
     }
 
     /**
@@ -26,16 +26,8 @@ class UpdateStudent extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['sometimes', 'string'],
-            'ordination_name' => ['nullable', 'string'],
-            'address' => ['nullable', 'string'],
-            'dob' => ['nullable', 'date'],
-            'gender' => ['nullable', 'string'],
-            'email' => ['nullable', 'email', 'string'],
-            'phone_no' => ['nullable', 'string'],
-            'roll_no' => ['nullable', 'string'],
-            'student_type_id' => ['nullable', 'integer'],
-            'student_class_id' => ['nullable', 'integer'],
+            'designation' => ['sometimes', 'string'],
+            'member_id' => ['nullable', 'integer'],
             
         ];
     }

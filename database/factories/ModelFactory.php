@@ -425,3 +425,40 @@ $factory->define(App\Models\StudentType::class, static function (Faker\Generator
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Student::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'ordination_name' => $faker->sentence,
+        'address' => $faker->sentence,
+        'dob' => $faker->date(),
+        'gender' => $faker->sentence,
+        'email' => $faker->email,
+        'phone_no' => $faker->sentence,
+        'roll_no' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'student_type_id' => $faker->randomNumber(5),
+        'student_class_id' => $faker->randomNumber(5),
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\BoardMember::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\BoardMember::class, static function (Faker\Generator $faker) {
+    return [
+        'designation' => $faker->sentence,
+        'member_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

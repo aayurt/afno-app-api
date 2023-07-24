@@ -1,15 +1,15 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.student.actions.edit', ['name' => $student->name]))
+@section('title', trans('admin.board-member.actions.edit', ['name' => $boardMember->id]))
 
 @section('body')
 
     <div class="container-xl">
         <div class="card">
 
-            <student-form
-                :action="'{{ $student->resource_url }}'"
-                :data="{{ $student->toJson() }}"
+            <board-member-form
+                :action="'{{ $boardMember->resource_url }}'"
+                :data="{{ $boardMember->toJson() }}"
                 v-cloak
                 inline-template>
             
@@ -17,11 +17,11 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.student.actions.edit', ['name' => $student->name]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.board-member.actions.edit', ['name' => $boardMember->id]) }}
                     </div>
 
                     <div class="card-body">
-                        @include('admin.student.components.form-elements')
+                        @include('admin.board-member.components.form-elements')
                     </div>
                     
                     
@@ -34,7 +34,7 @@
                     
                 </form>
 
-        </student-form>
+        </board-member-form>
 
         </div>
     

@@ -17,6 +17,7 @@
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/students') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.student.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/student-classes') }}"><i class="nav-icon icon-book-open"></i> {{ trans('admin.student-class.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/student-types') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.student-type.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/board-members') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.board-member.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

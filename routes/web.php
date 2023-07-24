@@ -438,3 +438,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('board-members')->name('board-members/')->group(static function() {
+            Route::get('/',                                             'BoardMembersController@index')->name('index');
+            Route::get('/create',                                       'BoardMembersController@create')->name('create');
+            Route::post('/',                                            'BoardMembersController@store')->name('store');
+            Route::get('/{boardMember}/edit',                           'BoardMembersController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'BoardMembersController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{boardMember}',                               'BoardMembersController@update')->name('update');
+            Route::delete('/{boardMember}',                             'BoardMembersController@destroy')->name('destroy');
+        });
+    });
+});

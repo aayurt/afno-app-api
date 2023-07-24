@@ -1245,5 +1245,94 @@ return [
         ],
     ],
 
+    'student' => [
+        'title' => 'Students',
+
+        'actions' => [
+            'index' => 'Students',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'ordination_name' => 'Ordination name',
+            'address' => 'Address',
+            'dob' => 'Dob',
+            'gender' => 'Gender',
+            'email' => 'Email',
+            'phone_no' => 'Phone no',
+            'roll_no' => 'Roll no',
+            'student_type_id' => 'Student type',
+            'student_class_id' => 'Student class',
+            
+        ],
+    ],
+
+    'student-class' => [
+        'title' => 'Student Classes',
+
+        'actions' => [
+            'index' => 'Student Classes',
+            'create' => 'New Student Class',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'student-type' => [
+        'title' => 'Student Types',
+
+        'actions' => [
+            'index' => 'Student Types',
+            'create' => 'New Student Type',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            
+        ],
+    ],
+
+    'board-member' => [
+        'title' => 'Board Members',
+
+        'actions' => [
+            'index' => 'Board Members',
+            'create' => 'New Board Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'board-member' => [
+        'title' => 'Board Members',
+
+        'actions' => [
+            'index' => 'Board Members',
+            'create' => 'New Board Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'designation' => 'Designation',
+            'member_id' => 'Member',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

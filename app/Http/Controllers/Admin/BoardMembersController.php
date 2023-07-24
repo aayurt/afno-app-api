@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Student\BulkDestroyStudent;
-use App\Http\Requests\Admin\Student\DestroyStudent;
-use App\Http\Requests\Admin\Student\IndexStudent;
-use App\Http\Requests\Admin\Student\StoreStudent;
-use App\Http\Requests\Admin\Student\UpdateStudent;
-use App\Models\Student;
+use App\Http\Requests\Admin\BoardMember\BulkDestroyBoardMember;
+use App\Http\Requests\Admin\BoardMember\DestroyBoardMember;
+use App\Http\Requests\Admin\BoardMember\IndexBoardMember;
+use App\Http\Requests\Admin\BoardMember\StoreBoardMember;
+use App\Http\Requests\Admin\BoardMember\UpdateBoardMember;
+use App\Models\BoardMember;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -20,27 +20,27 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class StudentsController extends Controller
+class BoardMembersController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexStudent $request
+     * @param IndexBoardMember $request
      * @return array|Factory|View
      */
-    public function index(IndexStudent $request)
+    public function index(IndexBoardMember $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Student::class)->processRequestAndGet(
+        $data = AdminListing::create(BoardMember::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'name', 'ordination_name', 'address', 'dob', 'gender', 'email', 'phone_no', 'roll_no', 'student_type_id', 'student_class_id'],
+            ['id', 'designation', 'member_id'],
 
             // set columns to searchIn
-            ['id', 'name', 'ordination_name', 'address', 'gender', 'email', 'phone_no', 'roll_no']
+            ['id', 'designation']
         );
 
         if ($request->ajax()) {
@@ -52,7 +52,7 @@ class StudentsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.student.index', ['data' => $data]);
+        return view('admin.board-member.index', ['data' => $data]);
     }
 
     /**
@@ -63,42 +63,42 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.student.create');
+        $this->authorize('admin.board-member.create');
 
-        return view('admin.student.create');
+        return view('admin.board-member.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreStudent $request
+     * @param StoreBoardMember $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreStudent $request)
+    public function store(StoreBoardMember $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Student
-        $student = Student::create($sanitized);
+        // Store the BoardMember
+        $boardMember = BoardMember::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/students'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/board-members'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/students');
+        return redirect('admin/board-members');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Student $student
+     * @param BoardMember $boardMember
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Student $student)
+    public function show(BoardMember $boardMember)
     {
-        $this->authorize('admin.student.show', $student);
+        $this->authorize('admin.board-member.show', $boardMember);
 
         // TODO your code goes here
     }
@@ -106,56 +106,56 @@ class StudentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Student $student
+     * @param BoardMember $boardMember
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Student $student)
+    public function edit(BoardMember $boardMember)
     {
-        $this->authorize('admin.student.edit', $student);
+        $this->authorize('admin.board-member.edit', $boardMember);
 
 
-        return view('admin.student.edit', [
-            'student' => $student,
+        return view('admin.board-member.edit', [
+            'boardMember' => $boardMember,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateStudent $request
-     * @param Student $student
+     * @param UpdateBoardMember $request
+     * @param BoardMember $boardMember
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateStudent $request, Student $student)
+    public function update(UpdateBoardMember $request, BoardMember $boardMember)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Student
-        $student->update($sanitized);
+        // Update changed values BoardMember
+        $boardMember->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/students'),
+                'redirect' => url('admin/board-members'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/students');
+        return redirect('admin/board-members');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyStudent $request
-     * @param Student $student
+     * @param DestroyBoardMember $request
+     * @param BoardMember $boardMember
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyStudent $request, Student $student)
+    public function destroy(DestroyBoardMember $request, BoardMember $boardMember)
     {
-        $student->delete();
+        $boardMember->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -167,17 +167,17 @@ class StudentsController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyStudent $request
+     * @param BulkDestroyBoardMember $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyStudent $request) : Response
+    public function bulkDestroy(BulkDestroyBoardMember $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Student::whereIn('id', $bulkChunk)->delete();
+                    BoardMember::whereIn('id', $bulkChunk)->delete();
 
                     // TODO your code goes here
                 });
