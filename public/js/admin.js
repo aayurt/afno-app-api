@@ -117244,9 +117244,9 @@ Vue.component("member-form", {
   data: function data() {
     return {
       form: {
-        title: "",
-        short_description: "",
-        description: "",
+        title: this.getLocalizedFormDefaults(),
+        short_description: this.getLocalizedFormDefaults(),
+        description: this.getLocalizedFormDefaults(),
         enabled: false,
         member_category_id: "",
         msg: "",
