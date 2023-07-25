@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\BoardMember\IndexBoardMember;
 use App\Http\Requests\Admin\BoardMember\StoreBoardMember;
 use App\Http\Requests\Admin\BoardMember\UpdateBoardMember;
 use App\Models\BoardMember;
+use App\Models\Member;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -52,7 +53,10 @@ class BoardMembersController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.board-member.index', ['data' => $data]);
+        return view('admin.board-member.index', [
+            'data' => $data,
+            'members' => Member::all(),
+        ]);
     }
 
     /**
@@ -65,7 +69,10 @@ class BoardMembersController extends Controller
     {
         $this->authorize('admin.board-member.create');
 
-        return view('admin.board-member.create');
+        return view('admin.board-member.create', [
+            'members' => Member::all(),
+
+        ]);
     }
 
     /**
@@ -117,6 +124,8 @@ class BoardMembersController extends Controller
 
         return view('admin.board-member.edit', [
             'boardMember' => $boardMember,
+            'members' => Member::all(),
+
         ]);
     }
 
@@ -171,7 +180,7 @@ class BoardMembersController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyBoardMember $request) : Response
+    public function bulkDestroy(BulkDestroyBoardMember $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

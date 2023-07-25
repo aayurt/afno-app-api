@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\Student\IndexStudent;
 use App\Http\Requests\Admin\Student\StoreStudent;
 use App\Http\Requests\Admin\Student\UpdateStudent;
 use App\Models\Student;
+use App\Models\StudentClass;
+use App\Models\StudentType;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -52,7 +54,11 @@ class StudentsController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.student.index', ['data' => $data]);
+        return view('admin.student.index', [
+            'data' => $data,
+            'classes' => StudentClass::all(),
+            'types' => StudentType::all()
+        ]);
     }
 
     /**
@@ -65,7 +71,10 @@ class StudentsController extends Controller
     {
         $this->authorize('admin.student.create');
 
-        return view('admin.student.create');
+        return view('admin.student.create', [
+            'classes' => StudentClass::all(),
+            'types' => StudentType::all()
+        ]);
     }
 
     /**
@@ -117,6 +126,8 @@ class StudentsController extends Controller
 
         return view('admin.student.edit', [
             'student' => $student,
+            'classes' => StudentClass::all(),
+            'types' => StudentType::all()
         ]);
     }
 
@@ -171,7 +182,7 @@ class StudentsController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyStudent $request) : Response
+    public function bulkDestroy(BulkDestroyStudent $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

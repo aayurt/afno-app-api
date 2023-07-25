@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<htm llang="{{ str_replace('_', '-', app()->getocale()) }}">
 
 <head>
-    <meta charset="utf-8">
+     <eta charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SHENPEN-BLOG</title>
+     <itle>KNSL-BLOG/title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+     <ink href="https:/fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
+     <style>
+    
+
         html,
         body {
-            background-color: #fff;
+             background-col
+    o
+r: #fff;
             color: #636b6f;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;

@@ -116900,11 +116900,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('board-member-form', {
+Vue.component("board-member-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["members"],
   data: function data() {
     return {
-      form: {}
+      form: {
+        designation: "",
+        member_id: ""
+      }
     };
   }
 });
@@ -117643,21 +117647,22 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
 
-Vue.component('student-form', {
+Vue.component("student-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["classes", "types"],
   data: function data() {
     return {
       form: {
-        name: '',
-        ordination_name: '',
-        address: '',
-        dob: '',
-        gender: '',
-        email: '',
-        phone_no: '',
-        roll_no: '',
-        student_type_id: '',
-        student_class_id: ''
+        name: "",
+        ordination_name: "",
+        address: "",
+        dob: "",
+        gender: "",
+        email: "",
+        phone_no: "",
+        roll_no: "",
+        student_type_id: "",
+        student_class_id: ""
       }
     };
   }
