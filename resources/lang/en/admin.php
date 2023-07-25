@@ -1334,5 +1334,53 @@ return [
         ],
     ],
 
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            'member_category_id' => 'Member category',
+            
+        ],
+    ],
+
+    'member' => [
+        'title' => 'Members',
+
+        'actions' => [
+            'index' => 'Members',
+            'create' => 'New Member',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'short_description' => 'Short description',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            'member_category_id' => 'Member category',
+            'msg' => 'Msg',
+            'name' => 'Name',
+            'ordination_name' => 'Ordination name',
+            'address' => 'Address',
+            'dob' => 'Dob',
+            'gender' => 'Gender',
+            'email' => 'Email',
+            'phone_no' => 'Phone no',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

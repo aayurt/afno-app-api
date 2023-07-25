@@ -24,6 +24,15 @@ class Member extends Model implements HasMedia
         'description',
         'enabled',
         'member_category_id',
+        'msg',
+        'name',
+        'ordination_name',
+        'address',
+        'dob',
+        'gender',
+        'email',
+        'phone_no',
+
 
     ];
 

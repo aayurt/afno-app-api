@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests\Admin\Member;
 
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
-use Brackets\Translatable\TranslatableFormRequest;
+use Illuminate\Validation\Rule;
 
-class UpdateMember extends TranslatableFormRequest
+class UpdateMember extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,40 +23,25 @@ class UpdateMember extends TranslatableFormRequest
      *
      * @return array
      */
-    public function untranslatableRules(): array
+    public function rules(): array
     {
         return [
-            'enabled' => ['required', 'boolean'],
-            'member_category_id' => ['nullable', 'integer'],
-        ];
-    }
-
-    /**
-     * Get the validation rules that apply to the requests translatable fields.
-     *
-     * @return array
-     */
-    public function translatableRules($locale): array
-    {
-        return [
-            'title' => ['required', 'string'],
+            'title' => ['sometimes', 'string'],
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
-
-
+            'enabled' => ['sometimes', 'boolean'],
+            'member_category_id' => ['nullable', 'integer'],
+            'msg' => ['nullable', 'string'],
+            'name' => ['sometimes', 'string'],
+            'ordination_name' => ['nullable', 'string'],
+            'address' => ['nullable', 'string'],
+            'dob' => ['nullable', 'date'],
+            'gender' => ['nullable', 'string'],
+            'email' => ['nullable', 'email', 'string'],
+            'phone_no' => ['nullable', 'string'],
+            
         ];
     }
-    // public function rules(): array
-    // {
-    //     return [
-    //         'title' => ['sometimes', 'string'],
-    //         'short_description' => ['nullable', 'string'],
-    //         'description' => ['nullable', 'string'],
-    //         'enabled' => ['sometimes', 'boolean'],
-    //         'member_category_id' => ['nullable', 'integer'],
-
-    //     ];
-    // }
 
     /**
      * Modify input data

@@ -15,7 +15,7 @@ class CreateMembers extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
-            $table->jsonb('title');
+            $table->jsonb('title')->nullable();
             $table->jsonb('short_description')->nullable();
             $table->jsonb('description')->nullable();
             $table->boolean('enabled')->default(true);

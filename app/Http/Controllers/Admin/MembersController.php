@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Member\IndexMember;
 use App\Http\Requests\Admin\Member\StoreMember;
 use App\Http\Requests\Admin\Member\UpdateMember;
 use App\Models\Member;
+use App\Models\MemberCategory;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -19,10 +20,6 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
-use App\Models\MemberCategory;
-use Illuminate\Http\Request;
-use App;
-use Carbon\Carbon;
 
 class MembersController extends Controller
 {
@@ -41,16 +38,10 @@ class MembersController extends Controller
             $request,
 
             // set columns to query
-            [
-                'id',
-                'title',
-                'short_description',
-                'enabled',
-                'member_category_id'
-            ],
+            ['id', 'enabled', 'member_category_id', 'msg', 'name', 'ordination_name', 'address', 'dob', 'gender', 'email', 'phone_no', 'member_category_id'],
 
             // set columns to searchIn
-            ['id', 'title', 'short_description', 'description'],
+            ['id', 'title', 'short_description', 'description', 'msg', 'name', 'ordination_name', 'address', 'gender', 'email', 'phone_no', 'member_category_id'],
             function ($query) use ($request) {
                 $query->with(['memberCategories']);
 
@@ -61,7 +52,7 @@ class MembersController extends Controller
             null,
             ['orderBy' => 'id', 'orderDirection' => 'desc']
         );
-        // dd($data);
+
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
@@ -71,27 +62,10 @@ class MembersController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.member.index', ['data' => $data, 'memberCategories' => MemberCategory::all()]);
-    }
-
-    public function showPostMember(Request $request)
-    {
-        $targetDate = $request->input('updated_at');
-        $lang = $request->input('lang');
-        App::setLocale($lang);
-        $post = Member::with(['memberCategories', 'media'])->select(
-            'id',
-            'title',
-            'short_description',
-            'description',
-            'enabled',
-            'member_category_id',
-            "created_at",
-            "updated_at",
-        )
-            ->where('updated_at', '>=', $targetDate)
-            ->take(10)->get();
-        return response()->json(['response' => "success", 'post_list' => $post]);
+        return view('admin.member.index', [
+            'data' => $data,
+            'memberCategories' => MemberCategory::all()
+        ]);
     }
 
     /**
@@ -159,7 +133,6 @@ class MembersController extends Controller
         return view('admin.member.edit', [
             'member' => $member,
             'memberCategories' => MemberCategory::all()
-
         ]);
     }
 

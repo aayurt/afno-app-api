@@ -8,6 +8,7 @@
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/members') }}'"
         :trans="{{ json_encode(trans('brackets/admin-ui::admin.dialogs')) }}"
+
         inline-template>
 
         <div class="row">
@@ -39,6 +40,7 @@
                                     </div>
                                 </div>
                             </form>
+
                             <table class="table table-hover table-listing">
                                 <thead>
                                     <tr>
@@ -50,14 +52,20 @@
                                         </th>
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.member.columns.id') }}</th>
-                                        <th is='sortable' :column="'enabled'">{{ trans('admin.member.columns.title') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.member.columns.enabled') }}</th>
                                         <th is='sortable' :column="'member_category_id'">{{ trans('admin.member.columns.member_category_id') }}</th>
+                                        <th is='sortable' :column="'name'">{{ trans('admin.member.columns.name') }}</th>
+                                        <th is='sortable' :column="'ordination_name'">{{ trans('admin.member.columns.ordination_name') }}</th>
+                                        <th is='sortable' :column="'address'">{{ trans('admin.member.columns.address') }}</th>
+                                        <th is='sortable' :column="'dob'">{{ trans('admin.member.columns.dob') }}</th>
+                                        <th is='sortable' :column="'gender'">{{ trans('admin.member.columns.gender') }}</th>
+                                        <th is='sortable' :column="'email'">{{ trans('admin.member.columns.email') }}</th>
+                                        <th is='sortable' :column="'phone_no'">{{ trans('admin.member.columns.phone_no') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="5">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="13">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/members')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -77,13 +85,14 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.title }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
                                                 <span class="switch-slider"></span>
                                             </label>
                                         </td>
+
+                                       
                                         <td>
                                         @foreach($memberCategories as $category)
 
@@ -91,7 +100,13 @@
 
                                         @endforeach
                                     </td>
-                                        <!-- <td>@{{ item.member_category_id }}</td> -->
+                                        <td>@{{ item.name }}</td>
+                                        <td>@{{ item.ordination_name }}</td>
+                                        <td>@{{ item.address }}</td>
+                                        <td>@{{ item.dob | date }}</td>
+                                        <td>@{{ item.gender }}</td>
+                                        <td>@{{ item.email }}</td>
+                                        <td>@{{ item.phone_no }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">

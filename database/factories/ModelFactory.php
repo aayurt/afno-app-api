@@ -462,3 +462,25 @@ $factory->define(App\Models\BoardMember::class, static function (Faker\Generator
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Member::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'short_description' => $faker->text(),
+        'description' => $faker->text(),
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'member_category_id' => $faker->randomNumber(5),
+        'msg' => $faker->sentence,
+        'name' => $faker->firstName,
+        'ordination_name' => $faker->sentence,
+        'address' => $faker->sentence,
+        'dob' => $faker->date(),
+        'gender' => $faker->sentence,
+        'email' => $faker->email,
+        'phone_no' => $faker->sentence,
+        
+        
+    ];
+});
