@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Admin\Member;
 
+use Brackets\Translatable\TranslatableFormRequest;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateMember extends FormRequest
+class UpdateMember extends TranslatableFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,23 +24,30 @@ class UpdateMember extends FormRequest
      *
      * @return array
      */
-    public function rules(): array
+    public function translatableRules($locale): array
     {
         return [
-            'title' => ['sometimes', 'string'],
+            'title' => ['nullable', 'string'],
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
-            'enabled' => ['sometimes', 'boolean'],
+
+
+        ];
+    }
+    public function untranslatableRules(): array
+    {
+        return [
+            'enabled' => ['required', 'boolean'],
             'member_category_id' => ['nullable', 'integer'],
             'msg' => ['nullable', 'string'],
-            'name' => ['sometimes', 'string'],
+            'name' => ['required', 'string'],
             'ordination_name' => ['nullable', 'string'],
             'address' => ['nullable', 'string'],
             'dob' => ['nullable', 'date'],
             'gender' => ['nullable', 'string'],
             'email' => ['nullable', 'email', 'string'],
             'phone_no' => ['nullable', 'string'],
-            
+
         ];
     }
 

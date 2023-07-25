@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Admin\Member;
 
+use Brackets\Translatable\TranslatableFormRequest;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class StoreMember extends FormRequest
+class StoreMember extends TranslatableFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +24,19 @@ class StoreMember extends FormRequest
      *
      * @return array
      */
-    public function rules(): array
+    public function translatableRules($locale): array
     {
         return [
-            'title' => ['required', 'string'],
+            'title' => ['nullable', 'string'],
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
+
+
+        ];
+    }
+    public function untranslatableRules(): array
+    {
+        return [
             'enabled' => ['required', 'boolean'],
             'member_category_id' => ['nullable', 'integer'],
             'msg' => ['nullable', 'string'],
@@ -39,15 +47,15 @@ class StoreMember extends FormRequest
             'gender' => ['nullable', 'string'],
             'email' => ['nullable', 'email', 'string'],
             'phone_no' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
