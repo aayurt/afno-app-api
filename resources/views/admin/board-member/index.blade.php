@@ -77,7 +77,13 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.designation }}</td>
-                                        <td>@{{ item.member_id }}</td>
+                                        <td>
+                                        @foreach($members as $member)
+
+<div v-if="item.member_id =={{$member->id}}">{{$member->title}}</div>
+
+@endforeach    
+                                        </td>
                                         
                                         <td>
                                             <div class="row no-gutters">
