@@ -9,7 +9,7 @@
 <div class="card">
     @include('brackets/admin-ui::admin.includes.media-uploader', [
     'mediaCollection' => app(App\Models\Student::class)->getMediaCollection('pdf'),
-    'media' => $post->getThumbs200ForCollection('pdf'),
+    'media' => $student->getThumbs200ForCollection('pdf'),
     'label' => 'PDF appendix'
     ])
 </div>
