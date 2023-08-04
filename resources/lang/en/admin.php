@@ -1382,5 +1382,115 @@ return [
         ],
     ],
 
+    'join-leave-student-history' => [
+        'title' => 'Join Leave Student Histories',
+
+        'actions' => [
+            'index' => 'Join Leave Student Histories',
+            'create' => 'New Join Leave Student History',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'status' => 'Status',
+            'joining_date' => 'Joining date',
+            'leaving_date' => 'Leaving date',
+            'student_id' => 'Student',
+            
+        ],
+    ],
+
+    'join-leave-member-history' => [
+        'title' => 'Join Leave Member Histories',
+
+        'actions' => [
+            'index' => 'Join Leave Member Histories',
+            'create' => 'New Join Leave Member History',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'status' => 'Status',
+            'joining_date' => 'Joining date',
+            'leaving_date' => 'Leaving date',
+            'member_id' => 'Member',
+            
+        ],
+    ],
+
+    'member-attendance' => [
+        'title' => 'Member Attendances',
+
+        'actions' => [
+            'index' => 'Member Attendances',
+            'create' => 'New Member Attendance',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'member-attendance' => [
+        'title' => 'Member Attendances',
+
+        'actions' => [
+            'index' => 'Member Attendances',
+            'create' => 'New Member Attendance',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'date' => 'Date',
+            'clock_in' => 'Clock in',
+            'clock_out' => 'Clock out',
+            'member_id' => 'Member',
+            
+        ],
+    ],
+
+    'member-attendance' => [
+        'title' => 'Member Attendances',
+
+        'actions' => [
+            'index' => 'Member Attendances',
+            'create' => 'New Member Attendance',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'member-attendance' => [
+        'title' => 'Member Attendances',
+
+        'actions' => [
+            'index' => 'Member Attendances',
+            'create' => 'New Member Attendance',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'date' => 'Date',
+            'clock_in' => 'Clock in',
+            'clock_out' => 'Clock out',
+            'early' => 'Early',
+            'must_cin' => 'Must cin',
+            'must_cout' => 'Must cout',
+            'att_time' => 'Att time',
+            'member_id' => 'Member',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

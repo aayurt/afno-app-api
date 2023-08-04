@@ -17,3 +17,6 @@ import './student';
 import './student-class';
 import './student-type';
 import './board-member';
+import './join-leave-student-history';
+import './join-leave-member-history';
+import './member-attendance';

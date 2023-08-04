@@ -484,3 +484,66 @@ $factory->define(App\Models\Member::class, static function (Faker\Generator $fak
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\JoinLeaveStudentHistory::class, static function (Faker\Generator $faker) {
+    return [
+        'status' => $faker->sentence,
+        'joining_date' => $faker->date(),
+        'leaving_date' => $faker->date(),
+        'student_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\JoinLeaveMemberHistory::class, static function (Faker\Generator $faker) {
+    return [
+        'status' => $faker->sentence,
+        'joining_date' => $faker->date(),
+        'leaving_date' => $faker->date(),
+        'member_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MemberAttendance::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MemberAttendance::class, static function (Faker\Generator $faker) {
+    return [
+        'date' => $faker->date(),
+        'clock_in' => $faker->time(),
+        'clock_out' => $faker->time(),
+        'member_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\MemberAttendance::class, static function (Faker\Generator $faker) {
+    return [
+        'date' => $faker->date(),
+        'clock_in' => $faker->time(),
+        'clock_out' => $faker->time(),
+        'early' => $faker->time(),
+        'must_cin' => $faker->boolean(),
+        'must_cout' => $faker->boolean(),
+        'att_time' => $faker->time(),
+        'member_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

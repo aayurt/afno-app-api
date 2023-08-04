@@ -117087,6 +117087,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _student_class__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./student-class */ "./resources/js/admin/student-class/index.js");
 /* harmony import */ var _student_type__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./student-type */ "./resources/js/admin/student-type/index.js");
 /* harmony import */ var _board_member__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./board-member */ "./resources/js/admin/board-member/index.js");
+/* harmony import */ var _join_leave_student_history__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./join-leave-student-history */ "./resources/js/admin/join-leave-student-history/index.js");
+/* harmony import */ var _join_leave_member_history__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./join-leave-member-history */ "./resources/js/admin/join-leave-member-history/index.js");
+/* harmony import */ var _member_attendance__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./member-attendance */ "./resources/js/admin/member-attendance/index.js");
 
 
 
@@ -117104,6 +117107,129 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/join-leave-member-history/Form.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/admin/join-leave-member-history/Form.js ***!
+  \**************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('join-leave-member-history-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        status: '',
+        joining_date: '',
+        leaving_date: '',
+        member_id: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/join-leave-member-history/Listing.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/admin/join-leave-member-history/Listing.js ***!
+  \*****************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('join-leave-member-history-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/join-leave-member-history/index.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/admin/join-leave-member-history/index.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/join-leave-member-history/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/join-leave-member-history/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/join-leave-student-history/Form.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/admin/join-leave-student-history/Form.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('join-leave-student-history-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        status: '',
+        joining_date: '',
+        leaving_date: '',
+        student_id: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/join-leave-student-history/Listing.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/admin/join-leave-student-history/Listing.js ***!
+  \******************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('join-leave-student-history-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/join-leave-student-history/index.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/admin/join-leave-student-history/index.js ***!
+  \****************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/join-leave-student-history/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/join-leave-student-history/Form.js");
 
 
 
@@ -117165,6 +117291,71 @@ Vue.component('lineage-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/lineage/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/lineage/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/member-attendance/Form.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/member-attendance/Form.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component("member-attendance-form", {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ["members"],
+  data: function data() {
+    return {
+      form: {
+        date: "",
+        clock_in: "",
+        clock_out: "",
+        early: "",
+        must_cin: false,
+        must_cout: false,
+        att_time: "",
+        member_id: ""
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/member-attendance/Listing.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/member-attendance/Listing.js ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('member-attendance-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/member-attendance/index.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/admin/member-attendance/index.js ***!
+  \*******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/member-attendance/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/member-attendance/Form.js");
 
 
 

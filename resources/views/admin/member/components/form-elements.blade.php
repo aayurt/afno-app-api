@@ -81,7 +81,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('member_category_id'), 'has-success': fields.member_category_id && fields.member_category_id.valid }">
     <label for="member_category_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.member.columns.member_category_id') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <select class="form-control" name="member_category_id" id="member_category_id" v-model="form.member_category_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('member_category_id'), 'form-control-success': fields.member_category_id && fields.member_category_id.valid}">
+        <select class="form-control" name="member_category_id" id="member_category_id" v-model="form.member_category_id" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('member_category_id'), 'form-control-success': fields.member_category_id && fields.member_category_id.valid}">
             @foreach($memberCategories as $category )
             <option value="{{$category->id}}">{{ $category->title}}</option>
             @endforeach
