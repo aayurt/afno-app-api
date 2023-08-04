@@ -20,7 +20,8 @@
                                     <div class="col col-sm-7 form-group">
                                     <form action="member-attendances/import-attendance" method="post" enctype="multipart/form-data">
     @csrf
-    <input type="file" name="file">
+    <input type="file" name="file" accept=".xlsx">
+
     <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>&nbsp; Import Member Attendances</button>
 
 </form>
