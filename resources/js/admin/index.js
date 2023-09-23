@@ -20,3 +20,6 @@ import './board-member';
 import './join-leave-student-history';
 import './join-leave-member-history';
 import './member-attendance';
+import './archive-category';
+import './archive-subcategory';
+import './archive';

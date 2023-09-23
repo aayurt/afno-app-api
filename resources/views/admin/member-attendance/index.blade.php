@@ -17,16 +17,23 @@
                         <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/member-attendances/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.member-attendance.actions.create') }}</a>
                     </div>
                     <div class="row justify-content-md-between">
-                                    <div class="col col-sm-7 form-group">
-                                    <form action="member-attendances/import-attendance" method="post" enctype="multipart/form-data">
-    @csrf
-    <input type="file" name="file" accept=".xlsx">
+                    <div class="col ">
+    <form action="member-attendances/import-attendance" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="row">
+            <div class="form-group  ml-5">
+                <input type="file" name="file" id="file" accept=".xlsx" required>
+            </div>
 
-    <button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>&nbsp; Import Member Attendances</button>
-
-</form>
-                    
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-upload"></i>&nbsp; Import Member Attendances
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
+
 </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">

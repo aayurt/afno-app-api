@@ -1492,5 +1492,192 @@ return [
         ],
     ],
 
+    'archive-category' => [
+        'title' => 'Archive Categories',
+
+        'actions' => [
+            'index' => 'Archive Categories',
+            'create' => 'New Archive Category',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            
+        ],
+    ],
+
+    'archive-category' => [
+        'title' => 'Archive Categories',
+
+        'actions' => [
+            'index' => 'Archive Categories',
+            'create' => 'New Archive Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            
+        ],
+    ],
+
+    'archive-subcategory' => [
+        'title' => 'Archive Subcategories',
+
+        'actions' => [
+            'index' => 'Archive Subcategories',
+            'create' => 'New Archive Subcategory',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'description' => 'Description',
+            'archive_category_id' => 'Archive category',
+            
+        ],
+    ],
+
+    'archive' => [
+        'title' => 'Archives',
+
+        'actions' => [
+            'index' => 'Archives',
+            'create' => 'New Archive',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'body' => 'Body',
+            'archive_subcategory_id' => 'Archive subcategory',
+            'enabled' => 'Enabled',
+            'public' => 'Public',
+            
+        ],
+    ],
+
+    'archive-category' => [
+        'title' => 'Archive Categories',
+
+        'actions' => [
+            'index' => 'Archive Categories',
+            'create' => 'New Archive Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            
+        ],
+    ],
+
+    'archive-subcategory' => [
+        'title' => 'Archive Subcategories',
+
+        'actions' => [
+            'index' => 'Archive Subcategories',
+            'create' => 'New Archive Subcategory',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'description' => 'Description',
+            'archive_category_id' => 'Archive category',
+            
+        ],
+    ],
+
+    'archive' => [
+        'title' => 'Archives',
+
+        'actions' => [
+            'index' => 'Archives',
+            'create' => 'New Archive',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'body' => 'Body',
+            'archive_subcategory_id' => 'Archive subcategory',
+            'enabled' => 'Enabled',
+            'public' => 'Public',
+            
+        ],
+    ],
+
+    'archive-category' => [
+        'title' => 'Archive Categories',
+
+        'actions' => [
+            'index' => 'Archive Categories',
+            'create' => 'New Archive Category',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            
+        ],
+    ],
+
+    'archive-subcategory' => [
+        'title' => 'Archive Subcategories',
+
+        'actions' => [
+            'index' => 'Archive Subcategories',
+            'create' => 'New Archive Subcategory',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            'archive_category_id' => 'Archive category',
+            
+        ],
+    ],
+
+    'archive' => [
+        'title' => 'Archives',
+
+        'actions' => [
+            'index' => 'Archives',
+            'create' => 'New Archive',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'body' => 'Body',
+            'archive_subcategory_id' => 'Archive subcategory',
+            'enabled' => 'Enabled',
+            'public' => 'Public',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

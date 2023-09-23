@@ -547,3 +547,75 @@ $factory->define(App\Models\MemberAttendance::class, static function (Faker\Gene
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ArchiveCategory::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'description' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ArchiveSubcategory::class, static function (Faker\Generator $faker) {
+    return [
+        'description' => $faker->text(),
+        'archive_category_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Archive::class, static function (Faker\Generator $faker) {
+    return [
+        'body' => $faker->text(),
+        'archive_subcategory_id' => $faker->randomNumber(5),
+        'enabled' => $faker->boolean(),
+        'public' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ArchiveCategory::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'description' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\ArchiveSubcategory::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'description' => $faker->text(),
+        'archive_category_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Archive::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'body' => $faker->text(),
+        'archive_subcategory_id' => $faker->randomNumber(5),
+        'enabled' => $faker->boolean(),
+        'public' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

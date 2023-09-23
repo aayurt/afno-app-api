@@ -515,3 +515,66 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('archive-categories')->name('archive-categories/')->group(static function() {
+            Route::get('/',                                             'ArchiveCategoriesController@index')->name('index');
+            Route::get('/create',                                       'ArchiveCategoriesController@create')->name('create');
+            Route::post('/',                                            'ArchiveCategoriesController@store')->name('store');
+            Route::get('/{archiveCategory}/edit',                       'ArchiveCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ArchiveCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archiveCategory}',                           'ArchiveCategoriesController@update')->name('update');
+            Route::delete('/{archiveCategory}',                         'ArchiveCategoriesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('archive-categories')->name('archive-categories/')->group(static function() {
+            Route::get('/',                                             'ArchiveCategoriesController@index')->name('index');
+            Route::get('/create',                                       'ArchiveCategoriesController@create')->name('create');
+            Route::post('/',                                            'ArchiveCategoriesController@store')->name('store');
+            Route::get('/{archiveCategory}/edit',                       'ArchiveCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ArchiveCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archiveCategory}',                           'ArchiveCategoriesController@update')->name('update');
+            Route::delete('/{archiveCategory}',                         'ArchiveCategoriesController@destroy')->name('destroy');
+            Route::get('/export',                                       'ArchiveCategoriesController@export')->name('export');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('archive-subcategories')->name('archive-subcategories/')->group(static function() {
+            Route::get('/',                                             'ArchiveSubcategoriesController@index')->name('index');
+            Route::get('/create',                                       'ArchiveSubcategoriesController@create')->name('create');
+            Route::post('/',                                            'ArchiveSubcategoriesController@store')->name('store');
+            Route::get('/{archiveSubcategory}/edit',                    'ArchiveSubcategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ArchiveSubcategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archiveSubcategory}',                        'ArchiveSubcategoriesController@update')->name('update');
+            Route::delete('/{archiveSubcategory}',                      'ArchiveSubcategoriesController@destroy')->name('destroy');
+            Route::get('/export',                                       'ArchiveSubcategoriesController@export')->name('export');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('archives')->name('archives/')->group(static function() {
+            Route::get('/',                                             'ArchivesController@index')->name('index');
+            Route::get('/create',                                       'ArchivesController@create')->name('create');
+            Route::post('/',                                            'ArchivesController@store')->name('store');
+            Route::get('/{archive}/edit',                               'ArchivesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ArchivesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archive}',                                   'ArchivesController@update')->name('update');
+            Route::delete('/{archive}',                                 'ArchivesController@destroy')->name('destroy');
+            Route::get('/export',                                       'ArchivesController@export')->name('export');
+        });
+    });
+});

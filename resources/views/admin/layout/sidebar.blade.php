@@ -21,6 +21,9 @@
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/join-leave-student-histories') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.join-leave-student-history.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/join-leave-member-histories') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.join-leave-member-history.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/member-attendances') }}"><i class="nav-icon icon-globe"></i> {{ trans('admin.member-attendance.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/archive-categories') }}"><i class="nav-icon icon-book-open"></i> {{ trans('admin.archive-category.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/archive-subcategories') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.archive-subcategory.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/archives') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.archive.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
