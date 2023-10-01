@@ -16,7 +16,7 @@ class CreateArchiveTable extends Migration
         Schema::create('archives', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('body');
+            $table->text('body')->nullable();
             $table->unsignedInteger('archive_subcategory_id');
             $table->foreign('archive_subcategory_id')
                 ->references('id')

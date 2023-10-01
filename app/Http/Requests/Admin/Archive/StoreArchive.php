@@ -27,19 +27,19 @@ class StoreArchive extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
-            'body' => ['required', 'string'],
+            'body' => ['nullable', 'string'],
             'archive_subcategory_id' => ['required', 'integer'],
             'enabled' => ['required', 'boolean'],
             'public' => ['required', 'boolean'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

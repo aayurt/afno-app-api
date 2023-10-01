@@ -32,4 +32,8 @@ class ArchiveSubcategory extends Model
     {
         return $this->belongsTo(ArchiveCategory::class);
     }
+    public function archives()
+    {
+        return $this->hasMany(Archive::class);
+    }
 }

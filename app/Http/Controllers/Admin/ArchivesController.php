@@ -10,8 +10,10 @@ use App\Http\Requests\Admin\Archive\IndexArchive;
 use App\Http\Requests\Admin\Archive\StoreArchive;
 use App\Http\Requests\Admin\Archive\UpdateArchive;
 use App\Models\Archive;
+use App\Models\ArchiveCategory;
 use App\Models\ArchiveSubcategory;
 use Brackets\AdminListing\Facades\AdminListing;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -205,5 +207,26 @@ class ArchivesController extends Controller
     public function export(): ?BinaryFileResponse
     {
         return Excel::download(app(ArchivesExport::class), 'archives.xlsx');
+    }
+
+
+    public function latestArchives()
+    {
+        $archiveCategories = ArchiveCategory::with([
+            'archiveSubcategories' => function ($query) {
+                $query->with([
+                    'archives' => function ($query) {
+                        $query->with(["media"])->where('enabled', '=', true);
+                    }
+                ]);
+            }
+        ])
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+
+        return response()->json([
+            'response' => 'success',
+            'archiveCategories' => $archiveCategories,
+        ]);
     }
 }

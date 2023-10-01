@@ -34,3 +34,6 @@ FOR GENERATION ADMIN
             -  in the js admin add the props
             -  in view blade. you can use the prop value with the help of :value type which can then be used.
         - for the view with transalctions add locales
+
+
+brew list | grep php

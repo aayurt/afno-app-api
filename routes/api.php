@@ -39,4 +39,5 @@ Route::group([
     Route::get('getAffiliatedCategory/{id}/{lang}', 'PostsController@showPostDifferentCategory');
     Route::get('postLatest/{lang}', 'PostsController@latestPost');
     Route::get('e_ad/{page}/{direction}', 'AdsController@ads');
+    Route::get('archiveCategories', 'ArchivesController@latestArchives');
 });

@@ -27,11 +27,11 @@ class UpdateArchive extends FormRequest
     {
         return [
             'title' => ['sometimes', 'string'],
-            'body' => ['sometimes', 'string'],
+            'body' => ['nullable', 'string'],
             'archive_subcategory_id' => ['sometimes', 'integer'],
             'enabled' => ['sometimes', 'boolean'],
             'public' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 
