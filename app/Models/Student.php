@@ -72,4 +72,14 @@ class Student extends Model implements HasMedia
     {
         return url('/admin/students/' . $this->getKey());
     }
+
+
+    public function studentType()
+    {
+        return $this->belongsTo(StudentType::class);
+    }
+    public function studentClass()
+    {
+        return $this->belongsTo(StudentClass::class);
+    }
 }

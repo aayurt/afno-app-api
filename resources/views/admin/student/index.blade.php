@@ -51,7 +51,7 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.student.columns.id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.student.columns.name') }}</th>
-                                        <th is='sortable' :column="'ordination_name'">{{ trans('admin.student.columns.ordination_name') }}</th>
+                                        <!-- <th is='sortable' :column="'ordination_name'">{{ trans('admin.student.columns.ordination_name') }}</th> -->
                                         <th is='sortable' :column="'address'">{{ trans('admin.student.columns.address') }}</th>
                                         <th is='sortable' :column="'dob'">{{ trans('admin.student.columns.dob') }}</th>
                                         <th is='sortable' :column="'gender'">{{ trans('admin.student.columns.gender') }}</th>
@@ -85,15 +85,27 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.name }}</td>
-                                        <td>@{{ item.ordination_name }}</td>
+                                        <!-- <td>@{{ item.ordination_name }}</td> -->
                                         <td>@{{ item.address }}</td>
                                         <td>@{{ item.dob | date }}</td>
                                         <td>@{{ item.gender }}</td>
                                         <td>@{{ item.email }}</td>
                                         <td>@{{ item.phone_no }}</td>
                                         <td>@{{ item.roll_no }}</td>
-                                        <td>@{{ item.student_type_id }}</td>
-                                        <td>@{{ item.student_class_id }}</td>
+                                        <td>
+        @foreach($types as $type)
+
+        <div v-if="item.student_type_id =={{$type->id}}">{{$type->title}}</div>
+
+        @endforeach
+    </td>
+
+    <td>
+        @foreach($classes as $class)
+        <div v-if="item.student_class_id =={{$class->id}}">{{$class->title}}</div>
+        @endforeach
+    </td>
+                                
                                         
                                         <td>
                                             <div class="row no-gutters">

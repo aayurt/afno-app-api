@@ -55,7 +55,7 @@
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.member.columns.enabled') }}</th>
                                         <th is='sortable' :column="'member_category_id'">{{ trans('admin.member.columns.member_category_id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.member.columns.name') }}</th>
-                                        <th is='sortable' :column="'ordination_name'">{{ trans('admin.member.columns.ordination_name') }}</th>
+                                        <!-- <th is='sortable' :column="'ordination_name'">{{ trans('admin.member.columns.ordination_name') }}</th> -->
                                         <th is='sortable' :column="'address'">{{ trans('admin.member.columns.address') }}</th>
                                         <th is='sortable' :column="'dob'">{{ trans('admin.member.columns.dob') }}</th>
                                         <th is='sortable' :column="'gender'">{{ trans('admin.member.columns.gender') }}</th>
@@ -101,7 +101,7 @@
                                         @endforeach
                                     </td>
                                         <td>@{{ item.name }}</td>
-                                        <td>@{{ item.ordination_name }}</td>
+                                        <!-- <td>@{{ item.ordination_name }}</td> -->
                                         <td>@{{ item.address }}</td>
                                         <td>@{{ item.dob | date }}</td>
                                         <td>@{{ item.gender }}</td>
