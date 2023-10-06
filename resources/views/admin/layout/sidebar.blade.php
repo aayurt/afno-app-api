@@ -29,6 +29,10 @@
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/archive-categories') }}"><i class="nav-icon icon-book-open"></i> {{ trans('admin.archive-category.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/archive-subcategories') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.archive-subcategory.title') }}</a></li>
            <li class="nav-item border-bottom mb-1"><a class="nav-link" href="{{ url('admin/archives') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.archive.title') }}</a></li>
+           <li class="nav-title">Activities</li>
+
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/activities') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.activity.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/sub-activities') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.sub-activity.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

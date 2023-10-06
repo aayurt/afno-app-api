@@ -619,3 +619,33 @@ $factory->define(App\Models\Archive::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Activity::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'subtitle' => $faker->sentence,
+        'body' => $faker->text(),
+        'link' => $faker->sentence,
+        'fullWidth' => $faker->boolean(),
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SubActivity::class, static function (Faker\Generator $faker) {
+    return [
+        'activity_id' => $faker->randomNumber(5),
+        'title' => $faker->sentence,
+        'subtitle' => $faker->sentence,
+        'body' => $faker->text(),
+        'link' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

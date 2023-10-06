@@ -23,3 +23,5 @@ import './member-attendance';
 import './archive-category';
 import './archive-subcategory';
 import './archive';
+import './activity';
+import './sub-activity';

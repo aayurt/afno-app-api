@@ -1679,5 +1679,47 @@ return [
         ],
     ],
 
+    'activity' => [
+        'title' => 'Activities',
+
+        'actions' => [
+            'index' => 'Activities',
+            'create' => 'New Activity',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'subtitle' => 'Subtitle',
+            'body' => 'Body',
+            'link' => 'Link',
+            'fullWidth' => 'FullWidth',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'sub-activity' => [
+        'title' => 'Sub Activities',
+
+        'actions' => [
+            'index' => 'Sub Activities',
+            'create' => 'New Sub Activity',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'activity_id' => 'Activity',
+            'title' => 'Title',
+            'subtitle' => 'Subtitle',
+            'body' => 'Body',
+            'link' => 'Link',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

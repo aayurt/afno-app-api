@@ -578,3 +578,33 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('activities')->name('activities/')->group(static function() {
+            Route::get('/',                                             'ActivitiesController@index')->name('index');
+            Route::get('/create',                                       'ActivitiesController@create')->name('create');
+            Route::post('/',                                            'ActivitiesController@store')->name('store');
+            Route::get('/{activity}/edit',                              'ActivitiesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ActivitiesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{activity}',                                  'ActivitiesController@update')->name('update');
+            Route::delete('/{activity}',                                'ActivitiesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('sub-activities')->name('sub-activities/')->group(static function() {
+            Route::get('/',                                             'SubActivitiesController@index')->name('index');
+            Route::get('/create',                                       'SubActivitiesController@create')->name('create');
+            Route::post('/',                                            'SubActivitiesController@store')->name('store');
+            Route::get('/{subActivity}/edit',                           'SubActivitiesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SubActivitiesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{subActivity}',                               'SubActivitiesController@update')->name('update');
+            Route::delete('/{subActivity}',                             'SubActivitiesController@destroy')->name('destroy');
+        });
+    });
+});
