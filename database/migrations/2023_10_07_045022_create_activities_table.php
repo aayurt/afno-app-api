@@ -18,6 +18,7 @@ class CreateActivitiesTable extends Migration
             $table->jsonb('title')->nullable();
             $table->jsonb('subtitle')->nullable();
             $table->jsonb('body')->nullable();
+            $table->integer('sortNumber')->unique();
             $table->string('link')->nullable();
             $table->boolean('fullWidth')->default(false);
             $table->boolean('enabled')->default(true);

@@ -35,6 +35,7 @@ class StoreActivity extends TranslatableFormRequest
             'enabled' => ['required', 'boolean'],
             'textTop' => ['required', 'boolean'],
             'textDark' => ['required', 'boolean'],
+            'sortNumber' => ['required', Rule::unique('activities', 'sortNumber'), 'integer'],
 
         ];
     }

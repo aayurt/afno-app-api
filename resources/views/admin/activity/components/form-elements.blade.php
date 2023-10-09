@@ -75,6 +75,16 @@
     </div>
 </div>
 
+
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('sortNumber'), 'has-success': fields.sortNumber && fields.sortNumber.valid }">
+    <label for="sortNumber" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.activity.columns.sortNumber') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.sortNumber" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('sortNumber'), 'form-control-success': fields.sortNumber && fields.sortNumber.valid}" id="sortNumber" name="sortNumber" placeholder="{{ trans('admin.activity.columns.sortNumber') }}">
+        <div v-if="errors.has('sortNumber')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('sortNumber') }}</div>
+    </div>
+</div>
+
+
 <div class="form-check row" :class="{'has-danger': errors.has('fullWidth'), 'has-success': fields.fullWidth && fields.fullWidth.valid }">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
         <input class="form-check-input" id="fullWidth" type="checkbox" v-model="form.fullWidth" v-validate="''" data-vv-name="fullWidth"  name="fullWidth_fake_element">

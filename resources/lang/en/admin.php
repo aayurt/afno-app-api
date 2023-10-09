@@ -1834,5 +1834,44 @@ return [
         ],
     ],
 
+    'activity' => [
+        'title' => 'Activities',
+
+        'actions' => [
+            'index' => 'Activities',
+            'create' => 'New Activity',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'activity' => [
+        'title' => 'Activities',
+
+        'actions' => [
+            'index' => 'Activities',
+            'create' => 'New Activity',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'subtitle' => 'Subtitle',
+            'body' => 'Body',
+            'sortNumber' => 'SortNumber',
+            'link' => 'Link',
+            'fullWidth' => 'FullWidth',
+            'enabled' => 'Enabled',
+            'textTop' => 'TextTop',
+            'textDark' => 'TextDark',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -25,7 +25,7 @@ class IndexActivity extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,link,fullWidth,enabled,textTop,textDark|nullable',
+            'orderBy' => 'in:id,sortNumber,link,fullWidth,enabled,textTop,textDark|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

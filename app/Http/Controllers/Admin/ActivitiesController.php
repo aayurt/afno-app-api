@@ -53,8 +53,10 @@ class ActivitiesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.activity.index', ['data' => $data,
-        'subActivities' => SubActivity::all(),]);
+        return view('admin.activity.index', [
+            'data' => $data,
+            'subActivities' => SubActivity::all(),
+        ]);
     }
 
     /**
@@ -67,7 +69,7 @@ class ActivitiesController extends Controller
     {
         $this->authorize('admin.activity.create');
 
-        return view('admin.activity.create',[
+        return view('admin.activity.create', [
             'subActivities' => SubActivity::all(),
         ]);
     }
@@ -176,7 +178,7 @@ class ActivitiesController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyActivity $request) : Response
+    public function bulkDestroy(BulkDestroyActivity $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])

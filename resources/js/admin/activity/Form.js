@@ -7,8 +7,9 @@ Vue.component("activity-form", {
             form: {
                 title: this.getLocalizedFormDefaults(),
                 subtitle: this.getLocalizedFormDefaults(),
-                body: "",
+                body: this.getLocalizedFormDefaults(),
                 link: "",
+                sortNumber: "",
                 fullWidth: false,
                 enabled: false,
                 textTop: false,

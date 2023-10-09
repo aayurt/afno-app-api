@@ -23,6 +23,7 @@ class Activity extends Model implements HasMedia
         'subtitle',
         'body',
         'link',
+        'sortNumber',
         'fullWidth',
         'enabled',
         'textTop',

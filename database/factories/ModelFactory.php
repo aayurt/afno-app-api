@@ -698,3 +698,21 @@ $factory->define(App\Models\SubActivity::class, static function (Faker\Generator
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Activity::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->text(),
+        'subtitle' => $faker->text(),
+        'body' => $faker->text(),
+        'sortNumber' => $faker->randomNumber(5),
+        'link' => $faker->sentence,
+        'fullWidth' => $faker->boolean(),
+        'enabled' => $faker->boolean(),
+        'textTop' => $faker->boolean(),
+        'textDark' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

@@ -29,6 +29,7 @@ class UpdateActivity extends TranslatableFormRequest
         return [
             'link' => ['nullable', 'string'],
             'fullWidth' => ['sometimes', 'boolean'],
+            'sortNumber' => ['sometimes', Rule::unique('activities', 'sortNumber')->ignore($this->activity->getKey(), $this->activity->getKeyName()), 'integer'],
             'enabled' => ['sometimes', 'boolean'],
             'textTop' => ['sometimes', 'boolean'],
             'textDark' => ['sometimes', 'boolean'],
