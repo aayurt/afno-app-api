@@ -20,6 +20,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use App;
 
 class ActivitiesController extends Controller
 {
@@ -191,5 +192,30 @@ class ActivitiesController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+
+    public function latestActivities($lang)
+    {
+        App::setLocale($lang);
+        $activities = Activity::with([ 
+                'subActivities' => function ($query) {
+                    $query->with(["media"])->where('enabled', '=', true);
+                },'media'
+            ]
+            )
+            ->where(
+                "enabled",
+                "=",
+                1
+            )
+            ->orderBy('sortNumber', 'DESC')
+            ->get();
+
+        
+        return response()->json([
+            'response' => "success",
+            'data' => $activities,
+        ]);
     }
 }

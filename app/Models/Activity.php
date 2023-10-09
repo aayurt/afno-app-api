@@ -74,4 +74,9 @@ class Activity extends Model implements HasMedia
             ->height(1080)
             ->performOnCollections('gallery');
     }
+
+    public function subActivities()
+    {
+        return $this->hasMany(SubActivity::class);
+    }
 }

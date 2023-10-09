@@ -40,4 +40,5 @@ Route::group([
     Route::get('postLatest/{lang}', 'PostsController@latestPost');
     Route::get('e_ad/{page}/{direction}', 'AdsController@ads');
     Route::get('archiveCategories', 'ArchivesController@latestArchives');
+    Route::get('activities/{lang}', 'ActivitiesController@latestActivities');
 });
