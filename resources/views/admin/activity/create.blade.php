@@ -10,6 +10,8 @@
         <activity-form
             :action="'{{ url('admin/activities') }}'"
             v-cloak
+            :locales="{{ json_encode($locales) }}" 
+            :send-empty-locales="false"
             inline-template>
 
             <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action" novalidate>

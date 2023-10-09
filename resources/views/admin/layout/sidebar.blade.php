@@ -17,10 +17,10 @@
            <li class="nav-item border-bottom mb-1"><a class="nav-link" href="{{ url('admin/member-attendances') }}"><i class="nav-icon icon-globe"></i> {{ trans('admin.member-attendance.title') }}</a></li>
            <li class="nav-title">Other</li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/lineages') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.lineage.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/affiliated-groups') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.affiliated-group.title') }}</a></li>
-           <li class="nav-title">Students</li>
+           <li class="nav-item "><a class="nav-link" href="{{ url('admin/affiliated-categories') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.affiliated-category.title') }}</a></li>
+           <li class="nav-item border-bottom mb-1"><a class="nav-link" href="{{ url('admin/affiliated-groups') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.affiliated-group.title') }}</a></li>
+           <li class="nav-title">Monks and Nuns</li>
 
-           <li class="nav-item border-bottom mb-1"><a class="nav-link" href="{{ url('admin/affiliated-categories') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.affiliated-category.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/students') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.student.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/student-classes') }}"><i class="nav-icon icon-book-open"></i> {{ trans('admin.student-class.title') }}</a></li>
            <li class="nav-item "><a class="nav-link" href="{{ url('admin/student-types') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.student-type.title') }}</a></li>

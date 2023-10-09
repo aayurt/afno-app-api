@@ -27,11 +27,14 @@ class UpdateSubActivity extends FormRequest
     {
         return [
             'activity_id' => ['nullable', 'integer'],
-            'title' => ['sometimes', 'string'],
+            'title' => ['nullable', 'string'],
             'subtitle' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
             'link' => ['nullable', 'string'],
+            'fullWidth' => ['sometimes', 'boolean'],
             'enabled' => ['sometimes', 'boolean'],
+            'textTop' => ['sometimes', 'boolean'],
+            'textDark' => ['sometimes', 'boolean'],
             
         ];
     }

@@ -46,8 +46,6 @@ class Post extends Model implements HasMedia
         'location',
         'body',
         'sub_title',
-
-
     ];
 
     protected $appends = ['resource_url'];

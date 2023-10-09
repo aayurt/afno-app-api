@@ -25,9 +25,15 @@ class Activity extends Model implements HasMedia
         'link',
         'fullWidth',
         'enabled',
+        'textTop',
+        'textDark',
 
     ];
-
+    public $translatable = [
+        'title',
+        'subtitle',
+        'body',
+    ];
 
     protected $dates = [
         'created_at',

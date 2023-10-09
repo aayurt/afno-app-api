@@ -51,15 +51,16 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.sub-activity.columns.id') }}</th>
                                         <th is='sortable' :column="'activity_id'">{{ trans('admin.sub-activity.columns.activity_id') }}</th>
-                                        <th is='sortable' :column="'title'">{{ trans('admin.sub-activity.columns.title') }}</th>
-                                        <th is='sortable' :column="'subtitle'">{{ trans('admin.sub-activity.columns.subtitle') }}</th>
                                         <th is='sortable' :column="'link'">{{ trans('admin.sub-activity.columns.link') }}</th>
+                                        <th is='sortable' :column="'fullWidth'">{{ trans('admin.sub-activity.columns.fullWidth') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.sub-activity.columns.enabled') }}</th>
+                                        <th is='sortable' :column="'textTop'">{{ trans('admin.sub-activity.columns.textTop') }}</th>
+                                        <th is='sortable' :column="'textDark'">{{ trans('admin.sub-activity.columns.textDark') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="8">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="9">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/sub-activities')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -79,14 +80,9 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                    <td>
-                                        @foreach($activities as $activity)
-                                        <div v-if="item.activity_id =={{$activity->id}}">{{$activity->title}}</div>
-                                        @endforeach
-                                    </td>
-                                        <td>@{{ item.title }}</td>
-                                        <td>@{{ item.subtitle }}</td>
+                                        <td>@{{ item.activity_id }}</td>
                                         <td>@{{ item.link }}</td>
+                                        <td>@{{ item.fullWidth }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
@@ -94,6 +90,8 @@
                                             </label>
                                         </td>
 
+                                        <td>@{{ item.textTop }}</td>
+                                        <td>@{{ item.textDark }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">

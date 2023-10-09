@@ -25,7 +25,7 @@ class IndexSubActivity extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,activity_id,title,subtitle,link,enabled|nullable',
+            'orderBy' => 'in:id,activity_id,link,fullWidth,enabled,textTop,textDark|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

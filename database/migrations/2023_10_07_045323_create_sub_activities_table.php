@@ -17,11 +17,14 @@ class CreateSubActivitiesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('activity_id')->nullable();
             $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
-            $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->text('body')->nullable();
+            $table->jsonb('title')->nullable();
+            $table->jsonb('subtitle')->nullable();
+            $table->jsonb('body')->nullable();
             $table->string('link')->nullable();
+            $table->boolean('fullWidth')->default(false);
             $table->boolean('enabled')->default(true);
+            $table->boolean('textTop')->default(true);
+            $table->boolean('textDark')->default(true);
             $table->timestamps();
         });
     }

@@ -15,13 +15,14 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->text('body')->nullable();
+            $table->jsonb('title')->nullable();
+            $table->jsonb('subtitle')->nullable();
+            $table->jsonb('body')->nullable();
             $table->string('link')->nullable();
             $table->boolean('fullWidth')->default(false);
             $table->boolean('enabled')->default(true);
-
+            $table->boolean('textTop')->default(true);
+            $table->boolean('textDark')->default(true);
             $table->timestamps();
         });
     }

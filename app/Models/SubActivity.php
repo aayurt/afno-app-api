@@ -12,7 +12,10 @@ class SubActivity extends Model
         'subtitle',
         'body',
         'link',
+        'fullWidth',
         'enabled',
+        'textTop',
+        'textDark',
     
     ];
     

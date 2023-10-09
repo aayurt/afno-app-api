@@ -27,11 +27,14 @@ class StoreSubActivity extends FormRequest
     {
         return [
             'activity_id' => ['nullable', 'integer'],
-            'title' => ['required', 'string'],
+            'title' => ['nullable', 'string'],
             'subtitle' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
             'link' => ['nullable', 'string'],
+            'fullWidth' => ['required', 'boolean'],
             'enabled' => ['required', 'boolean'],
+            'textTop' => ['required', 'boolean'],
+            'textDark' => ['required', 'boolean'],
             
         ];
     }

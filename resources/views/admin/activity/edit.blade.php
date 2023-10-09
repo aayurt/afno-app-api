@@ -4,8 +4,10 @@
 
 @section('body')
 
-<div class="container-xl"> <activity-form :action="'{{ $activity->resource_url }}'" :data="{{ $activity->toJson() }}"
-    v-cloak inline-template> <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit"
+<div class="container-xl"> <activity-form :action="'{{ $activity->resource_url }}'" :data="{{ $activity->toJsonAllLocales() }}" 
+:locales="{{ json_encode($locales) }}" 
+            :send-empty-locales="false"   
+v-cloak inline-template> <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit"
     :action="action" novalidate>
     <div class="row">
     <div class="col">
