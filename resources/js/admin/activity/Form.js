@@ -11,9 +11,9 @@ Vue.component("activity-form", {
                 link: "",
                 sortNumber: "",
                 fullWidth: false,
-                enabled: false,
-                textTop: false,
-                textDark: false
+                enabled: true,
+                textTop: true,
+                textDark: true
             },
             mediaCollections: ["cover", "gallery", "pdf"]
         };
