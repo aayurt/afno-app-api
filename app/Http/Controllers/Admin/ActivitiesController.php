@@ -39,7 +39,7 @@ class ActivitiesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'subtitle', 'link', 'fullWidth', 'enabled'],
+            ['id', 'title', 'subtitle', 'link', 'fullWidth', 'enabled', 'textTop', 'textDark'],
 
             // set columns to searchIn
             ['id', 'title', 'subtitle', 'body', 'link']
@@ -198,12 +198,14 @@ class ActivitiesController extends Controller
     public function latestActivities($lang)
     {
         App::setLocale($lang);
-        $activities = Activity::with([ 
+        $activities = Activity::with(
+            [
                 'subActivities' => function ($query) {
                     $query->with(["media"])->where('enabled', '=', true);
-                },'media'
+                },
+                'media'
             ]
-            )
+        )
             ->where(
                 "enabled",
                 "=",
@@ -212,7 +214,7 @@ class ActivitiesController extends Controller
             ->orderBy('sortNumber', 'DESC')
             ->get();
 
-        
+
         return response()->json([
             'response' => "success",
             'data' => $activities,

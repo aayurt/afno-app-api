@@ -8,6 +8,7 @@ use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
 use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 use Brackets\Media\HasMedia\ProcessMediaTrait;
 use Brackets\Media\HasMedia\AutoProcessMediaTrait;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 
@@ -56,8 +57,7 @@ class Activity extends Model implements HasMedia
             ->maxNumberOfFiles(20);
         ;
 
-        $this->addMediaCollection('cover')
-            ->accepts('image/*');
+        $this->addMediaCollection('cover')->accepts('image/*');
 
         $this->addMediaCollection('gallery')
             ->accepts('image/*')
