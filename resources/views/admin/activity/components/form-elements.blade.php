@@ -98,7 +98,7 @@
 
 <div class="form-check row" :class="{'has-danger': errors.has('enabled'), 'has-success': fields.enabled && fields.enabled.valid }">
     <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
-        <input class="form-check-input" id="enabled" type="checkbox" v-model="form.enabled" v-validate="''" data-vv-name="enabled"  name="enabled_fake_element">
+        <input class="form-check-input" id="enabled" type="checkbox" v-model="form.enabled" v-validate="''" data-vv-name="enabled"  name="enabled_fake_elements">
         <label class="form-check-label" for="enabled">
             {{ trans('admin.activity.columns.enabled') }}
         </label>
