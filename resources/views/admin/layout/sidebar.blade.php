@@ -9,7 +9,7 @@
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/tags') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.tag.title') }}</a></li>
            <!-- <li class="nav-item"><a class="nav-link" href="{{ url('admin/ads') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.ad.title') }}</a></li> -->
            <li class="nav-item border-bottom mb-1"><a class="nav-link" href="{{ url('admin/roles') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.role.title') }}</a></li>
-           <li class="nav-title">Members</li>
+           <li class="nav-title">Staffs</li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/members') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.member.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/member-categories') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.member-category.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/branches') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.branch.title') }}</a></li>
