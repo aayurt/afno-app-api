@@ -12,6 +12,7 @@
            <li class="nav-title">Members</li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/members') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.member.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/member-categories') }}"><i class="nav-icon icon-magnet"></i> {{ trans('admin.member-category.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/branches') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.branch.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/join-leave-member-histories') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.join-leave-member-history.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/board-members') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.board-member.title') }}</a></li>
            <li class="nav-item border-bottom mb-1"><a class="nav-link" href="{{ url('admin/member-attendances') }}"><i class="nav-icon icon-globe"></i> {{ trans('admin.member-attendance.title') }}</a></li>
@@ -33,7 +34,6 @@
 
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/activities') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.activity.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/sub-activities') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.sub-activity.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/branches') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.branch.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
