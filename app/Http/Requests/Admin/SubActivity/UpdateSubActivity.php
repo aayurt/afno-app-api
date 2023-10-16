@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Admin\SubActivity;
 
+use Brackets\Translatable\TranslatableFormRequest;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateSubActivity extends FormRequest
+class UpdateSubActivity extends TranslatableFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +24,30 @@ class UpdateSubActivity extends FormRequest
      *
      * @return array
      */
-    public function rules(): array
+    public function translatableRules($locale): array
     {
         return [
-            'activity_id' => ['nullable', 'integer'],
             'title' => ['nullable', 'string'],
             'subtitle' => ['nullable', 'string'],
             'body' => ['nullable', 'string'],
+           
+            
+        ];
+    }
+    public function untranslatableRules(): array
+    {
+        return [
+            // 'title' => ['nullable', 'string'],
+            // 'subtitle' => ['nullable', 'string'],
+            // 'body' => ['nullable', 'string'],
+            'activity_id' => ['nullable', 'integer'],
+
             'link' => ['nullable', 'string'],
             'fullWidth' => ['sometimes', 'boolean'],
             'enabled' => ['sometimes', 'boolean'],
             'textTop' => ['sometimes', 'boolean'],
             'textDark' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 

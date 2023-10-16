@@ -80,18 +80,38 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                        <td>@{{ item.activity_id }}</td>
+                                    <td>
+                                        @foreach($activities as $activity)
+
+                                        <div v-if="item.activity_id =={{$activity->id}}">{{$activity->title}}</div>
+
+                                        @endforeach
+                                    </td>
                                         <td>@{{ item.link }}</td>
-                                        <td>@{{ item.fullWidth }}</td>
+                                        <td>
+                                            <label class="switch switch-3d switch-success">
+                                                <input type="checkbox" class="switch-input" v-model="collection[index].fullWidth" @change="toggleSwitch(item.resource_url, 'fullWidth', collection[index])">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                        </td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
                                                 <span class="switch-slider"></span>
                                             </label>
                                         </td>
-
-                                        <td>@{{ item.textTop }}</td>
-                                        <td>@{{ item.textDark }}</td>
+                                        <td>
+                                            <label class="switch switch-3d switch-success">
+                                                <input type="checkbox" class="switch-input" v-model="collection[index].textTop" @change="toggleSwitch(item.resource_url, 'textTop', collection[index])">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="switch switch-3d switch-success">
+                                                <input type="checkbox" class="switch-input" v-model="collection[index].textDark" @change="toggleSwitch(item.resource_url, 'textDark', collection[index])">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                        </td>
                                         
                                         <td>
                                             <div class="row no-gutters">

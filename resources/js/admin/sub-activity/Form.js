@@ -6,16 +6,16 @@ Vue.component("sub-activity-form", {
         return {
             form: {
                 activity_id: "",
-                title: "",
-                subtitle: "",
-                body: "",
+                title: this.getLocalizedFormDefaults(),
+                subtitle: this.getLocalizedFormDefaults(),
+                body: this.getLocalizedFormDefaults(),
                 link: "",
                 fullWidth: false,
-                enabled: false,
-                textTop: false,
-                textDark: false
-            }
+                enabled: true,
+                textTop: true,
+                textDark: true
+            },
+            mediaCollections: ["cover", "gallery", "pdf"]
         };
-    },
-    mediaCollections: ["cover", "gallery", "pdf"]
+    }
 });

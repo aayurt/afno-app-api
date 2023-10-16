@@ -20,9 +20,6 @@ class Activity extends Model implements HasMedia
     use ProcessMediaTrait;
     use AutoProcessMediaTrait;
     protected $fillable = [
-        'title',
-        'subtitle',
-        'body',
         'link',
         'sortNumber',
         'fullWidth',

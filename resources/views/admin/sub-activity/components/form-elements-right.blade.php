@@ -1,30 +1,30 @@
-@isset($member)
+@isset($subActivity)
 <div class="card">
     @include('brackets/admin-ui::admin.includes.media-uploader', [
-    'mediaCollection' => app(App\Models\Member::class)->getMediaCollection('cover'),
-    'media' => $member->getThumbs200ForCollection('cover'),
+    'mediaCollection' => app(App\Models\SubActivity::class)->getMediaCollection('cover'),
+    'media' => $subActivity->getThumbs200ForCollection('cover'),
     'label' => 'Cover'
     ])
 </div>
 
 <div class="card">
     @include('brackets/admin-ui::admin.includes.media-uploader', [
-    'mediaCollection' => app(App\Models\Member::class)->getMediaCollection('gallery'),
-    'media' => $member->getThumbs200ForCollection('gallery'),
+    'mediaCollection' => app(App\Models\SubActivity::class)->getMediaCollection('gallery'),
+    'media' => $subActivity->getThumbs200ForCollection('gallery'),
     'label' => 'Gallery'
     ])
 </div>
 @else
 <div class="card">
     @include('brackets/admin-ui::admin.includes.media-uploader', [
-    'mediaCollection' => app(App\Models\Member::class)->getMediaCollection('cover'),
+    'mediaCollection' => app(App\Models\SubActivity::class)->getMediaCollection('cover'),
     'label' => 'Cover'
     ])
 </div>
 
 <div class="card">
     @include('brackets/admin-ui::admin.includes.media-uploader', [
-    'mediaCollection' => app(App\Models\Member::class)->getMediaCollection('gallery'),
+    'mediaCollection' => app(App\Models\SubActivity::class)->getMediaCollection('gallery'),
     'label' => 'Gallery'
     ])
 </div>

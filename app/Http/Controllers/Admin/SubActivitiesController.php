@@ -38,7 +38,7 @@ class SubActivitiesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'activity_id', 'title', 'subtitle', 'link', 'enabled'],
+            ['id', 'activity_id', 'title', 'subtitle', 'link', 'enabled','fullWidth', 'enabled', 'textTop', 'textDark'],
 
             // set columns to searchIn
             ['id', 'title', 'subtitle', 'body', 'link']
