@@ -1873,5 +1873,37 @@ return [
         ],
     ],
 
+    'branch' => [
+        'title' => 'Branches',
+
+        'actions' => [
+            'index' => 'Branches',
+            'create' => 'New Branch',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'branch' => [
+        'title' => 'Branches',
+
+        'actions' => [
+            'index' => 'Branches',
+            'create' => 'New Branch',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'description' => 'Description',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

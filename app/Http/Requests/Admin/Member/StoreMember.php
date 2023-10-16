@@ -39,6 +39,7 @@ class StoreMember extends TranslatableFormRequest
         return [
             'enabled' => ['required', 'boolean'],
             'member_category_id' => ['nullable', 'integer'],
+            'branch_id' => ['nullable', 'integer'],
             'msg' => ['nullable', 'string'],
             'name' => ['required', 'string'],
             'ordination_name' => ['nullable', 'string'],

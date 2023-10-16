@@ -12,6 +12,7 @@ Vue.component("member-form", {
                 description: this.getLocalizedFormDefaults(),
                 enabled: false,
                 member_category_id: "",
+                branch_id: "",
                 msg: "",
                 name: "",
                 ordination_name: "",

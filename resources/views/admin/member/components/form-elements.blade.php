@@ -92,6 +92,20 @@
 </div>
 
 
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('branch_id'), 'has-success': fields.branch_id && fields.branch_id.valid }">
+    <label for="branch_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Branch</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <select class="form-control" name="branch_id" id="branch_id" v-model="form.branch_id" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('branch_id'), 'form-control-success': fields.branch_id && fields.branch_id.valid}">
+            @foreach($branches as $branch )
+            <option value="{{$branch->id}}">{{ $branch->title}}</option>
+            @endforeach
+
+        </select>
+        <div v-if="errors.has('branch_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('branch_id') }}</div>
+    </div>
+</div>
+
+
 <!-- <div class="form-group row align-items-center" :class="{'has-danger': errors.has('msg'), 'has-success': fields.msg && fields.msg.valid }">
     <label for="msg" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.member.columns.msg') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">

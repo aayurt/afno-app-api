@@ -32,6 +32,7 @@ class Member extends Model implements HasMedia
         'gender',
         'email',
         'phone_no',
+        'branch_id'
 
 
     ];
@@ -82,5 +83,9 @@ class Member extends Model implements HasMedia
     public function memberCategories()
     {
         return $this->belongsTo(MemberCategory::class);
+    }
+    public function memberBranches()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

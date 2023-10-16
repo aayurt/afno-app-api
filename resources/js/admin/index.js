@@ -25,3 +25,4 @@ import './archive-subcategory';
 import './archive';
 import './activity';
 import './sub-activity';
+import './branch';

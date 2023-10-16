@@ -33,6 +33,7 @@
 
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/activities') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.activity.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/sub-activities') }}"><i class="nav-icon icon-umbrella"></i> {{ trans('admin.sub-activity.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/branches') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.branch.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

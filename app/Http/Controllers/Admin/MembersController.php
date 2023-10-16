@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Member\DestroyMember;
 use App\Http\Requests\Admin\Member\IndexMember;
 use App\Http\Requests\Admin\Member\StoreMember;
 use App\Http\Requests\Admin\Member\UpdateMember;
+use App\Models\Branch;
 use App\Models\Member;
 use App\Models\MemberCategory;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -38,7 +39,7 @@ class MembersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'enabled', 'member_category_id', 'msg', 'name', 'ordination_name', 'address', 'dob', 'gender', 'email', 'phone_no', 'member_category_id'],
+            ['id', 'enabled', 'branch_id','member_category_id', 'msg', 'name', 'ordination_name', 'address', 'dob', 'gender', 'email', 'phone_no', 'member_category_id'],
 
             // set columns to searchIn
             ['id', 'title', 'short_description', 'description', 'msg', 'name', 'ordination_name', 'address', 'gender', 'email', 'phone_no', 'member_category_id'],
@@ -64,7 +65,8 @@ class MembersController extends Controller
 
         return view('admin.member.index', [
             'data' => $data,
-            'memberCategories' => MemberCategory::all()
+            'memberCategories' => MemberCategory::all(),
+            'branches' => Branch::all(),
         ]);
     }
 
@@ -79,7 +81,9 @@ class MembersController extends Controller
         $this->authorize('admin.member.create');
 
         return view('admin.member.create', [
-            'memberCategories' => MemberCategory::all()
+            'memberCategories' => MemberCategory::all(),
+            'branches' => Branch::all(),
+
         ]);
     }
 
@@ -132,7 +136,9 @@ class MembersController extends Controller
 
         return view('admin.member.edit', [
             'member' => $member,
-            'memberCategories' => MemberCategory::all()
+            'memberCategories' => MemberCategory::all(),
+            'branches' => Branch::all(),
+
         ]);
     }
 

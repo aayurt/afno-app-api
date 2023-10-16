@@ -608,3 +608,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('branches')->name('branches/')->group(static function() {
+            Route::get('/',                                             'BranchesController@index')->name('index');
+            Route::get('/create',                                       'BranchesController@create')->name('create');
+            Route::post('/',                                            'BranchesController@store')->name('store');
+            Route::get('/{branch}/edit',                                'BranchesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'BranchesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{branch}',                                    'BranchesController@update')->name('update');
+            Route::delete('/{branch}',                                  'BranchesController@destroy')->name('destroy');
+        });
+    });
+});

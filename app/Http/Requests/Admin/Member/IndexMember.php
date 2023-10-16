@@ -25,7 +25,7 @@ class IndexMember extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,enabled,member_category_id,msg,name,ordination_name,address,dob,gender,email,phone_no|nullable',
+            'orderBy' => 'in:id,enabled,member_category_id,branch_id,msg,name,ordination_name,address,dob,gender,email,phone_no|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -38,6 +38,7 @@ class UpdateMember extends TranslatableFormRequest
     {
         return [
             'enabled' => ['required', 'boolean'],
+            'branch_id' => ['nullable', 'integer'],
             'member_category_id' => ['nullable', 'integer'],
             'msg' => ['nullable', 'string'],
             'name' => ['required', 'string'],
