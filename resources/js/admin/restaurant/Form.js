@@ -64,8 +64,8 @@ Vue.component("restaurant-form", {
         initMap() {
             // Initialize map with default or saved coordinates
             const initialLatLng = {
-                lat: this.form.latitude || 51.5,
-                lng: this.form.longitude || 0.1276
+                lat: parseFloat(this.form.latitude) || 51.5,
+                lng: parseFloat(this.form.longitude) || 0.1276
             };
 
             const map = new google.maps.Map(document.getElementById("map"), {
