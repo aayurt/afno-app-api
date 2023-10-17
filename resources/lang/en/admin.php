@@ -1905,5 +1905,90 @@ return [
         ],
     ],
 
+    'admin-user' => [
+        'title' => 'Users',
+
+        'actions' => [
+            'index' => 'Users',
+            'create' => 'New User',
+            'edit' => 'Edit :name',
+            'edit_profile' => 'Edit Profile',
+            'edit_password' => 'Edit Password',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'first_name' => 'First name',
+            'last_name' => 'Last name',
+            'email' => 'Email',
+            'password' => 'Password',
+            'password_repeat' => 'Password Confirmation',
+            'activated' => 'Activated',
+            'forbidden' => 'Forbidden',
+            'language' => 'Language',
+                
+            //Belongs to many relations
+            'roles' => 'Roles',
+                
+        ],
+    ],
+
+    'restaurant' => [
+        'title' => 'Restaurants',
+
+        'actions' => [
+            'index' => 'Restaurants',
+            'create' => 'New Restaurant',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'restaurant' => [
+        'title' => 'Restaurants',
+
+        'actions' => [
+            'index' => 'Restaurants',
+            'create' => 'New Restaurant',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'sub_title' => 'Sub title',
+            'description' => 'Description',
+            'enabled' => 'Enabled',
+            'phone_number' => 'Phone number',
+            'alternate_phone_number' => 'Alternate phone number',
+            'link' => 'Link',
+            'email' => 'Email',
+            'instagram' => 'Instagram',
+            'facebook' => 'Facebook',
+            'youtube' => 'Youtube',
+            'latitude' => 'Latitude',
+            'longitude' => 'Longitude',
+            'monday_open_time' => 'Monday open time',
+            'monday_close_time' => 'Monday close time',
+            'tuesday_open_time' => 'Tuesday open time',
+            'tuesday_close_time' => 'Tuesday close time',
+            'wednesday_open_time' => 'Wednesday open time',
+            'wednesday_close_time' => 'Wednesday close time',
+            'thursday_open_time' => 'Thursday open time',
+            'thursday_close_time' => 'Thursday close time',
+            'friday_open_time' => 'Friday open time',
+            'friday_close_time' => 'Friday close time',
+            'saturday_open_time' => 'Saturday open time',
+            'saturday_close_time' => 'Saturday close time',
+            'sunday_open_time' => 'Sunday open time',
+            'sunday_close_time' => 'Sunday close time',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -734,3 +734,46 @@ $factory->define(App\Models\Branch::class, static function (Faker\Generator $fak
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Restaurant::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Restaurant::class, static function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'sub_title' => $faker->text(),
+        'description' => $faker->text(),
+        'enabled' => $faker->boolean(),
+        'phone_number' => $faker->sentence,
+        'alternate_phone_number' => $faker->sentence,
+        'link' => $faker->sentence,
+        'email' => $faker->email,
+        'instagram' => $faker->sentence,
+        'facebook' => $faker->sentence,
+        'youtube' => $faker->sentence,
+        'latitude' => $faker->randomFloat,
+        'longitude' => $faker->randomFloat,
+        'monday_open_time' => $faker->time(),
+        'monday_close_time' => $faker->time(),
+        'tuesday_open_time' => $faker->time(),
+        'tuesday_close_time' => $faker->time(),
+        'wednesday_open_time' => $faker->time(),
+        'wednesday_close_time' => $faker->time(),
+        'thursday_open_time' => $faker->time(),
+        'thursday_close_time' => $faker->time(),
+        'friday_open_time' => $faker->time(),
+        'friday_close_time' => $faker->time(),
+        'saturday_open_time' => $faker->time(),
+        'saturday_close_time' => $faker->time(),
+        'sunday_open_time' => $faker->time(),
+        'sunday_close_time' => $faker->time(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

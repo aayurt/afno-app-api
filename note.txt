@@ -10,7 +10,7 @@ adding this cause error in update / store controller
  php artisan admin:generate categories
  php artisan admin:generate authors
 
-PASSWORD: tQSVTfgVhc
+PASSWORD: wQfPa4BSE4
 
 
 FOR GENERATION ADMIN

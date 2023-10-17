@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<htm llang="{{ str_replace('_', '-', app()->getocale()) }}">
+<!DOCTYPE html> <htm llang="{{ str_replace('_', '-', app()->getocale()) }}">
 
-<head>
-     <eta charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head> <eta charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     <itle>KNSL-BLOG/title>
+    <itle>AFNO-BLOG/title>
 
     <!-- Fonts -->
      <ink href="https:/fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
