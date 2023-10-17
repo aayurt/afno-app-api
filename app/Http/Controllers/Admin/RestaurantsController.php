@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Restaurant\StoreRestaurant;
 use App\Http\Requests\Admin\Restaurant\UpdateRestaurant;
 use App\Models\Restaurant;
 use Brackets\AdminListing\Facades\AdminListing;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -19,6 +20,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Request;
 
 class RestaurantsController extends Controller
 {
@@ -184,5 +186,38 @@ class RestaurantsController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    public function latestRestaurants($lang, Request $request)
+    {
+        // App::setLocale($lang);
+        $mytime = Carbon::now();
+        $restaurants = Restaurant::with((['media']))->where(
+            "enabled",
+            "=",
+            1
+        )
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+
+
+        return response()->json([
+            'response' => "success",
+            'data' => $restaurants,
+        ]);
+    }
+
+    public function singleRestaurant($id, $lang, Request $request)
+    {
+        $restaurant = Restaurant::with((['media']))
+
+            ->orderBy('updated_at', 'DESC')
+            ->find($id);
+
+
+        return response()->json([
+            'response' => "success",
+            'data' => $restaurant,
+        ]);
     }
 }
