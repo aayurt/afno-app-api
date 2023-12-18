@@ -116842,6 +116842,7 @@ Vue.component("restaurant-form", {
     return {
       form: {
         title: "",
+        location: "",
         sub_title: "",
         description: "",
         enabled: true,
@@ -116905,8 +116906,8 @@ Vue.component("restaurant-form", {
 
       // Initialize map with default or saved coordinates
       var initialLatLng = {
-        lat: this.form.latitude || 51.5,
-        lng: this.form.longitude || 0.1276
+        lat: parseFloat(this.form.latitude) || 51.5,
+        lng: parseFloat(this.form.longitude) || 0.1276
       };
       var map = new google.maps.Map(document.getElementById("map"), {
         center: initialLatLng,

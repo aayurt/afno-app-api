@@ -1990,5 +1990,35 @@ return [
         ],
     ],
 
+    'restaurant' => [
+        'title' => 'Restaurant',
+
+        'actions' => [
+            'index' => 'Restaurant',
+            'create' => 'New Restaurant',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'restaurant' => [
+        'title' => 'Restaurants',
+
+        'actions' => [
+            'index' => 'Restaurants',
+            'create' => 'New Restaurant',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

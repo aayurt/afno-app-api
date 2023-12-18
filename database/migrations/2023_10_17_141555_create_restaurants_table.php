@@ -17,6 +17,7 @@ class CreateRestaurantsTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->text('sub_title')->nullable();
+            $table->text('location')->nullable();
             $table->text('description')->nullable();
             $table->boolean('enabled')->default(true);
 
@@ -28,23 +29,23 @@ class CreateRestaurantsTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('youtube')->nullable();
 
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            $table->double('latitude')->nullable()->default(51.5074); // Central London latitude
+            $table->double('longitude')->nullable()->default(-0.1278); // Central London longitude
 
-            $table->time('monday_open_time')->nullable();
-            $table->time('monday_close_time')->nullable();
-            $table->time('tuesday_open_time')->nullable();
-            $table->time('tuesday_close_time')->nullable();
-            $table->time('wednesday_open_time')->nullable();
-            $table->time('wednesday_close_time')->nullable();
-            $table->time('thursday_open_time')->nullable();
-            $table->time('thursday_close_time')->nullable();
-            $table->time('friday_open_time')->nullable();
-            $table->time('friday_close_time')->nullable();
-            $table->time('saturday_open_time')->nullable();
-            $table->time('saturday_close_time')->nullable();
-            $table->time('sunday_open_time')->nullable();
-            $table->time('sunday_close_time')->nullable();
+            $table->time('monday_open_time')->nullable()->default('09:00:00');
+            $table->time('monday_close_time')->nullable()->default('19:00:00');
+            $table->time('tuesday_open_time')->nullable()->default('09:00:00');
+            $table->time('tuesday_close_time')->nullable()->default('19:00:00');
+            $table->time('wednesday_open_time')->nullable()->default('09:00:00');
+            $table->time('wednesday_close_time')->nullable()->default('19:00:00');
+            $table->time('thursday_open_time')->nullable()->default('09:00:00');
+            $table->time('thursday_close_time')->nullable()->default('19:00:00');
+            $table->time('friday_open_time')->nullable()->default('09:00:00');
+            $table->time('friday_close_time')->nullable()->default('19:00:00');
+            $table->time('saturday_open_time')->nullable()->default('09:00:00');
+            $table->time('saturday_close_time')->nullable()->default('19:00:00');
+            $table->time('sunday_open_time')->nullable()->default('09:00:00');
+            $table->time('sunday_close_time')->nullable()->default('19:00:00');
 
 
             $table->timestamps();

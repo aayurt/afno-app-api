@@ -6,6 +6,7 @@ Vue.component("restaurant-form", {
         return {
             form: {
                 title: "",
+                location: "",
                 sub_title: "",
                 description: "",
                 enabled: true,

@@ -27,6 +27,7 @@ class StoreRestaurant extends FormRequest
     {
         return [
             'title' => ['nullable', 'string'],
+            'location' => ['nullable', 'string'],
             'sub_title' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
             'enabled' => ['required', 'boolean'],

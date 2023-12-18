@@ -20,6 +20,7 @@ class Restaurant extends Model implements HasMedia
     use AutoProcessMediaTrait;
     protected $fillable = [
         'title',
+        'location',
         'sub_title',
         'description',
         'enabled',
