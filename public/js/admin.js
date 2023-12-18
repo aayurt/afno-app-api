@@ -116839,10 +116839,12 @@ __webpack_require__.r(__webpack_exports__);
 Vue.component("restaurant-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
+    var defaultOpeningTime = "09:00";
+    var defaultClosingTime = "19:00";
     return {
       form: {
         title: "",
-        location: "",
+        location: "London, United Kingdom",
         sub_title: "",
         description: "",
         enabled: true,
@@ -116855,20 +116857,20 @@ Vue.component("restaurant-form", {
         youtube: "",
         latitude: 51.5,
         longitude: 0.1276,
-        monday_open_time: "",
-        monday_close_time: "",
-        tuesday_open_time: "",
-        tuesday_close_time: "",
-        wednesday_open_time: "",
-        wednesday_close_time: "",
-        thursday_open_time: "",
-        thursday_close_time: "",
-        friday_open_time: "",
-        friday_close_time: "",
-        saturday_open_time: "",
-        saturday_close_time: "",
-        sunday_open_time: "",
-        sunday_close_time: ""
+        monday_open_time: defaultOpeningTime,
+        monday_close_time: defaultClosingTime,
+        tuesday_open_time: defaultOpeningTime,
+        tuesday_close_time: defaultClosingTime,
+        wednesday_open_time: defaultOpeningTime,
+        wednesday_close_time: defaultClosingTime,
+        thursday_open_time: defaultOpeningTime,
+        thursday_close_time: defaultClosingTime,
+        friday_open_time: defaultOpeningTime,
+        friday_close_time: defaultClosingTime,
+        saturday_open_time: defaultOpeningTime,
+        saturday_close_time: defaultClosingTime,
+        sunday_open_time: defaultOpeningTime,
+        sunday_close_time: defaultClosingTime
       },
       mediaCollections: ["cover", "gallery", "pdf"]
     };

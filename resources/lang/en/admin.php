@@ -1960,6 +1960,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'title' => 'Title',
+            'location' => 'Location',
             'sub_title' => 'Sub title',
             'description' => 'Description',
             'enabled' => 'Enabled',
@@ -1986,36 +1987,6 @@ return [
             'saturday_close_time' => 'Saturday close time',
             'sunday_open_time' => 'Sunday open time',
             'sunday_close_time' => 'Sunday close time',
-            
-        ],
-    ],
-
-    'restaurant' => [
-        'title' => 'Restaurant',
-
-        'actions' => [
-            'index' => 'Restaurant',
-            'create' => 'New Restaurant',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            
-        ],
-    ],
-
-    'restaurant' => [
-        'title' => 'Restaurants',
-
-        'actions' => [
-            'index' => 'Restaurants',
-            'create' => 'New Restaurant',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
             
         ],
     ],

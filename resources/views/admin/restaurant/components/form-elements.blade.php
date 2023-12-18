@@ -141,16 +141,7 @@
     </div>
 
 <!-- MONDAY  -->
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('monday_close_time'), 'has-success': fields.monday_close_time && fields.monday_close_time.valid }">
-    <label for="monday_close_time" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.restaurant.columns.monday_close_time') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <div class="input-group input-group--custom">
-            <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-            <datetime v-model="form.monday_close_time" :config="timePickerConfig" v-validate="'date_format:HH:mm:ss'" class="flatpickr" :class="{'form-control-danger': errors.has('monday_close_time'), 'form-control-success': fields.monday_close_time && fields.monday_close_time.valid}" id="monday_close_time" name="monday_close_time" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_time') }}"></datetime>
-        </div>
-        <div v-if="errors.has('monday_close_time')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('monday_close_time') }}</div>
-    </div>
-</div>
+
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('monday_open_time'), 'has-success': fields.monday_open_time && fields.monday_open_time.valid }">
     <label for="monday_open_time" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.restaurant.columns.monday_open_time') }}</label>
@@ -162,7 +153,16 @@
         <div v-if="errors.has('monday_open_time')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('monday_open_time') }}</div>
     </div>
 </div>
-
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('monday_close_time'), 'has-success': fields.monday_close_time && fields.monday_close_time.valid }">
+    <label for="monday_close_time" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.restaurant.columns.monday_close_time') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <div class="input-group input-group--custom">
+            <div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+            <datetime v-model="form.monday_close_time" :config="timePickerConfig" v-validate="'date_format:HH:mm:ss'" class="flatpickr" :class="{'form-control-danger': errors.has('monday_close_time'), 'form-control-success': fields.monday_close_time && fields.monday_close_time.valid}" id="monday_close_time" name="monday_close_time" placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_time') }}"></datetime>
+        </div>
+        <div v-if="errors.has('monday_close_time')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('monday_close_time') }}</div>
+    </div>
+</div>
 <!-- TUESDAY  -->
 
 
