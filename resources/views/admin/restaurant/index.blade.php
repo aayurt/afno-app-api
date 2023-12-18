@@ -53,8 +53,8 @@
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.restaurant.columns.enabled') }}</th>
                                         <th is='sortable' :column="'phone_number'">{{ trans('admin.restaurant.columns.phone_number') }}</th>
                                         <th is='sortable' :column="'alternate_phone_number'">{{ trans('admin.restaurant.columns.alternate_phone_number') }}</th>
-                                        <th is='sortable' :column="'updated_at'">{{ trans('admin.restaurant.columns.updated_at') }}</th>
                                         <th is='sortable' :column="'email'">{{ trans('admin.restaurant.columns.email') }}</th>
+                                        <th is='sortable' :column="'updated_at'">{{ trans('admin.restaurant.columns.updated_at') }}</th>
                                       
                                         <th></th>
                                     </tr>
