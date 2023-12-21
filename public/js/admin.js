@@ -116839,8 +116839,8 @@ __webpack_require__.r(__webpack_exports__);
 Vue.component("restaurant-form", {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
-    var defaultOpeningTime = "09:00";
-    var defaultClosingTime = "19:00";
+    var defaultOpeningTime = "09:00:00";
+    var defaultClosingTime = "19:00:00";
     return {
       form: {
         title: "",

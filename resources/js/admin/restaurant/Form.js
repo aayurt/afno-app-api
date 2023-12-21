@@ -3,8 +3,8 @@ import AppForm from "../app-components/Form/AppForm";
 Vue.component("restaurant-form", {
     mixins: [AppForm],
     data: function() {
-        const defaultOpeningTime = "09:00";
-        const defaultClosingTime = "19:00";
+        const defaultOpeningTime = "09:00:00";
+        const defaultClosingTime = "19:00:00";
         return {
             form: {
                 title: "",
