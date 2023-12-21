@@ -47,16 +47,18 @@ class Restaurant extends Model implements HasMedia
         'saturday_close_time',
         'sunday_open_time',
         'sunday_close_time',
-    
+
     ];
-    
-    
+
+    protected $casts = [
+        'enabled' => 'boolean',
+    ];
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */

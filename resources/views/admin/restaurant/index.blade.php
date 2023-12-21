@@ -108,7 +108,6 @@
 
                                     <td>@{{ item.title }}</td>
                                     <td>
-                                        @{{ collection[index].enabled }}
                                         <label class="switch switch-3d switch-success">
                                             <input type="checkbox" class="switch-input"
                                                 v-model="collection[index].enabled"

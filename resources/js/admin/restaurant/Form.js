@@ -44,6 +44,7 @@ Vue.component("restaurant-form", {
             this.initMap();
         });
     },
+
     methods: {
         loadGoogleMaps(callback) {
             if (!window.google) {
