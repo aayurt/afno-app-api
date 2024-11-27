@@ -228,12 +228,13 @@ class RestaurantsController extends Controller
         foreach ($mediaArray as $media) {
             $collectionName = $media['collection_name'];
             $fileName = $media['file_name'];
+            $fileId = $media['id'];
 
             if (!isset($fileNames[$collectionName])) {
                 $fileNames[$collectionName] = [];
             }
 
-            $fileNames[$collectionName][] = $fileName;
+            $fileNames[$collectionName][] = 'media/' . $fileId . "/" . $fileName;
         }
 
         return $fileNames;
