@@ -664,3 +664,33 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('food-items')->name('food-items/')->group(static function() {
+            Route::get('/',                                             'FoodItemsController@index')->name('index');
+            Route::get('/create',                                       'FoodItemsController@create')->name('create');
+            Route::post('/',                                            'FoodItemsController@store')->name('store');
+            Route::get('/{foodItem}/edit',                              'FoodItemsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'FoodItemsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{foodItem}',                                  'FoodItemsController@update')->name('update');
+            Route::delete('/{foodItem}',                                'FoodItemsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('food-item-tags')->name('food-item-tags/')->group(static function() {
+            Route::get('/',                                             'FoodItemTagsController@index')->name('index');
+            Route::get('/create',                                       'FoodItemTagsController@create')->name('create');
+            Route::post('/',                                            'FoodItemTagsController@store')->name('store');
+            Route::get('/{foodItemTag}/edit',                           'FoodItemTagsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'FoodItemTagsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{foodItemTag}',                               'FoodItemTagsController@update')->name('update');
+            Route::delete('/{foodItemTag}',                             'FoodItemTagsController@destroy')->name('destroy');
+        });
+    });
+});

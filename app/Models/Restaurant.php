@@ -91,4 +91,9 @@ class Restaurant extends Model implements HasMedia
         $this->addMediaConversion('detail_hd')
             ->performOnCollections('gallery');
     }
+
+    public function foodItems()
+    {
+        return $this->hasMany(FoodItem::class);
+    }
 }

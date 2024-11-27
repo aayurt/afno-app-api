@@ -777,3 +777,35 @@ $factory->define(App\Models\Restaurant::class, static function (Faker\Generator 
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\FoodItem::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\FoodItem::class, static function (Faker\Generator $faker) {
+    return [
+        'restaurant_id' => $faker->randomNumber(5),
+        'title' => $faker->sentence,
+        'type' => $faker->sentence,
+        'tags' => $faker->text(),
+        'price' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\FoodItemTag::class, static function (Faker\Generator $faker) {
+    return [
+        'tag' => $faker->sentence,
+        'count' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

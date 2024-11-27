@@ -1991,5 +1991,57 @@ return [
         ],
     ],
 
+    'food-item' => [
+        'title' => 'Food Items',
+
+        'actions' => [
+            'index' => 'Food Items',
+            'create' => 'New Food Item',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
+    'food-item' => [
+        'title' => 'Food Items',
+
+        'actions' => [
+            'index' => 'Food Items',
+            'create' => 'New Food Item',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'restaurant_id' => 'Restaurant',
+            'title' => 'Title',
+            'type' => 'Type',
+            'tags' => 'Tags',
+            'price' => 'Price',
+            
+        ],
+    ],
+
+    'food-item-tag' => [
+        'title' => 'Food Item Tags',
+
+        'actions' => [
+            'index' => 'Food Item Tags',
+            'create' => 'New Food Item Tag',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'tag' => 'Tag',
+            'count' => 'Count',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
