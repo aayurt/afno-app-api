@@ -39,10 +39,10 @@ class RestaurantsController extends Controller
             $request,
 
             // set columns to query
-            ['id','title','location', 'enabled', 'phone_number', 'alternate_phone_number', 'link', 'email', 'instagram', 'facebook', 'youtube', 'latitude', 'longitude', 'monday_open_time', 'monday_close_time', 'tuesday_open_time', 'tuesday_close_time', 'wednesday_open_time', 'wednesday_close_time', 'thursday_open_time', 'thursday_close_time', 'friday_open_time', 'friday_close_time', 'saturday_open_time', 'saturday_close_time', 'sunday_open_time', 'sunday_close_time'],
+            ['id', 'title', 'location', 'enabled', 'phone_number', 'alternate_phone_number', 'link', 'email', 'instagram', 'facebook', 'youtube', 'latitude', 'longitude', 'monday_open_time', 'monday_close_time', 'tuesday_open_time', 'tuesday_close_time', 'wednesday_open_time', 'wednesday_close_time', 'thursday_open_time', 'thursday_close_time', 'friday_open_time', 'friday_close_time', 'saturday_open_time', 'saturday_close_time', 'sunday_open_time', 'sunday_close_time'],
 
             // set columns to searchIn
-            ['id','title','location', 'sub_title', 'description', 'phone_number', 'alternate_phone_number', 'link', 'email', 'instagram', 'facebook', 'youtube']
+            ['id', 'title', 'location', 'sub_title', 'description', 'phone_number', 'alternate_phone_number', 'link', 'email', 'instagram', 'facebook', 'youtube']
         );
 
         if ($request->ajax()) {
@@ -173,7 +173,7 @@ class RestaurantsController extends Controller
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyRestaurant $request) : Response
+    public function bulkDestroy(BulkDestroyRestaurant $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -191,7 +191,6 @@ class RestaurantsController extends Controller
     public function latestRestaurants($lang, Request $request)
     {
         // App::setLocale($lang);
-        $mytime = Carbon::now();
         $restaurants = Restaurant::with((['media']))->where(
             "enabled",
             "=",
@@ -199,7 +198,9 @@ class RestaurantsController extends Controller
         )
             ->orderBy('updated_at', 'DESC')
             ->get();
-
+        $restaurants->each(function ($restaurant) {
+            $restaurant->newMedia = $this->getMediaFileNames($restaurant->media);
+        });
 
         return response()->json([
             'response' => "success",
@@ -219,5 +220,22 @@ class RestaurantsController extends Controller
             'response' => "success",
             'data' => $restaurant,
         ]);
+    }
+
+    public function getMediaFileNames($mediaArray)
+    {
+        $fileNames = [];
+        foreach ($mediaArray as $media) {
+            $collectionName = $media['collection_name'];
+            $fileName = $media['file_name'];
+
+            if (!isset($fileNames[$collectionName])) {
+                $fileNames[$collectionName] = [];
+            }
+
+            $fileNames[$collectionName][] = $fileName;
+        }
+
+        return $fileNames;
     }
 }

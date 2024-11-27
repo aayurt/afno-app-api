@@ -2,6 +2,7 @@
 2. // $sanitized['category_id'] = $request->getCategoryId();
 adding this cause error in update / store controller
 
+ php artisan admin-translations:scan-and-save      
 
 1. delete create_media_table 
 2. delete fill_default_admin_user_and_permissions

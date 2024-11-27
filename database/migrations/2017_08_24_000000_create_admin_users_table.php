@@ -26,6 +26,7 @@ class CreateAdminUsersTable extends Migration
                 $table->boolean('activated')->default(false);
                 $table->boolean('forbidden')->default(false);
                 $table->string('language', 2)->default('en');
+                $table->integer('restaurant_id')->nullable();
 
                 $table->softDeletes();
                 $table->timestamps();
