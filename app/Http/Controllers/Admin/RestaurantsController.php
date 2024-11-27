@@ -199,7 +199,7 @@ class RestaurantsController extends Controller
             ->orderBy('updated_at', 'DESC')
             ->get();
         $restaurants->each(function ($restaurant) {
-            $restaurant->newMedia = empty($restaurant->media) ? (object) [] : $this->getMediaFileNames($restaurant->media);
+            $restaurant->newMedia = $this->getMediaFileNames($restaurant->media);
         });
 
         return response()->json([
@@ -237,6 +237,6 @@ class RestaurantsController extends Controller
             $fileNames[$collectionName][] = 'media/' . $fileId . "/" . $fileName;
         }
 
-        return $fileNames;
+        return empty($fileNames) ? (object) [] : $fileNames;
     }
 }
