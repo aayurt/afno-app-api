@@ -16,6 +16,23 @@
                         <i class="fa fa-align-justify"></i> {{ trans('admin.food-item.actions.index') }}
                         <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/food-items/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.food-item.actions.create') }}</a>
                     </div>
+
+                    <form class="form-horizontal" method="POST" action="{{ url('admin/food-items/import') }}" enctype="multipart/form-data" >
+                            @csrf
+                            <div class="row">
+                                <div class="form-group ml-5">
+                                    <input type="file" name="file" id="file" accept=".xlsx" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-upload"></i>&nbsp; Import
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    <label class="pull-right ml-6">Import in individual restaurant</label>
+
                     <div class="card-body" v-cloak>
                         <div class="card-block">
                             <form @submit.prevent="">

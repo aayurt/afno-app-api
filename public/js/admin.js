@@ -120213,7 +120213,7 @@ Vue.component('food-item-tag-form', {
     return {
       form: {
         tag: '',
-        count: 0
+        count: ''
       }
     };
   }

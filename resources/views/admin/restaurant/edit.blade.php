@@ -10,7 +10,6 @@
                 :data="{{ $restaurant->toJson() }}"
                 v-cloak
                 inline-template>
-
         <form class="form-horizontal form-edit" method="restaurant" @submit.prevent="onSubmit" :action="action" novalidate>
 
             <div class="row">

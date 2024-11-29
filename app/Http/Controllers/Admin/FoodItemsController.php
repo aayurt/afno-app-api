@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\FoodItem\DestroyFoodItem;
 use App\Http\Requests\Admin\FoodItem\IndexFoodItem;
 use App\Http\Requests\Admin\FoodItem\StoreFoodItem;
 use App\Http\Requests\Admin\FoodItem\UpdateFoodItem;
+use App\Imports\FoodItemImport;
 use App\Models\FoodItem;
 use App\Models\FoodItemTag;
 use App\Models\Restaurant;
@@ -21,6 +22,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FoodItemsController extends Controller
 {
@@ -208,5 +211,12 @@ class FoodItemsController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    public function import(Request $request)
+    {
+        $file = $request->file('file');
+        Excel::import(new FoodItemImport, $file);
+        return redirect()->back()->with('success', 'Attendance imported successfully.');
     }
 }

@@ -518,179 +518,188 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('archive-categories')->name('archive-categories/')->group(static function() {
-            Route::get('/',                                             'ArchiveCategoriesController@index')->name('index');
-            Route::get('/create',                                       'ArchiveCategoriesController@create')->name('create');
-            Route::post('/',                                            'ArchiveCategoriesController@store')->name('store');
-            Route::get('/{archiveCategory}/edit',                       'ArchiveCategoriesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'ArchiveCategoriesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{archiveCategory}',                           'ArchiveCategoriesController@update')->name('update');
-            Route::delete('/{archiveCategory}',                         'ArchiveCategoriesController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('archive-categories')->name('archive-categories/')->group(static function () {
+            Route::get('/', 'ArchiveCategoriesController@index')->name('index');
+            Route::get('/create', 'ArchiveCategoriesController@create')->name('create');
+            Route::post('/', 'ArchiveCategoriesController@store')->name('store');
+            Route::get('/{archiveCategory}/edit', 'ArchiveCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ArchiveCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archiveCategory}', 'ArchiveCategoriesController@update')->name('update');
+            Route::delete('/{archiveCategory}', 'ArchiveCategoriesController@destroy')->name('destroy');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('archive-categories')->name('archive-categories/')->group(static function() {
-            Route::get('/',                                             'ArchiveCategoriesController@index')->name('index');
-            Route::get('/create',                                       'ArchiveCategoriesController@create')->name('create');
-            Route::post('/',                                            'ArchiveCategoriesController@store')->name('store');
-            Route::get('/{archiveCategory}/edit',                       'ArchiveCategoriesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'ArchiveCategoriesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{archiveCategory}',                           'ArchiveCategoriesController@update')->name('update');
-            Route::delete('/{archiveCategory}',                         'ArchiveCategoriesController@destroy')->name('destroy');
-            Route::get('/export',                                       'ArchiveCategoriesController@export')->name('export');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('archive-categories')->name('archive-categories/')->group(static function () {
+            Route::get('/', 'ArchiveCategoriesController@index')->name('index');
+            Route::get('/create', 'ArchiveCategoriesController@create')->name('create');
+            Route::post('/', 'ArchiveCategoriesController@store')->name('store');
+            Route::get('/{archiveCategory}/edit', 'ArchiveCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ArchiveCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archiveCategory}', 'ArchiveCategoriesController@update')->name('update');
+            Route::delete('/{archiveCategory}', 'ArchiveCategoriesController@destroy')->name('destroy');
+            Route::get('/export', 'ArchiveCategoriesController@export')->name('export');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('archive-subcategories')->name('archive-subcategories/')->group(static function() {
-            Route::get('/',                                             'ArchiveSubcategoriesController@index')->name('index');
-            Route::get('/create',                                       'ArchiveSubcategoriesController@create')->name('create');
-            Route::post('/',                                            'ArchiveSubcategoriesController@store')->name('store');
-            Route::get('/{archiveSubcategory}/edit',                    'ArchiveSubcategoriesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'ArchiveSubcategoriesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{archiveSubcategory}',                        'ArchiveSubcategoriesController@update')->name('update');
-            Route::delete('/{archiveSubcategory}',                      'ArchiveSubcategoriesController@destroy')->name('destroy');
-            Route::get('/export',                                       'ArchiveSubcategoriesController@export')->name('export');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('archive-subcategories')->name('archive-subcategories/')->group(static function () {
+            Route::get('/', 'ArchiveSubcategoriesController@index')->name('index');
+            Route::get('/create', 'ArchiveSubcategoriesController@create')->name('create');
+            Route::post('/', 'ArchiveSubcategoriesController@store')->name('store');
+            Route::get('/{archiveSubcategory}/edit', 'ArchiveSubcategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ArchiveSubcategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archiveSubcategory}', 'ArchiveSubcategoriesController@update')->name('update');
+            Route::delete('/{archiveSubcategory}', 'ArchiveSubcategoriesController@destroy')->name('destroy');
+            Route::get('/export', 'ArchiveSubcategoriesController@export')->name('export');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('archives')->name('archives/')->group(static function() {
-            Route::get('/',                                             'ArchivesController@index')->name('index');
-            Route::get('/create',                                       'ArchivesController@create')->name('create');
-            Route::post('/',                                            'ArchivesController@store')->name('store');
-            Route::get('/{archive}/edit',                               'ArchivesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'ArchivesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{archive}',                                   'ArchivesController@update')->name('update');
-            Route::delete('/{archive}',                                 'ArchivesController@destroy')->name('destroy');
-            Route::get('/export',                                       'ArchivesController@export')->name('export');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('archives')->name('archives/')->group(static function () {
+            Route::get('/', 'ArchivesController@index')->name('index');
+            Route::get('/create', 'ArchivesController@create')->name('create');
+            Route::post('/', 'ArchivesController@store')->name('store');
+            Route::get('/{archive}/edit', 'ArchivesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ArchivesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{archive}', 'ArchivesController@update')->name('update');
+            Route::delete('/{archive}', 'ArchivesController@destroy')->name('destroy');
+            Route::get('/export', 'ArchivesController@export')->name('export');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('activities')->name('activities/')->group(static function() {
-            Route::get('/',                                             'ActivitiesController@index')->name('index');
-            Route::get('/create',                                       'ActivitiesController@create')->name('create');
-            Route::post('/',                                            'ActivitiesController@store')->name('store');
-            Route::get('/{activity}/edit',                              'ActivitiesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'ActivitiesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{activity}',                                  'ActivitiesController@update')->name('update');
-            Route::delete('/{activity}',                                'ActivitiesController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('activities')->name('activities/')->group(static function () {
+            Route::get('/', 'ActivitiesController@index')->name('index');
+            Route::get('/create', 'ActivitiesController@create')->name('create');
+            Route::post('/', 'ActivitiesController@store')->name('store');
+            Route::get('/{activity}/edit', 'ActivitiesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ActivitiesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{activity}', 'ActivitiesController@update')->name('update');
+            Route::delete('/{activity}', 'ActivitiesController@destroy')->name('destroy');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('sub-activities')->name('sub-activities/')->group(static function() {
-            Route::get('/',                                             'SubActivitiesController@index')->name('index');
-            Route::get('/create',                                       'SubActivitiesController@create')->name('create');
-            Route::post('/',                                            'SubActivitiesController@store')->name('store');
-            Route::get('/{subActivity}/edit',                           'SubActivitiesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'SubActivitiesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{subActivity}',                               'SubActivitiesController@update')->name('update');
-            Route::delete('/{subActivity}',                             'SubActivitiesController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('sub-activities')->name('sub-activities/')->group(static function () {
+            Route::get('/', 'SubActivitiesController@index')->name('index');
+            Route::get('/create', 'SubActivitiesController@create')->name('create');
+            Route::post('/', 'SubActivitiesController@store')->name('store');
+            Route::get('/{subActivity}/edit', 'SubActivitiesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'SubActivitiesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{subActivity}', 'SubActivitiesController@update')->name('update');
+            Route::delete('/{subActivity}', 'SubActivitiesController@destroy')->name('destroy');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('branches')->name('branches/')->group(static function() {
-            Route::get('/',                                             'BranchesController@index')->name('index');
-            Route::get('/create',                                       'BranchesController@create')->name('create');
-            Route::post('/',                                            'BranchesController@store')->name('store');
-            Route::get('/{branch}/edit',                                'BranchesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'BranchesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{branch}',                                    'BranchesController@update')->name('update');
-            Route::delete('/{branch}',                                  'BranchesController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('branches')->name('branches/')->group(static function () {
+            Route::get('/', 'BranchesController@index')->name('index');
+            Route::get('/create', 'BranchesController@create')->name('create');
+            Route::post('/', 'BranchesController@store')->name('store');
+            Route::get('/{branch}/edit', 'BranchesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'BranchesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{branch}', 'BranchesController@update')->name('update');
+            Route::delete('/{branch}', 'BranchesController@destroy')->name('destroy');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('admin-users')->name('admin-users/')->group(static function() {
-            Route::get('/',                                             'AdminUsersController@index')->name('index');
-            Route::get('/create',                                       'AdminUsersController@create')->name('create');
-            Route::post('/',                                            'AdminUsersController@store')->name('store');
-            Route::get('/{adminUser}/impersonal-login',                 'AdminUsersController@impersonalLogin')->name('impersonal-login');
-            Route::get('/{adminUser}/edit',                             'AdminUsersController@edit')->name('edit');
-            Route::post('/{adminUser}',                                 'AdminUsersController@update')->name('update');
-            Route::delete('/{adminUser}',                               'AdminUsersController@destroy')->name('destroy');
-            Route::get('/{adminUser}/resend-activation',                'AdminUsersController@resendActivationEmail')->name('resendActivationEmail');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('admin-users')->name('admin-users/')->group(static function () {
+            Route::get('/', 'AdminUsersController@index')->name('index');
+            Route::get('/create', 'AdminUsersController@create')->name('create');
+            Route::post('/', 'AdminUsersController@store')->name('store');
+            Route::get('/{adminUser}/impersonal-login', 'AdminUsersController@impersonalLogin')->name('impersonal-login');
+            Route::get('/{adminUser}/edit', 'AdminUsersController@edit')->name('edit');
+            Route::post('/{adminUser}', 'AdminUsersController@update')->name('update');
+            Route::delete('/{adminUser}', 'AdminUsersController@destroy')->name('destroy');
+            Route::get('/{adminUser}/resend-activation', 'AdminUsersController@resendActivationEmail')->name('resendActivationEmail');
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::get('/profile',                                      'ProfileController@editProfile')->name('edit-profile');
-        Route::post('/profile',                                     'ProfileController@updateProfile')->name('update-profile');
-        Route::get('/password',                                     'ProfileController@editPassword')->name('edit-password');
-        Route::post('/password',                                    'ProfileController@updatePassword')->name('update-password');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::get('/profile', 'ProfileController@editProfile')->name('edit-profile');
+        Route::post('/profile', 'ProfileController@updateProfile')->name('update-profile');
+        Route::get('/password', 'ProfileController@editPassword')->name('edit-password');
+        Route::post('/password', 'ProfileController@updatePassword')->name('update-password');
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('restaurants')->name('restaurants/')->group(static function() {
-            Route::get('/',                                             'RestaurantsController@index')->name('index');
-            Route::get('/create',                                       'RestaurantsController@create')->name('create');
-            Route::post('/',                                            'RestaurantsController@store')->name('store');
-            Route::get('/{restaurant}/edit',                            'RestaurantsController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'RestaurantsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{restaurant}',                                'RestaurantsController@update')->name('update');
-            Route::delete('/{restaurant}',                              'RestaurantsController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('restaurants')->name('restaurants/')->group(static function () {
+            Route::get('/', 'RestaurantsController@index')->name('index');
+            Route::get('/export/{restaurant}', 'RestaurantsController@exportRestaurantFoodItem')->name('export');
+            Route::get('/export', 'RestaurantsController@export')->name('export');
+            Route::post('/import', 'RestaurantsController@import')->name('create');
+            Route::get('/create', 'RestaurantsController@create')->name('create');
+            Route::post('/', 'RestaurantsController@store')->name('store');
+            Route::get('/{restaurant}/edit', 'RestaurantsController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'RestaurantsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{restaurant}', 'RestaurantsController@update')->name('update');
+            Route::delete('/{restaurant}', 'RestaurantsController@destroy')->name('destroy');
+
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('food-items')->name('food-items/')->group(static function() {
-            Route::get('/',                                             'FoodItemsController@index')->name('index');
-            Route::get('/create',                                       'FoodItemsController@create')->name('create');
-            Route::post('/',                                            'FoodItemsController@store')->name('store');
-            Route::get('/{foodItem}/edit',                              'FoodItemsController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'FoodItemsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{foodItem}',                                  'FoodItemsController@update')->name('update');
-            Route::delete('/{foodItem}',                                'FoodItemsController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('food-items')->name('food-items/')->group(static function () {
+            Route::get('/', 'FoodItemsController@index')->name('index');
+            Route::post('/import', 'FoodItemsController@import')->name('create');
+            Route::get('/create', 'FoodItemsController@create')->name('create');
+            Route::post('/', 'FoodItemsController@store')->name('store');
+            Route::get('/{foodItem}/edit', 'FoodItemsController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'FoodItemsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{foodItem}', 'FoodItemsController@update')->name('update');
+            Route::delete('/{foodItem}', 'FoodItemsController@destroy')->name('destroy');
+
         });
     });
 });
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('food-item-tags')->name('food-item-tags/')->group(static function() {
-            Route::get('/',                                             'FoodItemTagsController@index')->name('index');
-            Route::get('/create',                                       'FoodItemTagsController@create')->name('create');
-            Route::post('/',                                            'FoodItemTagsController@store')->name('store');
-            Route::get('/{foodItemTag}/edit',                           'FoodItemTagsController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'FoodItemTagsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{foodItemTag}',                               'FoodItemTagsController@update')->name('update');
-            Route::delete('/{foodItemTag}',                             'FoodItemTagsController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('food-item-tags')->name('food-item-tags/')->group(static function () {
+            Route::get('/', 'FoodItemTagsController@index')->name('index');
+            Route::get('/create', 'FoodItemTagsController@create')->name('create');
+            Route::post('/', 'FoodItemTagsController@store')->name('store');
+            Route::get('/{foodItemTag}/edit', 'FoodItemTagsController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'FoodItemTagsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/import', 'FoodItemTagsController@import')->name('create');
+            Route::post('/{foodItemTag}', 'FoodItemTagsController@update')->name('update');
+            Route::delete('/{foodItemTag}', 'FoodItemTagsController@destroy')->name('destroy');
+            Route::get('/export', 'FoodItemTagsController@export')->name('export');
+
         });
     });
 });

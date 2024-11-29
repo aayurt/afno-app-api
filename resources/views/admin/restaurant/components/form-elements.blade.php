@@ -293,4 +293,9 @@
     </div>
 </div>
 
-
+<div class="form-group d-flex flex-column "> 
+    <div>
+    <label>Food Item Export</label>
+<a class="btn btn-primary btn-sm  m-b-0 ml-2" href="{{ url('admin/restaurants/export/'.$restaurant->id.'') }}" role="button"><i class="fa fa-file-excel-o"></i>&nbsp; {{ trans('admin.food-item-tag.actions.export') }}</a>
+</div>
+</div>

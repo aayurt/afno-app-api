@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\RestaurantFoodItemExport;
+use App\Exports\RestaurantsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Restaurant\BulkDestroyRestaurant;
 use App\Http\Requests\Admin\Restaurant\DestroyRestaurant;
 use App\Http\Requests\Admin\Restaurant\IndexRestaurant;
 use App\Http\Requests\Admin\Restaurant\StoreRestaurant;
 use App\Http\Requests\Admin\Restaurant\UpdateRestaurant;
+use App\Imports\FoodItemImport;
+use App\Imports\RestaurantImport;
 use App\Models\Restaurant;
 use Brackets\AdminListing\Facades\AdminListing;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -20,7 +23,10 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
-use Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Request;
+
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class RestaurantsController extends Controller
 {
@@ -239,4 +245,20 @@ class RestaurantsController extends Controller
 
         return empty($fileNames) ? (object) [] : $fileNames;
     }
+
+    public function exportRestaurantFoodItem(Restaurant $restaurant): ?BinaryFileResponse
+    {
+        return Excel::download(new RestaurantFoodItemExport($restaurant->value('id')), $restaurant->title . '.xlsx');
+    }
+    public function export(): ?BinaryFileResponse
+    {
+        return Excel::download(app(RestaurantsExport::class), 'Restaurants.xlsx');
+    }
+    public function import(Request $request)
+    {
+        $file = $request->file('file');
+        Excel::import(new RestaurantImport, $file);
+        return redirect()->back()->with('success', 'Attendance imported successfully.');
+    }
+
 }

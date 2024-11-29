@@ -2043,5 +2043,23 @@ return [
         ],
     ],
 
+    'food-item-tag' => [
+        'title' => 'Food Item Tags',
+
+        'actions' => [
+            'index' => 'Food Item Tags',
+            'create' => 'New Food Item Tag',
+            'edit' => 'Edit :name',
+            'export' => 'Export',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'tag' => 'Tag',
+            'count' => 'Count',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

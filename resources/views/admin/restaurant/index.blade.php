@@ -11,10 +11,26 @@
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> {{ trans('admin.restaurant.actions.index') }}
+                    <a class="btn btn-primary btn-sm pull-right m-b-0 ml-2" href="{{ url('admin/restaurants/export') }}" role="button"><i class="fa fa-file-excel-o"></i>&nbsp; Export</a>
+
                     <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
                         href="{{ url('admin/restaurants/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{
                         trans('admin.restaurant.actions.create') }}</a>
                 </div>
+                <form class="form-horizontal" method="POST" action="{{ url('admin/restaurants/import') }}" enctype="multipart/form-data" >
+                            @csrf
+                            <div class="row">
+                                <div class="form-group ml-5">
+                                    <input type="file" name="file" id="file" accept=".xlsx" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-upload"></i>&nbsp; Import
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                 <div class="card-body" v-cloak>
                     <div class="card-block">
                         <form @submit.prevent="">

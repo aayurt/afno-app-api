@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\FoodItemTagsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\FoodItemTag\BulkDestroyFoodItemTag;
 use App\Http\Requests\Admin\FoodItemTag\DestroyFoodItemTag;
 use App\Http\Requests\Admin\FoodItemTag\IndexFoodItemTag;
 use App\Http\Requests\Admin\FoodItemTag\StoreFoodItemTag;
 use App\Http\Requests\Admin\FoodItemTag\UpdateFoodItemTag;
+use App\Imports\FoodItemTagImport;
 use App\Models\FoodItemTag;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -18,6 +20,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Illuminate\View\View;
 
 class FoodItemTagsController extends Controller
@@ -113,6 +118,8 @@ class FoodItemTagsController extends Controller
     public function edit(FoodItemTag $foodItemTag)
     {
         $this->authorize('admin.food-item-tag.edit', $foodItemTag);
+
+
         return view('admin.food-item-tag.edit', [
             'foodItemTag' => $foodItemTag,
         ]);
@@ -182,5 +189,20 @@ class FoodItemTagsController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    public function export(): ?BinaryFileResponse
+    {
+        return Excel::download(app(FoodItemTagsExport::class), 'foodItemTags.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+
+        $file = $request->file('file');
+
+        Excel::import(new FoodItemTagImport, $file);
+
+        return redirect()->back()->with('success', 'Attendance imported successfully.');
     }
 }
