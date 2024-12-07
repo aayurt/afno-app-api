@@ -197,7 +197,7 @@ class RestaurantsController extends Controller
     public function latestRestaurants($lang, Request $request)
     {
         // App::setLocale($lang);
-        $restaurants = Restaurant::with((['media']))->where(
+        $restaurants = Restaurant::with((['media', 'foodItems']))->where(
             "enabled",
             "=",
             1

@@ -219,4 +219,7 @@ class FoodItemsController extends Controller
         Excel::import(new FoodItemImport, $file);
         return redirect()->back()->with('success', 'Attendance imported successfully.');
     }
+
+
+
 }

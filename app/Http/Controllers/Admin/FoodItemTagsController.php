@@ -205,4 +205,10 @@ class FoodItemTagsController extends Controller
 
         return redirect()->back()->with('success', 'Attendance imported successfully.');
     }
+
+    public function getLatestTags()
+    {
+        $tags = FoodItemTag::orderBy('updated_at', 'desc')->get();
+        return response(['tags' => $tags]);
+    }
 }
