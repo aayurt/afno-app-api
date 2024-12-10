@@ -15,7 +15,7 @@ class CreateFoodItemsTable extends Migration
     {
         Schema::create('food_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('restaurant_id')->unique();
+            $table->integer('restaurant_id');
 
             $table->string('title');
             $table->string('type');
