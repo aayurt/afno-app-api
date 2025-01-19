@@ -71,10 +71,8 @@ class SupabaseUsersController extends Controller
     // Update an existing user
     public function update(Request $request, $id)
     {
-        $userId = $request->user()->id;
-
         try {
-            $response = $this->client->request('PATCH', $this->supabaseUrl . "/auth/v1/admin/users/$userId", [
+            $response = $this->client->request('PATCH', $this->supabaseUrl . "/auth/v1/admin/users/$id", [
                 'headers' => $this->getAdminHeaders(),
                 'json' => [
                     'data' => $request->all(),
@@ -89,12 +87,10 @@ class SupabaseUsersController extends Controller
     }
 
     // Delete a user
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $userId = $request->user()->id;
-
         try {
-            $response = $this->client->request('DELETE', $this->supabaseUrl . "/auth/v1/admin/users/$userId", [
+            $response = $this->client->request('DELETE', $this->supabaseUrl . "/auth/v1/admin/users/$id", [
                 'headers' => $this->getAdminHeaders(),
             ]);
 
