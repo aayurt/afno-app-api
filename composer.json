@@ -12,7 +12,8 @@
         "brackets/craftable": "^5.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.18.35",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
         "brackets/admin-generator": "^5.1",
