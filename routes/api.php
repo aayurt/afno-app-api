@@ -25,7 +25,7 @@ Route::group([
     'namespace' => 'Admin' //If the all the controllers related to API are inside API folder.
 ], function () {
     Route::get('restaurants/{lang}', 'RestaurantsController@latestRestaurants');
-    Route::get('tags', 'FoodItemTagsController@getLatestTags');
+    Route::get('food-items', 'FoodItemTagsController@getLatestTags');
 });
 
 Route::group([
